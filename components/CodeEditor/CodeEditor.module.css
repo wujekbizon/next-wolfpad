@@ -1,0 +1,29 @@
+.editor_wrapper {
+  position: relative;
+  height: 100%;
+  width: calc(100% - 10px);
+}
+
+.editor_wrapper .button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 2px 2px;
+}
+
+.button:hover {
+  background-color: silver;
+}
+
+.editor_wrapper:hover .button {
+  opacity: 1;
+}

@@ -1,3 +1,5 @@
+import styles from './CodeInput.module.css';
+
 type CodeProps = {
   code: string;
   inputValue: string;
@@ -14,15 +16,8 @@ const CodeInput = ({
   iframeRef,
 }: CodeProps) => {
   return (
-    <section style={{ padding: '3rem' }}>
-      <div style={{ textAlign: 'center' }}>
-        <h1>Wolfpad</h1>
-      </div>
-      <textarea
-        style={{ width: '100%', height: '250px' }}
-        value={inputValue}
-        onChange={(e) => onChange(e)}
-      />
+    <section className={styles.wrapper}>
+      <textarea value={inputValue} onChange={(e) => onChange(e)} />
       <div style={{ paddingBottom: '5px' }}>
         <button onClick={onClickHandler}>Submit</button>
       </div>

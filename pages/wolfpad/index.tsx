@@ -3,6 +3,7 @@ import * as esbuild from 'esbuild-wasm';
 import CodeInput from '../../components/CodeInputs/CodeInput';
 import { unpkgPathPlugin } from '../../plugins/unpkg-path-plugin';
 import { fetchPlugin } from '../../plugins/fetch-plugin';
+import CodeEditor from '../../components/CodeEditor/CodeEditor';
 
 const PlaygroundPage = () => {
   const [input, setInput] = useState('');
@@ -83,18 +84,25 @@ const PlaygroundPage = () => {
     </html>
   `;
 
-  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const onChange: React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setInput(e.target.value);
   };
 
+  const handleEditorChange = (value = '') => {
+    setInput(value);
+  };
+
   return (
-    <CodeInput
-      code={html}
-      onClickHandler={onClickHandler}
-      inputValue={input}
-      onChange={onChange}
-      iframeRef={iframeRef}
-    />
+    <>
+      <CodeEditor initialValue={input} onChange={handleEditorChange} />
+      <CodeInput
+        code={html}
+        onClickHandler={onClickHandler}
+        inputValue={input}
+        onChange={onChange}
+        iframeRef={iframeRef}
+      />
+    </>
   );
 };
 export default PlaygroundPage;
