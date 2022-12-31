@@ -29,7 +29,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
         onChange(formatted);
       }
     };
-  }, [onChange]);
+  }, [onChange, initialValue]);
 
   useEffect(() => {
     window.addEventListener('keydown', memoizeHandleKeyPress);

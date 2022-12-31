@@ -3,7 +3,6 @@ import { useRef, useEffect } from 'react';
 
 interface PreviewProps {
   code: string;
-  error: string;
 }
 
 const html = `
@@ -27,7 +26,7 @@ const html = `
 </html>
 `;
 
-const Preview: React.FC<PreviewProps> = ({ code, error }) => {
+const Preview: React.FC<PreviewProps> = ({ code }) => {
   const iframe = useRef<any>();
 
   useEffect(() => {
@@ -47,12 +46,12 @@ const Preview: React.FC<PreviewProps> = ({ code, error }) => {
         srcDoc={html}
         width="100%"
       />
-      {error && (
+      {/* {error && (
         <div className="preview_error">
           <h3>Syntax Error</h3>
           <p>{error}</p>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
