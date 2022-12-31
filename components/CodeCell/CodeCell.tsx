@@ -28,7 +28,7 @@ const CodeCell = () => {
           <Preview code={code} />
         </div>
       </Resizable>
-      <button onClick={onClickHandler}>Submit</button>
+      {/* <button onClick={onClickHandler}>Submit</button> */}
     </>
   );
 };
