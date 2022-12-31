@@ -1,14 +1,15 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import * as esbuild from 'esbuild-wasm';
-import CodeInput from '../../components/CodeInputs/CodeInput';
 import { unpkgPathPlugin } from '../../plugins/unpkg-path-plugin';
 import { fetchPlugin } from '../../plugins/fetch-plugin';
 import CodeEditor from '../../components/CodeEditor/CodeEditor';
+import Preview from '../../components/Preview/Preview';
 
 const PlaygroundPage = () => {
   const [input, setInput] = useState('');
   const [initialized, setInitialized] = useState(false);
-  const iframeRef = useRef<any>(null);
+  const [error, setError] = useState('');
+  const [code, setCode] = useState('');
 
   const startService = useCallback(() => {
     if (initialized) {
@@ -39,9 +40,6 @@ const PlaygroundPage = () => {
       return;
     }
 
-    // reseting the contents of the iframe
-    iframeRef.current.srcdoc = html;
-
     try {
       const result = await esbuild.build({
         entryPoints: ['index.js'],
@@ -50,42 +48,15 @@ const PlaygroundPage = () => {
         plugins: [unpkgPathPlugin(), fetchPlugin(input)],
       });
 
-      iframeRef.current.contentWindow.postMessage(
-        result.outputFiles[0].text,
-        '*'
-      );
+      setCode(result.outputFiles[0].text);
     } catch (error) {
       if (error instanceof Error) {
         console.log(error.message);
+        setError(error.message);
       } else {
         console.log(error);
       }
     }
-  };
-
-  const html = `
-    <html>
-      <head></head>
-      <body>
-        <div id="root"></div>
-        <script>
-          window.addEventListener('message', (event) => {
-            try {
-              eval(event.data)
-            } catch(error) {
-              const root = document.querySelector('#root');
-              root.innerHTML = '<div style="color:red"><h4>Runtime Error</h4>' +  error + '</div>'
-              console.error(error);
-            }
-            
-          }, false);
-        </script>
-      </body>
-    </html>
-  `;
-
-  const onChange: React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {
-    setInput(e.target.value);
   };
 
   const handleEditorChange = (value = '') => {
@@ -95,13 +66,9 @@ const PlaygroundPage = () => {
   return (
     <>
       <CodeEditor initialValue={input} onChange={handleEditorChange} />
-      <CodeInput
-        code={html}
-        onClickHandler={onClickHandler}
-        inputValue={input}
-        onChange={onChange}
-        iframeRef={iframeRef}
-      />
+
+      <button onClick={onClickHandler}>Submit</button>
+      <Preview code={code} error={error} />
     </>
   );
 };

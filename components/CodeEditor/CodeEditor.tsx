@@ -18,7 +18,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
       if (e.key === 'Control') {
         const formatted = prettier
           .format(initialValue, {
-            parser: 'babel-ts',
+            parser: 'babel',
             plugins: [parser],
             useTabs: false,
             semi: true,
@@ -43,7 +43,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
     <div className={styles.editor_wrapper}>
       <MonacoEditor
         height="30vh"
-        language="typescript"
+        language="javascript"
         theme={editorTheme}
         options={{
           minimap: {

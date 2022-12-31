@@ -1,0 +1,29 @@
+.preview_wrapper {
+  position: relative;
+  height: calc(100% - 1px);
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.preview_wrapper iframe {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+.preview_error {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  color: red;
+  font-family: sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+}
+
+.preview_error h3 {
+  font-family: sans-serif;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
