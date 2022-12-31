@@ -15,7 +15,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
 
   const memoizeHandleKeyPress = useMemo(() => {
     return (e: KeyboardEvent) => {
-      if (e.key === 'Control') {
+      if (e.key === 'Alt') {
         const formatted = prettier
           .format(initialValue, {
             parser: 'babel',
