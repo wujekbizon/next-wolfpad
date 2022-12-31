@@ -1,0 +1,5 @@
+.resizable_wrapper {
+  height: calc(100% - 10px);
+  display: flex;
+  flex-direction: row;
+}
