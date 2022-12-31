@@ -42,7 +42,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
   return (
     <div className={styles.editor_wrapper}>
       <MonacoEditor
-        height="30vh"
+        height="100%"
         language="javascript"
         theme={editorTheme}
         options={{
