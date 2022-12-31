@@ -44,7 +44,6 @@ const Preview: React.FC<PreviewProps> = ({ code }) => {
         ref={iframe}
         sandbox="allow-scripts"
         srcDoc={html}
-        width="100%"
       />
       {/* {error && (
         <div className="preview_error">
