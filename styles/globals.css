@@ -26,6 +26,7 @@ a {
 .react-resizable-handle {
   display: block;
   background-color: #30363d;
+
   background-repeat: no-repeat;
   background-position: 50%;
 }
