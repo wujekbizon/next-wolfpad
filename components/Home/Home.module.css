@@ -1,0 +1,25 @@
+.home_wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.home_wrapper h1 {
+  color: white;
+}
+
+.home_wrapper button {
+  padding: 10px 35px;
+  font-size: 18px;
+  background-color: rgba(67, 30, 63, 1);
+  color: white;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.home_wrapper button:hover {
+  color: rgb(170, 108, 164);
+  opacity: 1;
+}
