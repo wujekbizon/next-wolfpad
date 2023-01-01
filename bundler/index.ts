@@ -22,13 +22,25 @@ const codeProcessor = async (rawCode: string) => {
     }
   }
 
-  const result = await esbuild.build({
-    entryPoints: ['index.js'],
-    bundle: true,
-    write: false,
-    plugins: [unpkgPathPlugin(), fetchPlugin(rawCode)],
-  });
-  return result.outputFiles[0].text;
+  try {
+    const result = await esbuild.build({
+      entryPoints: ['index.js'],
+      bundle: true,
+      write: false,
+      plugins: [unpkgPathPlugin(), fetchPlugin(rawCode)],
+    });
+    return {
+      code: result.outputFiles[0].text,
+      err: '',
+    };
+  } catch (error) {
+    if (error instanceof Error) {
+      return {
+        code: '',
+        err: error.message,
+      };
+    }
+  }
 };
 
 export default codeProcessor;
