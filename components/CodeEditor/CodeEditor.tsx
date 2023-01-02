@@ -73,14 +73,24 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
           className={styles.button}
           onClick={() => setEditorTheme('light')}
         >
-          <Image src="/sun.svg" alt="light" width={15} height={15} />
+          <Image
+            src="/images/icons/sun.svg"
+            alt="light"
+            width={15}
+            height={15}
+          />
         </button>
       ) : (
         <button
           className={styles.button}
           onClick={() => setEditorTheme('vs-dark')}
         >
-          <Image src="/moon.svg" alt="dark" width={15} height={15} />
+          <Image
+            src="/images/icons/moon.svg"
+            alt="dark"
+            width={15}
+            height={15}
+          />
         </button>
       )}
     </div>

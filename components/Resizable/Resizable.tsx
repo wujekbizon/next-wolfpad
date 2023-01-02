@@ -9,7 +9,7 @@ interface ResizableProps {
 
 const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
   const [innerHeight, setInnerHeight] = useState(1200);
-  const [innerWidth, setInnerWidth] = useState(1600);
+  const [innerWidth, setInnerWidth] = useState(1800);
   const [width, setWidth] = useState(innerWidth * 0.75);
 
   let resizableProps: ResizableBoxProps;
@@ -42,8 +42,8 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
       height: Infinity,
       width,
       resizeHandles: ['e'],
-      minConstraints: [innerWidth * 0.2, Infinity],
-      maxConstraints: [innerWidth * 0.75, Infinity],
+      minConstraints: [innerWidth * 0.01, Infinity],
+      maxConstraints: [innerWidth, Infinity],
       onResizeStop: (event, { size }) => {
         setWidth(size.width);
       },

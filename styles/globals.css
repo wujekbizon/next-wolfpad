@@ -35,7 +35,7 @@ a {
   height: 10px;
   width: 100%;
   cursor: row-resize;
-  background-image: url('/hdots.jpg');
+  background-image: url('/images/hdots.jpg');
   background-size: 50px;
 }
 
@@ -44,7 +44,7 @@ a {
   min-width: 10px;
   height: 100%;
   cursor: col-resize;
-  background-image: url('/vdots.jpg');
+  background-image: url('/images/vdots.jpg');
   background-size: 50px;
 }
 
@@ -55,30 +55,4 @@ a {
 
 .react-draggable-transparent-selection iframe {
   pointer-events: none;
-}
-
-/* Lexical Editor CSS */
-
-.ltr {
-  text-align: left;
-  color: white;
-}
-
-.rtl {
-  text-align: right;
-}
-
-.editor-placeholder {
-  color: #999;
-  overflow: hidden;
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  user-select: none;
-  pointer-events: none;
-}
-
-.editor-paragraph {
-  margin: 0 0 15px 0;
-  position: relative;
 }
