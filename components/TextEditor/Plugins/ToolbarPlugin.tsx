@@ -83,7 +83,7 @@ const positionEditorElement = (editor: HTMLElement, rect: any) => {
 
 const FloatingLinkEditor = ({ editor }: { editor: LexicalEditor }) => {
   const editorRef = useRef(null);
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const mouseDownRef = useRef(false);
   const [linkUrl, setLinkUrl] = useState('');
   const [isEditMode, setEditMode] = useState(false);
@@ -145,6 +145,82 @@ const FloatingLinkEditor = ({ editor }: { editor: LexicalEditor }) => {
     }
     return true;
   }, [editor]);
+
+  useEffect(() => {
+    return mergeRegister(
+      editor.registerUpdateListener(({ editorState }) => {
+        editorState.read(() => {
+          updateLinkEditor();
+        });
+      }),
+      editor.registerCommand(
+        SELECTION_CHANGE_COMMAND,
+        () => {
+          updateLinkEditor();
+          return true;
+        },
+        LowPriority
+      )
+    );
+  }, [editor, updateLinkEditor]);
+
+  useEffect(() => {
+    editor.getEditorState().read(() => {
+      updateLinkEditor();
+    });
+  }, [editor, updateLinkEditor]);
+
+  useEffect(() => {
+    if (isEditMode && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isEditMode]);
+
+  return (
+    <div ref={editorRef} className="link-editor">
+      {isEditMode ? (
+        <input
+          ref={inputRef}
+          className="link-input"
+          value={linkUrl}
+          onChange={(event) => {
+            setLinkUrl(event.target.value);
+          }}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              event.preventDefault();
+              if (lastSelection !== null) {
+                if (linkUrl !== '') {
+                  editor.dispatchCommand(TOGGLE_LINK_COMMAND, linkUrl);
+                }
+                setEditMode(false);
+              }
+            } else if (event.key === 'Escape') {
+              event.preventDefault();
+              setEditMode(false);
+            }
+          }}
+        />
+      ) : (
+        <>
+          <div className="link-input">
+            <a href={linkUrl} target="_blank" rel="noopener noreferrer">
+              {linkUrl}
+            </a>
+            <div
+              className="link-edit"
+              role="button"
+              tabIndex={0}
+              onMouseDown={(event) => event.preventDefault()}
+              onClick={() => {
+                setEditMode(true);
+              }}
+            />
+          </div>
+        </>
+      )}
+    </div>
+  );
 };
 
 const getSelectedNode = (selection: GridSelection | RangeSelection) => {
