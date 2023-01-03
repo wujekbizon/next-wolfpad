@@ -68,7 +68,7 @@ const Divider = () => {
   return <div className="divider" />;
 };
 
-const positonEditorElement = (editor: HTMLElement, rect: any) => {
+const positionEditorElement = (editor: HTMLElement, rect: any) => {
   if (rect === null) {
     (editor.style.opacity = '0'), (editor.style.top = '-1000px');
     editor.style.left = '-1000px';
@@ -87,13 +87,63 @@ const FloatingLinkEditor = ({ editor }: { editor: LexicalEditor }) => {
   const mouseDownRef = useRef(false);
   const [linkUrl, setLinkUrl] = useState('');
   const [isEditMode, setEditMode] = useState(false);
-  const [lastSelection, setLastSelection] = useState(null);
+  const [lastSelection, setLastSelection] = useState<
+    GridSelection | RangeSelection | NodeSelection | null
+  >(null);
 
   const updateLinkEditor = useCallback(() => {
     const selection = $getSelection();
     if ($isRangeSelection(selection)) {
       const node = getSelectedNode(selection);
+      const parent = node.getParent();
+      if ($isLinkNode(parent)) {
+        setLinkUrl(parent.getURL());
+      } else if ($isLinkNode(node)) {
+        setLinkUrl(node.getURL());
+      } else {
+        setLinkUrl('');
+      }
     }
+
+    const editorElem = editorRef.current;
+    const nativeSelection = window.getSelection();
+    const activeElement = document.activeElement;
+
+    if (editorElem === null || nativeSelection === null) {
+      return;
+    }
+
+    const rootElement = editor.getRootElement();
+
+    if (
+      selection !== null &&
+      !nativeSelection?.isCollapsed &&
+      rootElement !== null &&
+      rootElement.contains(nativeSelection.anchorNode)
+    ) {
+      const domRange = nativeSelection.getRangeAt(0);
+      let rect;
+      if (nativeSelection.anchorNode === rootElement) {
+        let inner = rootElement as Element;
+        while (inner.firstElementChild !== null) {
+          inner = inner.firstElementChild;
+        }
+        rect = inner.getBoundingClientRect();
+      } else {
+        rect = domRange.getBoundingClientRect();
+      }
+
+      if (!mouseDownRef.current) {
+        positionEditorElement(editorElem, rect);
+      }
+      setLastSelection(selection);
+    } else if (!activeElement || activeElement.className !== 'link-input') {
+      positionEditorElement(editorElem, null);
+      setLastSelection(null);
+      setEditMode(false);
+      setLinkUrl('');
+    }
+    return true;
   }, [editor]);
 };
 
