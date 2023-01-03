@@ -5,7 +5,7 @@ const PlaygroundPage = () => {
   return (
     <>
       <CodeCell />
-      {/* <TextEditor /> */}
+      <TextEditor />
     </>
   );
 };
