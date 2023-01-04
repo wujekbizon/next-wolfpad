@@ -17,6 +17,7 @@ import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import { TRANSFORMERS } from '@lexical/markdown';
 
 import prepopulatedText from './SampleText';
+import ToolbarPlugin from './Plugins/ToolbarPlugin';
 
 // Lexical React plugins are React components, which makes them
 // highly composable. Furthermore, you can lazy load plugins if
@@ -74,7 +75,7 @@ const TextEditor = () => {
   return (
     <LexicalComposer initialConfig={initialConfig}>
       <div className={styles.editor_container}>
-        <p>ToolbarPlugin</p>
+        <ToolbarPlugin />
         <div>
           <RichTextPlugin
             contentEditable={

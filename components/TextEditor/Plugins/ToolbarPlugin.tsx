@@ -1,5 +1,11 @@
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import {
   SELECTION_CHANGE_COMMAND,
   FORMAT_TEXT_COMMAND,
@@ -242,10 +248,7 @@ const getSelectedNode = (selection: GridSelection | RangeSelection) => {
 type SelectProps = {
   onChange: React.ChangeEventHandler<HTMLSelectElement>;
   className: string | undefined;
-  options: React.DetailedHTMLProps<
-    React.OptionHTMLAttributes<HTMLOptionElement>,
-    HTMLOptionElement
-  >[];
+  options: string[];
   value: string | number | readonly string[] | undefined;
 };
 
@@ -254,8 +257,8 @@ const Select = ({ onChange, className, options, value }: SelectProps) => {
     <select className={className} onChange={onChange} value={value}>
       <option hidden={true} value="" />
       {options.map((option) => (
-        <option key={option.id} value={option.value}>
-          {option.label}
+        <option key={option} value={option}>
+          {option}
         </option>
       ))}
     </select>
@@ -431,3 +434,209 @@ const BlockOptionsDropdownList = ({
     </div>
   );
 };
+
+const ToolbarPlugin = () => {
+  const [editor] = useLexicalComposerContext();
+  const toolbarRef = useRef<HTMLDivElement>(null);
+  const [blockType, setBlockType] = useState('paragraph');
+  const [selectedElementKey, setSelectedElementKey] = useState<string | null>(
+    null
+  );
+  const [showBlockOptionsDropDown, setShowBlockOptionsDropDown] =
+    useState(false);
+  const [codeLanguage, setCodeLanguage] = useState('');
+  const [isLink, setIsLink] = useState(false);
+  const [isBold, setIsBold] = useState(false);
+  const [isItalic, setIsItalic] = useState(false);
+  const [isUnderline, setIsUnderline] = useState(false);
+  const [isStrikethrough, setIsStrikethrough] = useState(false);
+  const [isCode, setIsCode] = useState(false);
+
+  const updateToolbar = useCallback(() => {
+    const selection = $getSelection();
+    if ($isRangeSelection(selection)) {
+      const anchorNode = selection.anchor.getNode();
+      const element =
+        anchorNode.getKey() === 'root'
+          ? anchorNode
+          : anchorNode.getTopLevelElementOrThrow();
+      const elementKey = element.getKey();
+      const elementDOM = editor.getElementByKey(elementKey);
+      if (elementDOM !== null) {
+        setSelectedElementKey(elementKey);
+        if ($isListNode(element)) {
+          const parentList = $getNearestNodeOfType(anchorNode, ListNode);
+          const type = parentList ? parentList.getTag() : element.getTag();
+          setBlockType(type);
+        } else {
+          const type = $isHeadingNode(element)
+            ? element.getTag()
+            : element.getType();
+          setBlockType(type);
+          if ($isCodeNode(element)) {
+            setCodeLanguage(element.getLanguage() || getDefaultCodeLanguage());
+          }
+        }
+      }
+      // Update text format
+      setIsBold(selection.hasFormat('bold'));
+      setIsItalic(selection.hasFormat('italic'));
+      setIsUnderline(selection.hasFormat('underline'));
+      setIsStrikethrough(selection.hasFormat('strikethrough'));
+      setIsCode(selection.hasFormat('code'));
+
+      // Update links
+      const node = getSelectedNode(selection);
+      const parent = node.getParent();
+      if ($isLinkNode(parent) || $isLinkNode(node)) {
+        setIsLink(true);
+      } else {
+        setIsLink(false);
+      }
+    }
+  }, [editor]);
+
+  useEffect(() => {
+    return mergeRegister(
+      editor.registerUpdateListener(({ editorState }) => {
+        editorState.read(() => {
+          updateToolbar();
+        });
+      }),
+      editor.registerCommand(
+        SELECTION_CHANGE_COMMAND,
+        (_payload, newEditor) => {
+          updateToolbar();
+          return false;
+        },
+        LowPriority
+      )
+    );
+  }, [editor, updateToolbar]);
+
+  const codeLanguges = useMemo(() => getCodeLanguages(), []);
+  const onCodeLanguageSelect = useCallback(
+    (e: any) => {
+      editor.update(() => {
+        if (selectedElementKey !== null) {
+          const node = $getNodeByKey(selectedElementKey);
+          if ($isCodeNode(node)) {
+            node.setLanguage(e.target.value);
+          }
+        }
+      });
+    },
+    [editor, selectedElementKey]
+  );
+
+  const insertLink = useCallback(() => {
+    if (!isLink) {
+      editor.dispatchCommand(TOGGLE_LINK_COMMAND, 'https://');
+    } else {
+      editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
+    }
+  }, [editor, isLink]);
+
+  return (
+    <div className="toolbar" ref={toolbarRef}>
+      {supportedBlockTypes.has(blockType) && (
+        <>
+          <button
+            className="toolbar-item block-controls"
+            onClick={() =>
+              setShowBlockOptionsDropDown(!showBlockOptionsDropDown)
+            }
+            aria-label="Formatting Options"
+          >
+            <span className={'icon block-type ' + blockType} />
+            <span className="text">{blockTypeToBlockName[blockType]}</span>
+            <i className="chevron-down" />
+          </button>
+          {showBlockOptionsDropDown &&
+            createPortal(
+              <BlockOptionsDropdownList
+                editor={editor}
+                blockType={blockType}
+                toolbarRef={toolbarRef}
+                setShowBlockOptionsDropDown={setShowBlockOptionsDropDown}
+              />,
+              document.body
+            )}
+          <Divider />
+        </>
+      )}
+      {blockType === 'code' ? (
+        <>
+          <Select
+            className="toolbar-item code-language"
+            onChange={onCodeLanguageSelect}
+            options={codeLanguges}
+            value={codeLanguage}
+          />
+          <i className="chevron-down inside" />
+        </>
+      ) : (
+        <>
+          <button
+            onClick={() => {
+              editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'bold');
+            }}
+            className={'toolbar-item spaced ' + (isBold ? 'active' : '')}
+            aria-label="Format Bold"
+          >
+            <i className="format bold" />
+          </button>
+          <button
+            onClick={() => {
+              editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'italic');
+            }}
+            className={'toolbar-item spaced ' + (isItalic ? 'active' : '')}
+            aria-label="Format Italics"
+          >
+            <i className="format italic" />
+          </button>
+          <button
+            onClick={() => {
+              editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'underline');
+            }}
+            className={'toolbar-item spaced ' + (isUnderline ? 'active' : '')}
+            aria-label="Format Underline"
+          >
+            <i className="format underline" />
+          </button>
+          <button
+            onClick={() => {
+              editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'strikethrough');
+            }}
+            className={
+              'toolbar-item spaced ' + (isStrikethrough ? 'active' : '')
+            }
+            aria-label="Format Strikethrough"
+          >
+            <i className="format strikethrough" />
+          </button>
+          <button
+            onClick={() => {
+              editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'code');
+            }}
+            className={'toolbar-item spaced ' + (isCode ? 'active' : '')}
+            aria-label="Insert Code"
+          >
+            <i className="format code" />
+          </button>
+          <button
+            onClick={insertLink}
+            className={'toolbar-item spaced ' + (isLink ? 'active' : '')}
+            aria-label="Insert Link"
+          >
+            <i className="format link" />
+          </button>
+          {isLink &&
+            createPortal(<FloatingLinkEditor editor={editor} />, document.body)}
+        </>
+      )}
+    </div>
+  );
+};
+
+export default ToolbarPlugin;
