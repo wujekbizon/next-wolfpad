@@ -549,7 +549,8 @@ const ToolbarPlugin = () => {
             aria-label="Formatting Options"
           >
             <span className={'icon block-type ' + blockType} />
-            <span className="text">{blockTypeToBlockName[blockType]}</span>
+
+            {/* <span className="text">{blockTypeToBlockName[blockType]}</span> */}
             <i className="chevron-down" />
           </button>
           {showBlockOptionsDropDown &&
