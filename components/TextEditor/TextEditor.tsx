@@ -19,6 +19,7 @@ import { TRANSFORMERS } from '@lexical/markdown';
 import prepopulatedText from './SampleText';
 import ToolbarPlugin from './Plugins/ToolbarPlugin';
 import CodeHighlightPlugin from './Plugins/CodeHighlightPlugin';
+import ActionsPlugin from './Plugins/ActionPlugin';
 // Lexical React plugins are React components, which makes them
 // highly composable. Furthermore, you can lazy load plugins if
 // desired, so you don't pay the cost for plugins until you
@@ -90,7 +91,7 @@ const TextEditor = () => {
           <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
           <CodeHighlightPlugin />
         </div>
-        <p>ActionsPlugin</p>
+        <ActionsPlugin />
       </div>
     </LexicalComposer>
   );
