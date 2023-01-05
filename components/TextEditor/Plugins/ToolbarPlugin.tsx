@@ -57,6 +57,10 @@ const supportedBlockTypes = new Set([
   'ol',
 ]);
 
+type BlockType = {
+  [key: string]: string;
+};
+
 const blockTypeToBlockName = {
   code: 'Code Block',
   h1: 'Large Heading',
@@ -68,7 +72,7 @@ const blockTypeToBlockName = {
   paragraph: 'Normal',
   quote: 'Quote',
   ul: 'Bulleted List',
-};
+} as BlockType;
 
 const Divider = () => {
   return <div className="divider" />;
@@ -550,7 +554,7 @@ const ToolbarPlugin = () => {
           >
             <span className={'icon block-type ' + blockType} />
 
-            {/* <span className="text">{blockTypeToBlockName[blockType]}</span> */}
+            <span className="text">{blockTypeToBlockName[blockType]}</span>
             <i className="chevron-down" />
           </button>
           {showBlockOptionsDropDown &&
