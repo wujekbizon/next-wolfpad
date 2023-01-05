@@ -1,4 +1,3 @@
-import styles from './Text.module.css';
 import { useEffect } from 'react';
 import exampleTheme from './Themes';
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
@@ -37,7 +36,7 @@ const MyCustomAutoFocusPlugin = () => {
 
 const Placeholder = () => {
   return (
-    <div className={styles.editor_placeholder}>
+    <div className="editor-placeholder">
       Play around with the Markdown plugin...
     </div>
   );
@@ -75,13 +74,11 @@ const TextEditor = () => {
 
   return (
     <LexicalComposer initialConfig={initialConfig}>
-      <div className={styles.editor_container}>
+      <div className="editor-container">
         <ToolbarPlugin />
-        <div>
+        <div className="editor-inner">
           <RichTextPlugin
-            contentEditable={
-              <ContentEditable className={styles.editor_input} />
-            }
+            contentEditable={<ContentEditable className="editor-input" />}
             placeholder={<Placeholder />}
             ErrorBoundary={LexicalErrorBoundary}
           />
@@ -90,8 +87,8 @@ const TextEditor = () => {
           <LinkPlugin />
           <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
           <CodeHighlightPlugin />
+          <ActionsPlugin />
         </div>
-        <ActionsPlugin />
       </div>
     </LexicalComposer>
   );
