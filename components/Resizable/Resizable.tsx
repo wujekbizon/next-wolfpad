@@ -42,7 +42,7 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
       height: Infinity,
       width,
       resizeHandles: ['e'],
-      minConstraints: [innerWidth * 0.01, Infinity],
+      minConstraints: [innerWidth * 0.1, Infinity],
       maxConstraints: [innerWidth, Infinity],
       onResizeStop: (event, { size }) => {
         setWidth(size.width);

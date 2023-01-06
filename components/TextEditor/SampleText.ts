@@ -51,3 +51,11 @@ const prepopulatedText = () => {
 };
 
 export default prepopulatedText;
+
+export const testText = () => {
+  const root = $getRoot();
+
+  const heading = $createHeadingNode('h1');
+  heading.append($createTextNode('Click me'));
+  root.append(heading);
+};

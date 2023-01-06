@@ -14,7 +14,6 @@ import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPl
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import { TRANSFORMERS } from '@lexical/markdown';
-
 import prepopulatedText from './SampleText';
 import ToolbarPlugin from './Plugins/ToolbarPlugin';
 import CodeHighlightPlugin from './Plugins/CodeHighlightPlugin';
@@ -23,6 +22,8 @@ import ActionsPlugin from './Plugins/ActionPlugin';
 // highly composable. Furthermore, you can lazy load plugins if
 // desired, so you don't pay the cost for plugins until you
 // actually use them.
+import { testText } from './SampleText';
+
 const MyCustomAutoFocusPlugin = () => {
   const [editor] = useLexicalComposerContext();
 
@@ -53,7 +54,7 @@ const onError = (error: Error) => {
 const TextEditor = () => {
   const initialConfig = {
     namespace: 'Wolfpad_Editor',
-    editorState: prepopulatedText,
+    editorState: testText,
     theme: exampleTheme,
     onError,
     // Any custom nodes go here
@@ -76,18 +77,20 @@ const TextEditor = () => {
     <LexicalComposer initialConfig={initialConfig}>
       <div className="editor-container">
         <ToolbarPlugin />
-        <div className="editor-inner">
-          <RichTextPlugin
-            contentEditable={<ContentEditable className="editor-input" />}
-            placeholder={<Placeholder />}
-            ErrorBoundary={LexicalErrorBoundary}
-          />
-          <MyCustomAutoFocusPlugin />
-          <ListPlugin />
-          <LinkPlugin />
-          <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
-          <CodeHighlightPlugin />
-          <ActionsPlugin />
+        <div className="editor-scroller">
+          <div className="editor-inner">
+            <RichTextPlugin
+              contentEditable={<ContentEditable className="editor-input" />}
+              placeholder={<Placeholder />}
+              ErrorBoundary={LexicalErrorBoundary}
+            />
+            <MyCustomAutoFocusPlugin />
+            <ListPlugin />
+            <LinkPlugin />
+            <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+            <CodeHighlightPlugin />
+            <ActionsPlugin />
+          </div>
         </div>
       </div>
     </LexicalComposer>
