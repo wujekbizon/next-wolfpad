@@ -24,6 +24,8 @@ import ActionsPlugin from './Plugins/ActionPlugin';
 // actually use them.
 import { testText } from './SampleText';
 
+import Resizable from '../Resizable/Resizable';
+
 const MyCustomAutoFocusPlugin = () => {
   const [editor] = useLexicalComposerContext();
 
@@ -54,7 +56,7 @@ const onError = (error: Error) => {
 const TextEditor = () => {
   const initialConfig = {
     namespace: 'Wolfpad_Editor',
-    editorState: testText,
+    editorState: prepopulatedText,
     theme: exampleTheme,
     onError,
     // Any custom nodes go here
