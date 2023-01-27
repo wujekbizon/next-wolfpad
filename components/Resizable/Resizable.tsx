@@ -8,8 +8,8 @@ interface ResizableProps {
 }
 
 const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
-  const [innerHeight, setInnerHeight] = useState(1200);
-  const [innerWidth, setInnerWidth] = useState(1800);
+  const [innerHeight, setInnerHeight] = useState(window.innerHeight);
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   const [width, setWidth] = useState(innerWidth * 0.75);
 
   let resizableProps: ResizableBoxProps;
