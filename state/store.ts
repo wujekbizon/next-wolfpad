@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import bundlesReducer from './reducers/bundlesSlice';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    bundles: bundlesReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

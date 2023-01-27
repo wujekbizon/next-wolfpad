@@ -40,4 +40,6 @@ const bundlesSlice = createSlice({
   },
 });
 
-export default bundlesSlice;
+export const { bundleStart, bundleComplete } = bundlesSlice.actions;
+
+export default bundlesSlice.reducer;
