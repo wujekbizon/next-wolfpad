@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Cell } from '../cell';
-import { SaveCellsErrorAction } from '../actions';
+import { SaveCellsErrorAction, FetchCellsCompleteAction } from '../actions';
 
 interface CellsState {
   loading: boolean;
@@ -18,7 +18,7 @@ const initialState: CellsState = {
   data: {},
 };
 
-const cellSlice = createSlice({
+const cellsSlice = createSlice({
   name: 'cell',
   initialState,
   reducers: {
@@ -28,12 +28,24 @@ const cellSlice = createSlice({
     ) {
       state.error = payload;
     },
-    fetchCells(state: CellsState) {
+    fetchCellsStart(state: CellsState) {
       state.loading = true;
       state.error = null;
+    },
+    fetchCellsComplete(
+      state: CellsState,
+      { payload: { payload } }: PayloadAction<FetchCellsCompleteAction>
+    ) {
+      state.order = payload.map((cell) => cell.id);
+
+      state.data = payload.reduce((acc, cell) => {
+        acc[cell.id] = cell;
+        return acc;
+      }, {} as CellsState['data']);
     },
   },
 });
 
-export const { saveCellsError } = cellSlice.actions;
-export default cellSlice.reducer;
+export const { saveCellsError, fetchCellsStart, fetchCellsComplete } =
+  cellsSlice.actions;
+export default cellsSlice.reducer;
