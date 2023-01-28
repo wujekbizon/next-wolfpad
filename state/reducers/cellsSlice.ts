@@ -6,6 +6,7 @@ import {
   FetchCellsErrorAction,
   UpdateCellAction,
   DeleteCellAction,
+  MoveCellAction,
 } from '../actions';
 import ActionsPlugin from '../../components/TextEditor/Plugins/ActionPlugin';
 
@@ -71,6 +72,20 @@ const cellsSlice = createSlice({
     ) {
       delete state.data[payload];
       state.order = state.order.filter((id) => id !== payload);
+    },
+    moveCell(
+      state: CellsState,
+      { payload: { payload } }: PayloadAction<MoveCellAction>
+    ) {
+      const { direction } = payload;
+      const index = state.order.findIndex((id) => id !== payload.id);
+      const targetIndex = direction === 'up' ? index - 1 : index + 1;
+
+      if (targetIndex < 0 || targetIndex > state.order.length - 1) {
+        return state;
+      }
+      state.order[index] = state.order[targetIndex];
+      state.order[targetIndex] = payload.id;
     },
   },
 });

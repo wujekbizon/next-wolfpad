@@ -3,8 +3,10 @@ import { Cell, CellTypes } from '../cell';
 export type Direction = 'up' | 'down';
 
 export interface MoveCellAction {
-  id: string;
-  direction: Direction;
+  payload: {
+    id: string;
+    direction: Direction;
+  };
 }
 
 export interface DeleteCellAction {
