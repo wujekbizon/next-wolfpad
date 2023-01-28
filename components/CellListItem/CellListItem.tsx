@@ -1,3 +1,4 @@
+import styles from './CellListItem.module.css';
 import { Cell } from '../../state/cell';
 import TextEditor from '../TextEditor/TextEditor';
 import CodeCell from '../CodeCell/CodeCell';
@@ -9,10 +10,10 @@ interface CellListItemProps {
 
 const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
   return (
-    <div className="cell-list-item">
+    <div className={styles.cell_list_item}>
       {cell.type === 'code' ? (
         <>
-          <div className="action-bar-wrapper">
+          <div className={styles.action_bar_wrapper}>
             <ActionBar id={cell.id} />
           </div>
           <CodeCell cell={cell} />

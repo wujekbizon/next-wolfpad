@@ -1,3 +1,5 @@
+import styles from './ActionButton.module.css';
+
 export interface ActionButtonProps {
   icon: JSX.Element;
   onClick: () => void;
@@ -5,8 +7,8 @@ export interface ActionButtonProps {
 
 const ActionButton: React.FC<ActionButtonProps> = ({ icon, onClick }) => {
   return (
-    <button className="button is-primary is-small" onClick={onClick}>
-      <span className="icon">{icon}</span>
+    <button className={styles.action_btn} onClick={onClick}>
+      <span className={styles.icon}>{icon}</span>
     </button>
   );
 };
