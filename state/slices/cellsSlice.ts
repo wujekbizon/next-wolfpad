@@ -122,5 +122,6 @@ export const {
   updateCell,
   moveCell,
   insertCellAfter,
+  deleteCell,
 } = cellsSlice.actions;
 export const cellsReducer = cellsSlice.reducer;

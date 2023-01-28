@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const DynamicTextEditor = dynamic(
   () => import('../../components/TextEditor/TextEditor'),
@@ -17,9 +18,12 @@ const DynamicCodeCell = dynamic(
 );
 
 const PlaygroundPage = () => {
+  const cell = useTypedSelector((state) => {
+    return state.cells.data[0];
+  });
   return (
     <>
-      <DynamicCodeCell />
+      <DynamicCodeCell cell={cell} />
       <DynamicTextEditor />
     </>
   );
