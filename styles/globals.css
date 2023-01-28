@@ -57,3 +57,8 @@ a {
 .react-draggable-transparent-selection iframe {
   pointer-events: none;
 }
+
+.cell-list-item {
+  position: relative;
+  margin-bottom: 40px;
+}

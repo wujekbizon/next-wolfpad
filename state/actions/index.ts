@@ -3,43 +3,29 @@ import { Cell, CellTypes } from '../cell';
 export type Direction = 'up' | 'down';
 
 export interface MoveCellAction {
-  payload: {
-    id: string;
-    direction: Direction;
-  };
-}
-
-export interface DeleteCellAction {
-  payload: string;
+  id: string;
+  direction: Direction;
 }
 
 export interface InsertCellAfterAction {
-  payload: {
-    id: string | null;
-    type: CellTypes;
-  };
+  id: string | null;
+  type: CellTypes;
 }
 
 export interface UpdateCellAction {
-  payload: {
-    id: string;
-    content: string;
-  };
+  id: string;
+  content: string;
 }
 
 export interface BundleStartAction {
-  payload: {
-    cellId: string;
-  };
+  cellId: string;
 }
 
 export interface BundleCompleteAction {
-  payload: {
-    cellId: string;
-    bundle: {
-      code: string;
-      err: string;
-    };
+  cellId: string;
+  bundle: {
+    code: string;
+    err: string;
   };
 }
 

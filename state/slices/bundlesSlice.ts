@@ -19,7 +19,7 @@ const bundlesSlice = createSlice({
   reducers: {
     bundleStart(
       state: BundlesState,
-      { payload: { payload } }: PayloadAction<BundleStartAction>
+      { payload }: PayloadAction<BundleStartAction>
     ) {
       state[payload.cellId] = {
         loading: true,
@@ -29,7 +29,7 @@ const bundlesSlice = createSlice({
     },
     bundleComplete(
       state: BundlesState,
-      { payload: { payload } }: PayloadAction<BundleCompleteAction>
+      { payload }: PayloadAction<BundleCompleteAction>
     ) {
       state[payload.cellId] = {
         loading: false,

@@ -33,34 +33,13 @@ export const actionCreators = {
 
 store.dispatch(
   insertCellAfter({
-    payload: {
-      id: null,
-      type: 'text',
-    },
+    id: null,
+    type: 'text',
   })
 );
 store.dispatch(
   insertCellAfter({
-    payload: {
-      id: null,
-      type: 'code',
-    },
-  })
-);
-
-store.dispatch(
-  insertCellAfter({
-    payload: {
-      id: null,
-      type: 'text',
-    },
-  })
-);
-store.dispatch(
-  insertCellAfter({
-    payload: {
-      id: null,
-      type: 'code',
-    },
+    id: null,
+    type: 'code',
   })
 );

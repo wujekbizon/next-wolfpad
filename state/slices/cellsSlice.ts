@@ -5,7 +5,6 @@ import {
   FetchCellsCompleteAction,
   FetchCellsErrorAction,
   UpdateCellAction,
-  DeleteCellAction,
   MoveCellAction,
   InsertCellAfterAction,
 } from '../actions';
@@ -60,23 +59,17 @@ const cellsSlice = createSlice({
     },
     updateCell(
       state: CellsState,
-      { payload: { payload } }: PayloadAction<UpdateCellAction>
+      { payload }: PayloadAction<UpdateCellAction>
     ) {
       const { id, content } = payload;
 
       state.data[id].content = content;
     },
-    deleteCell(
-      state: CellsState,
-      { payload: { payload } }: PayloadAction<DeleteCellAction>
-    ) {
+    deleteCell(state: CellsState, { payload }: PayloadAction<string>) {
       delete state.data[payload];
       state.order = state.order.filter((id) => id !== payload);
     },
-    moveCell(
-      state: CellsState,
-      { payload: { payload } }: PayloadAction<MoveCellAction>
-    ) {
+    moveCell(state: CellsState, { payload }: PayloadAction<MoveCellAction>) {
       const { direction } = payload;
       const index = state.order.findIndex((id) => id !== payload.id);
       const targetIndex = direction === 'up' ? index - 1 : index + 1;
@@ -89,7 +82,7 @@ const cellsSlice = createSlice({
     },
     insertCellAfter(
       state: CellsState,
-      { payload: { payload } }: PayloadAction<InsertCellAfterAction>
+      { payload }: PayloadAction<InsertCellAfterAction>
     ) {
       const cell: Cell = {
         content: '',
