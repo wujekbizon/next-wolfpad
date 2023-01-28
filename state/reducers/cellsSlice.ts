@@ -5,7 +5,9 @@ import {
   FetchCellsCompleteAction,
   FetchCellsErrorAction,
   UpdateCellAction,
+  DeleteCellAction,
 } from '../actions';
+import ActionsPlugin from '../../components/TextEditor/Plugins/ActionPlugin';
 
 interface CellsState {
   loading: boolean;
@@ -58,7 +60,18 @@ const cellsSlice = createSlice({
     updateCell(
       state: CellsState,
       { payload: { payload } }: PayloadAction<UpdateCellAction>
-    ) {},
+    ) {
+      const { id, content } = payload;
+
+      state.data[id].content = content;
+    },
+    deleteCell(
+      state: CellsState,
+      { payload: { payload } }: PayloadAction<DeleteCellAction>
+    ) {
+      delete state.data[payload];
+      state.order = state.order.filter((id) => id !== payload);
+    },
   },
 });
 
@@ -67,5 +80,6 @@ export const {
   fetchCellsStart,
   fetchCellsComplete,
   fetchCellsError,
+  updateCell,
 } = cellsSlice.actions;
 export default cellsSlice.reducer;
