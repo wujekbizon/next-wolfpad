@@ -30,3 +30,37 @@ export const actionCreators = {
   updateCell,
   moveCell,
 };
+
+store.dispatch(
+  insertCellAfter({
+    payload: {
+      id: null,
+      type: 'text',
+    },
+  })
+);
+store.dispatch(
+  insertCellAfter({
+    payload: {
+      id: null,
+      type: 'code',
+    },
+  })
+);
+
+store.dispatch(
+  insertCellAfter({
+    payload: {
+      id: null,
+      type: 'text',
+    },
+  })
+);
+store.dispatch(
+  insertCellAfter({
+    payload: {
+      id: null,
+      type: 'code',
+    },
+  })
+);

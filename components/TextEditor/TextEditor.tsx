@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Cell } from '../../state/cell';
 import exampleTheme from './Themes';
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
 import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
@@ -53,7 +54,11 @@ const onError = (error: Error) => {
   throw error;
 };
 
-const TextEditor = () => {
+interface TextEditorProps {
+  cell: Cell;
+}
+
+const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
   const initialConfig = {
     namespace: 'Wolfpad_Editor',
     editorState: prepopulatedText,

@@ -16,10 +16,7 @@ body {
     rgba(29, 28, 37, 1) 0%,
     rgba(67, 30, 63, 1) 100%
   );
-}
-
-#__next {
-  margin: 0 30px;
+  padding: 64px;
 }
 
 a {
