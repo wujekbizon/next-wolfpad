@@ -1,3 +1,4 @@
+export * as actionCreators from './action-creators';
 import { configureStore } from '@reduxjs/toolkit';
 import {
   bundlesReducer,

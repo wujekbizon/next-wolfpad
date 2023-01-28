@@ -4,8 +4,13 @@ import CodeEditor from '../CodeEditor/CodeEditor';
 import Preview from '../Preview/Preview';
 import codeProcessor from '../../bundler';
 import Resizable from '../Resizable/Resizable';
+import { Cell } from '../../state/cell';
 
-const CodeCell = () => {
+interface CodeCellProps {
+  cell: Cell;
+}
+
+const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const [input, setInput] = useState('');
   const [error, setError] = useState('');
   const [code, setCode] = useState('');
