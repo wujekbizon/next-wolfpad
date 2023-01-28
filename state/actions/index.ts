@@ -17,8 +17,10 @@ export interface InsertCellAfterAction {
 }
 
 export interface UpdateCellAction {
-  id: string;
-  content: string;
+  payload: {
+    id: string;
+    content: string;
+  };
 }
 
 export interface BundleStartAction {
