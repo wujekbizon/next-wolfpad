@@ -1,20 +1,17 @@
 .action_btn {
   padding: 6px;
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     rgba(29, 28, 37, 1) 0%,
     rgba(67, 30, 63, 1) 100%
-  );
+  ); */
+  background-color: grey;
   border: none;
   cursor: pointer;
 }
 
 .action_btn:hover {
-  background: linear-gradient(
-    0deg,
-    rgba(29, 28, 37, 1) 0%,
-    rgba(67, 30, 63, 1) 100%
-  );
+  background-color: rgb(110, 110, 110);
 }
 
 .icon {
