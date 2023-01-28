@@ -42,4 +42,4 @@ const bundlesSlice = createSlice({
 
 export const { bundleStart, bundleComplete } = bundlesSlice.actions;
 
-export default bundlesSlice.reducer;
+export const bundlesReducer = bundlesSlice.reducer;

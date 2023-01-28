@@ -54,14 +54,3 @@ export interface FetchCellsErrorAction {
 export interface SaveCellsErrorAction {
   payload: string;
 }
-
-export type Action =
-  | MoveCellAction
-  | DeleteCellAction
-  | InsertCellAfterAction
-  | UpdateCellAction
-  | BundleCompleteAction
-  | BundleStartAction
-  | FetchCellsCompleteAction
-  | FetchCellsErrorAction
-  | SaveCellsErrorAction;

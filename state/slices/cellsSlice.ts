@@ -9,7 +9,6 @@ import {
   MoveCellAction,
   InsertCellAfterAction,
 } from '../actions';
-import ActionsPlugin from '../../components/TextEditor/Plugins/ActionPlugin';
 
 interface CellsState {
   loading: boolean;
@@ -124,4 +123,4 @@ export const {
   moveCell,
   insertCellAfter,
 } = cellsSlice.actions;
-export default cellsSlice.reducer;
+export const cellsReducer = cellsSlice.reducer;
