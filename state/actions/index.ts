@@ -14,8 +14,10 @@ export interface DeleteCellAction {
 }
 
 export interface InsertCellAfterAction {
-  id: string | null;
-  type: CellTypes;
+  payload: {
+    id: string | null;
+    type: CellTypes;
+  };
 }
 
 export interface UpdateCellAction {

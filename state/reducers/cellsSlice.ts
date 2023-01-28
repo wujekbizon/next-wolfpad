@@ -7,6 +7,7 @@ import {
   UpdateCellAction,
   DeleteCellAction,
   MoveCellAction,
+  InsertCellAfterAction,
 } from '../actions';
 import ActionsPlugin from '../../components/TextEditor/Plugins/ActionPlugin';
 
@@ -87,8 +88,32 @@ const cellsSlice = createSlice({
       state.order[index] = state.order[targetIndex];
       state.order[targetIndex] = payload.id;
     },
+    insertCellAfter(
+      state: CellsState,
+      { payload: { payload } }: PayloadAction<InsertCellAfterAction>
+    ) {
+      const cell: Cell = {
+        content: '',
+        type: payload.type,
+        id: randomId(),
+      };
+
+      state.data[cell.id] = cell;
+
+      const foundIndex = state.order.findIndex((id) => id === payload.id);
+
+      if (foundIndex < 0) {
+        state.order.unshift(cell.id);
+      } else {
+        state.order.splice(foundIndex + 1, 0, cell.id);
+      }
+    },
   },
 });
+
+const randomId = () => {
+  return Math.random().toString(36).substring(2, 7);
+};
 
 export const {
   saveCellsError,
@@ -96,5 +121,7 @@ export const {
   fetchCellsComplete,
   fetchCellsError,
   updateCell,
+  moveCell,
+  insertCellAfter,
 } = cellsSlice.actions;
 export default cellsSlice.reducer;
