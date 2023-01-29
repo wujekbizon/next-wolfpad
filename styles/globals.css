@@ -70,7 +70,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 10px; /* width of the entire scrollbar */
+  width: 10px;
 }
 
 body::-webkit-scrollbar-track {
@@ -79,8 +79,8 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background: linear-gradient(189.97deg, #ae67fa 1.84%, #f49867 102.67%);
-  border-radius: 20px; /* roundness of the scroll thumb */
-  border: 3px solid #30363d; /* creates padding around scroll thumb */
+  border-radius: 20px;
+  border: 3px solid #30363d;
 }
 
 .gradient_text {
@@ -97,7 +97,7 @@ a {
 
 .react-resizable-handle {
   display: block;
-  background-color: #30363d;
+  background: rgba(29, 28, 37, 1) 0%;
 }
 
 .react-resizable-handle-s {
@@ -106,20 +106,32 @@ a {
   cursor: row-resize;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  background: linear-gradient(189.97deg, #ae67fa 1.84%, #f49867 102.67%);
+  border-left: 100px solid #30363d;
+  border-right: 100px solid #30363d;
+  border-top: 3.5px solid #30363d;
+  border-bottom: 3.5px solid #30363d;
 }
 
 .react-resizable-handle-e {
   min-width: 10px;
   height: 100%;
   cursor: col-resize;
+  background: linear-gradient(189.97deg, #ae67fa 1.84%, #f49867 102.67%);
+  border-left: 3.5px solid #30363d;
+  border-right: 3.5px solid #30363d;
+  border-top: 50px solid #30363d;
+  border-bottom: 50px solid #30363d;
 }
 
-.react-resizable-handle-e:hover {
-  background-color: #282d33;
+.react-resizable-handle-e:active {
+  border-top: 120px solid #30363d;
+  border-bottom: 120px solid #30363d;
 }
 
-.react-resizable-handle-s:hover {
-  background-color: #282d33;
+.react-resizable-handle-s:active {
+  border-left: 400px solid #30363d;
+  border-right: 400px solid #30363d;
 }
 
 .resize-horizontal {
