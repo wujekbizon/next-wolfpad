@@ -35,26 +35,31 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 8px;
+  padding: 6px;
 }
 
 .add_btn {
-  background-color: grey;
+  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
   width: 115px;
-  border-radius: 15px;
+  border-radius: 10px;
   font-size: 18px;
+  font-weight: 700;
   letter-spacing: 0.3rem;
   cursor: pointer;
   border: none;
+  transition: all 0.3s ease-in-out;
 }
 
 .add_btn:hover {
-  background-color: rgb(97, 97, 97);
-  transition: all 0.3s ease-in-out;
+  color: white;
+}
+
+.add_btn:hover .icon {
+  color: black;
 }
 
 .icon {
   display: flex;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
 }

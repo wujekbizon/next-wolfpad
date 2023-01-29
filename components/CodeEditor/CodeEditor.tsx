@@ -4,6 +4,8 @@ import MonacoEditor from '@monaco-editor/react';
 import prettier from 'prettier';
 import parser from 'prettier/parser-babel';
 import Image from 'next/image';
+import ActionButton from '../ActionButton/ActionButton';
+import { BsSun, BsMoon } from 'react-icons/bs';
 
 interface CodeEditorProps {
   initialValue: string;
@@ -69,29 +71,17 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
         onChange={onChange}
       />
       {editorTheme === 'vs-dark' ? (
-        <button
+        <ActionButton
           className={styles.button}
+          icon={<BsSun />}
           onClick={() => setEditorTheme('light')}
-        >
-          <Image
-            src="/images/icons/sun.svg"
-            alt="light"
-            width={15}
-            height={15}
-          />
-        </button>
+        />
       ) : (
-        <button
+        <ActionButton
+          icon={<BsMoon />}
           className={styles.button}
           onClick={() => setEditorTheme('vs-dark')}
-        >
-          <Image
-            src="/images/icons/moon.svg"
-            alt="dark"
-            width={15}
-            height={15}
-          />
-        </button>
+        />
       )}
     </div>
   );

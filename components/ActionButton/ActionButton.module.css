@@ -12,7 +12,7 @@
 }
 
 .action_btn:hover {
-  background-color: whitesmoke;
+  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
   border-radius: 10px;
 }
 

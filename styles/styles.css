@@ -22,7 +22,7 @@
   padding: 8px 12px;
   position: relative;
   margin-left: 5px;
-  border-radius: 15px;
+  border-radius: 10px;
   color: #222;
   display: inline-block;
   cursor: pointer;
@@ -164,7 +164,8 @@ h1 {
 }
 
 .editor-code {
-  background-color: rgb(240, 242, 245);
+  background-color: #30363d;
+  color: white;
   font-family: Menlo, Consolas, Monaco, monospace;
   display: block;
   padding: 8px 8px 8px 52px;
@@ -182,7 +183,7 @@ h1 {
 .editor-code:before {
   content: attr(data-gutter);
   position: absolute;
-  background-color: #eee;
+  /* background-color: #eee; */
   left: 0;
   top: 0;
   border-right: 1px solid #ccc;
@@ -200,7 +201,7 @@ h1 {
   font-size: 10px;
   text-transform: uppercase;
   position: absolute;
-  color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 .editor-tokenComment {
@@ -239,6 +240,7 @@ h1 {
   margin: 0;
   margin-bottom: 8px;
   position: relative;
+  color: white;
 }
 
 .editor-paragraph:last-child {
@@ -247,7 +249,6 @@ h1 {
 
 .editor-heading-h1 {
   font-size: 24px;
-  /* color: rgb(5, 5, 5); */
   color: white;
   font-weight: 400;
   margin: 0;
@@ -257,7 +258,7 @@ h1 {
 
 .editor-heading-h2 {
   font-size: 15px;
-  color: rgb(101, 103, 107);
+  color: white;
   font-weight: 700;
   margin: 0;
   margin-top: 10px;
@@ -280,12 +281,14 @@ h1 {
   padding: 0;
   margin: 0;
   margin-left: 16px;
+  color: white;
 }
 
 .editor-list-ul {
   padding: 0;
   margin: 0;
   margin-left: 16px;
+  color: white;
 }
 
 .editor-listitem {
@@ -307,7 +310,6 @@ pre::-webkit-scrollbar-thumb {
 
 .toolbar {
   display: flex;
-
   background: #30363d;
   padding: 4px;
   border-top-left-radius: 10px;
@@ -331,6 +333,29 @@ pre::-webkit-scrollbar-thumb {
 
 .toolbar button.toolbar-item.spaced {
   margin-right: 2px;
+}
+
+.toolbar-item {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.toolbar-item::-webkit-scrollbar {
+  width: 10px;
+}
+
+.toolbar-item::-webkit-scrollbar-track {
+  background: rgba(29, 28, 37, 1) 0%;
+}
+
+.toolbar-item::-webkit-scrollbar-thumb {
+  background-color: #ae67fa;
+  border-radius: 20px;
+  border: 3px solid #30363d;
 }
 
 .toolbar button.toolbar-item i.format {
@@ -357,12 +382,12 @@ pre::-webkit-scrollbar-thumb {
 }
 
 .toolbar .toolbar-item:hover:not([disabled]) {
-  background-color: #eee;
+  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
 }
 
 .toolbar .divider {
   width: 1px;
-  background-color: #eee;
+  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
   margin: 0 4px;
 }
 
@@ -373,17 +398,21 @@ pre::-webkit-scrollbar-thumb {
   border-radius: 10px;
   padding: 8px;
   vertical-align: middle;
-  --webkit-appearance: none;
-  --moz-appearance: none;
   width: 70px;
   font-size: 14px;
-  color: #777;
+  color: white;
   text-overflow: ellipsis;
+}
+
+.toolbar-item option {
+  color: white;
+  background-color: #30363d;
 }
 
 .toolbar select.code-language {
   text-transform: capitalize;
   width: 130px;
+  outline: none;
 }
 
 .toolbar .toolbar-item .text {
@@ -392,9 +421,9 @@ pre::-webkit-scrollbar-thumb {
   width: 200px;
   vertical-align: middle;
   font-size: 14px;
-  color: #777;
+  color: white;
   text-overflow: ellipsis;
-  width: 70px;
+  width: 90px;
   overflow: hidden;
   height: 20px;
   text-align: left;
@@ -487,16 +516,16 @@ i.chevron-down {
   position: absolute;
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1),
     inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
+  border-radius: 10px;
   min-width: 100px;
   min-height: 40px;
-  background-color: #fff;
+  background-color: #30363d;
 }
 
 .dropdown .item {
   margin: 0 8px 0 8px;
   padding: 8px;
-  color: #050505;
+  color: white;
   cursor: pointer;
   line-height: 16px;
   font-size: 15px;
@@ -505,8 +534,8 @@ i.chevron-down {
   flex-direction: row;
   flex-shrink: 0;
   justify-content: space-between;
-  background-color: #fff;
-  border-radius: 8px;
+  background: #30363d;
+  border-radius: 10px;
   border: 0;
   min-width: 268px;
 }
@@ -527,7 +556,7 @@ i.chevron-down {
 }
 
 .dropdown .item:hover {
-  background-color: #eee;
+  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
 }
 
 .dropdown .item .text {
