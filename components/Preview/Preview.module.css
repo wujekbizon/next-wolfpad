@@ -1,6 +1,6 @@
 .preview_wrapper {
   position: relative;
-  height: calc(100% - 1px);
+  height: 100%;
   flex-grow: 1;
   overflow: hidden;
 }
@@ -9,7 +9,7 @@
   height: 100%;
   width: 100%;
   border: none;
-  background-color: whitesmoke;
+  background-color: lightgray;
 }
 
 .preview_error {

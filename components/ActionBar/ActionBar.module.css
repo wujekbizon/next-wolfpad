@@ -1,12 +1,10 @@
 .action_bar {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 4px;
+  right: 12px;
   z-index: 10;
-  opacity: 0.25;
   transition: opacity 0.3s linear;
-}
-
-.action_bar:hover {
-  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

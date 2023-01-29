@@ -3,6 +3,7 @@
   height: 100%;
   width: calc(100% - 10px);
   scroll-behavior: smooth;
+  background-color: #1e1e1e;
 }
 
 .editor_wrapper .button {

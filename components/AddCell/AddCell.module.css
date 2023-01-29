@@ -40,22 +40,21 @@
 
 .add_btn {
   background-color: grey;
-  width: 7%;
-  border-radius: 8px;
-  font-size: 17px;
+  width: 115px;
+  border-radius: 15px;
+  font-size: 18px;
   letter-spacing: 0.3rem;
   cursor: pointer;
+  border: none;
 }
 
 .add_btn:hover {
-  background-color: #30363d;
+  background-color: rgb(97, 97, 97);
   transition: all 0.3s ease-in-out;
-  /* color: whitesmoke; */
 }
 
 .icon {
   display: flex;
-  margin-right: 10px;
   color: white;
-  font-size: 22px;
+  font-size: 16px;
 }
