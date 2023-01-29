@@ -1,7 +1,3 @@
 .cell_list {
   margin: 0 30px 30vh;
 }
-
-.react-draggable-transparent-selection .cell_list {
-  margin-bottom: 100vh;
-}

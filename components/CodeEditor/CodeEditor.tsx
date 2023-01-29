@@ -3,7 +3,6 @@ import { useState, useEffect, useMemo } from 'react';
 import MonacoEditor from '@monaco-editor/react';
 import prettier from 'prettier';
 import parser from 'prettier/parser-babel';
-import Image from 'next/image';
 import ActionButton from '../ActionButton/ActionButton';
 import { BsSun, BsMoon } from 'react-icons/bs';
 

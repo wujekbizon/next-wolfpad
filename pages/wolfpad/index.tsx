@@ -9,10 +9,6 @@ const DynamicCellList = dynamic(
 );
 
 const PlaygroundPage = () => {
-  return (
-    <>
-      <DynamicCellList />
-    </>
-  );
+  return <DynamicCellList />;
 };
 export default PlaygroundPage;

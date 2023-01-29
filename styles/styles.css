@@ -76,16 +76,12 @@ h1 {
 }
 
 .editor-container {
-  /* margin: 20px auto 20px auto; */
-  border-radius: 2px;
   max-width: 100%;
   color: #000;
   position: relative;
   line-height: 20px;
   font-weight: 400;
   text-align: left;
-  /* border-top-left-radius: 10px;
-  border-top-right-radius: 10px; */
 }
 
 .editor-inner {
