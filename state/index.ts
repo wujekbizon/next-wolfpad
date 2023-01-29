@@ -43,16 +43,3 @@ store.dispatch(
     type: 'code',
   })
 );
-
-store.dispatch(
-  insertCellAfter({
-    id: null,
-    type: 'text',
-  })
-);
-store.dispatch(
-  insertCellAfter({
-    id: null,
-    type: 'code',
-  })
-);
