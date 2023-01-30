@@ -107,8 +107,8 @@ a {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   background: linear-gradient(189.97deg, #ae67fa 1.84%, #f49867 102.67%);
-  border-left: 100px solid #30363d;
-  border-right: 100px solid #30363d;
+  border-left: 70px solid #30363d;
+  border-right: 70px solid #30363d;
   border-top: 3.5px solid #30363d;
   border-bottom: 3.5px solid #30363d;
 }
@@ -130,8 +130,8 @@ a {
 }
 
 .react-resizable-handle-s:active {
-  border-left: 400px solid #30363d;
-  border-right: 400px solid #30363d;
+  border-left: 600px solid #30363d;
+  border-right: 600px solid #30363d;
 }
 
 .resize-horizontal {
