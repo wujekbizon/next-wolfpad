@@ -39,6 +39,8 @@ const codeProcessor = async (rawCode: string) => {
         code: '',
         err: error.message,
       };
+    } else {
+      throw error;
     }
   }
 };

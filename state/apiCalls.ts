@@ -22,7 +22,7 @@ export const createBundle = (cellId: string, input: string) => {
     dispatch(
       bundleComplete({
         cellId,
-        bundle: result || { code: '', err: '' },
+        bundle: result,
       })
     );
   };

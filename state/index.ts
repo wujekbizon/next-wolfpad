@@ -11,6 +11,7 @@ import {
   updateCell,
   moveCell,
 } from './slices/cellsSlice';
+import { createBundle } from './apiCalls';
 
 export const store = configureStore({
   reducer: {
@@ -29,6 +30,7 @@ export const actionCreators = {
   deleteCell,
   updateCell,
   moveCell,
+  createBundle,
 };
 
 store.dispatch(
