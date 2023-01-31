@@ -1,7 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { BundleStartAction, BundleCompleteAction } from '../actions';
-import { Dispatch } from 'redux';
-import codeProcessor from '../../bundler';
 
 interface BundlesState {
   [key: string]:
@@ -43,24 +41,5 @@ const bundlesSlice = createSlice({
 });
 
 export const { bundleStart, bundleComplete } = bundlesSlice.actions;
-
-export const createBundle = (cellId: string, input: string) => {
-  return async (dispatch: Dispatch) => {
-    dispatch(
-      bundleStart({
-        cellId,
-      })
-    );
-
-    const result = await codeProcessor(input);
-
-    dispatch(
-      bundleComplete({
-        cellId,
-        bundle: result || { code: '', err: '' },
-      })
-    );
-  };
-};
 
 export const bundlesReducer = bundlesSlice.reducer;
