@@ -44,8 +44,8 @@ const bundlesSlice = createSlice({
 
 export const { bundleStart, bundleComplete } = bundlesSlice.actions;
 
-export const createBundle =
-  (cellId: string, input: string) => async (dispatch: Dispatch) => {
+export const createBundle = (cellId: string, input: string) => {
+  return async (dispatch: Dispatch) => {
     dispatch(
       bundleStart({
         cellId,
@@ -61,5 +61,6 @@ export const createBundle =
       })
     );
   };
+};
 
 export const bundlesReducer = bundlesSlice.reducer;

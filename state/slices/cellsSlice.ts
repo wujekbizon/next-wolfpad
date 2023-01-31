@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, nanoid } from '@reduxjs/toolkit';
+import { Dispatch } from 'redux';
 import { Cell } from '../cell';
 import {
   SaveCellsErrorAction,
@@ -8,6 +9,7 @@ import {
   MoveCellAction,
   InsertCellAfterAction,
 } from '../actions';
+import axios from 'axios';
 
 interface CellsState {
   loading: boolean;
@@ -87,7 +89,7 @@ const cellsSlice = createSlice({
       const cell: Cell = {
         content: '',
         type: payload.type,
-        id: randomId(),
+        id: nanoid(),
       };
 
       state.data[cell.id] = cell;
@@ -103,10 +105,6 @@ const cellsSlice = createSlice({
   },
 });
 
-const randomId = () => {
-  return Math.random().toString(36).substring(2, 7);
-};
-
 export const {
   saveCellsError,
   fetchCellsStart,
@@ -117,4 +115,30 @@ export const {
   insertCellAfter,
   deleteCell,
 } = cellsSlice.actions;
+
+export const fetchCells = () => {
+  return async (dispatch: Dispatch) => {
+    dispatch(fetchCellsStart());
+
+    try {
+      const { data }: { data: Cell[] } = await axios.get('cells');
+      dispatch(
+        fetchCellsComplete({
+          payload: data,
+        })
+      );
+    } catch (error) {
+      if (error instanceof Error) {
+        dispatch(
+          fetchCellsError({
+            payload: error.message,
+          })
+        );
+      } else {
+        throw error;
+      }
+    }
+  };
+};
+
 export const cellsReducer = cellsSlice.reducer;
