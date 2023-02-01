@@ -5,6 +5,7 @@ import prettier from 'prettier';
 import parser from 'prettier/parser-babel';
 import ActionButton from '../ActionButton/ActionButton';
 import { BsSun, BsMoon } from 'react-icons/bs';
+import { SiPrettier } from 'react-icons/si';
 
 interface CodeEditorProps {
   initialValue: string;
@@ -14,41 +15,60 @@ interface CodeEditorProps {
 const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
   const [editorTheme, setEditorTheme] = useState('vs-dark');
 
-  const memoizeHandleKeyPress = useMemo(() => {
-    return (e: KeyboardEvent) => {
-      if (e.key === 'Alt') {
-        try {
-          const formatted = prettier
-            .format(initialValue, {
-              parser: 'babel',
-              plugins: [parser],
-              useTabs: false,
-              semi: true,
-              singleQuote: true,
-            })
-            .replace(/\n$/, '');
+  const onformatClick = () => {
+    const formattedCode = prettier
+      .format(initialValue, {
+        parser: 'babel',
+        plugins: [parser],
+        useTabs: false,
+        semi: true,
+        singleQuote: true,
+      })
+      .replace(/\n$/, '');
 
-          onChange(formatted);
-        } catch (error) {
-          if (error instanceof Error) {
-            // later use global state to get this error
-            console.log(error);
-          }
-        }
-      }
-    };
-  }, [onChange, initialValue]);
+    onChange(formattedCode);
+  };
 
-  useEffect(() => {
-    window.addEventListener('keydown', memoizeHandleKeyPress);
+  // const memoizeHandleKeyPress = useMemo(() => {
+  //   return (e: KeyboardEvent) => {
+  //     if (e.key === 'Alt') {
+  //       try {
+  //         const formatted = prettier
+  //           .format(initialValue, {
+  //             parser: 'babel',
+  //             plugins: [parser],
+  //             useTabs: false,
+  //             semi: true,
+  //             singleQuote: true,
+  //           })
+  //           .replace(/\n$/, '');
 
-    return () => {
-      window.removeEventListener('keydown', memoizeHandleKeyPress);
-    };
-  }, [memoizeHandleKeyPress]);
+  //         onChange(formatted);
+  //       } catch (error) {
+  //         if (error instanceof Error) {
+  //           // later use global state to get this error
+  //           console.log(error);
+  //         }
+  //       }
+  //     }
+  //   };
+  // }, [onChange, initialValue]);
+
+  // useEffect(() => {
+  //   window.addEventListener('keydown', memoizeHandleKeyPress);
+
+  //   return () => {
+  //     window.removeEventListener('keydown', memoizeHandleKeyPress);
+  //   };
+  // }, [memoizeHandleKeyPress]);
 
   return (
     <div className={styles.editor_wrapper}>
+      <ActionButton
+        onClick={onformatClick}
+        icon={<SiPrettier />}
+        className={styles.btn_format}
+      />
       <MonacoEditor
         height="100%"
         language="javascript"
@@ -71,14 +91,14 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
       />
       {editorTheme === 'vs-dark' ? (
         <ActionButton
-          className={styles.button}
+          className={styles.btn_mode}
           icon={<BsSun />}
           onClick={() => setEditorTheme('light')}
         />
       ) : (
         <ActionButton
           icon={<BsMoon />}
-          className={styles.button}
+          className={styles.btn_mode}
           onClick={() => setEditorTheme('vs-dark')}
         />
       )}
