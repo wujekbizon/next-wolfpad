@@ -125,13 +125,13 @@ a {
 }
 
 .react-resizable-handle-e:active {
-  border-top: 120px solid #30363d;
-  border-bottom: 120px solid #30363d;
+  border-top: 60px solid #30363d;
+  border-bottom: 60px solid #30363d;
 }
 
 .react-resizable-handle-s:active {
-  border-left: 600px solid #30363d;
-  border-right: 600px solid #30363d;
+  border-left: 200px solid #30363d;
+  border-right: 200px solid #30363d;
 }
 
 .resize-horizontal {

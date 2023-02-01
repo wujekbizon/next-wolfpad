@@ -6,6 +6,7 @@ import Resizable from '../Resizable/Resizable';
 import { Cell } from '../../state/cell';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import ProgressBar from '../ProgressBar/ProgressBar';
 
 interface CodeCellProps {
   cell: Cell;
@@ -23,7 +24,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [cell.content, cell.id]);
+  }, [cell.content, cell.id, createBundle]);
 
   return (
     <>
@@ -42,11 +43,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
           </Resizable>
           <div className={styles.progress_wrapper}>
             {!bundle || bundle.loading ? (
-              <div className={styles.progress_cover}>
-                <progress className={styles.progress} max="100">
-                  Loading
-                </progress>
-              </div>
+              <ProgressBar text="Loading" />
             ) : (
               <Preview code={bundle.code} error={bundle.err} />
             )}

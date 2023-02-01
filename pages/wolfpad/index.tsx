@@ -1,9 +1,10 @@
 import dynamic from 'next/dynamic';
+import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
 const DynamicCellList = dynamic(
   () => import('../../components/CellList/CellList'),
   {
-    loading: () => <p>Loading App...</p>,
+    loading: () => <ProgressBar />,
     ssr: false,
   }
 );
