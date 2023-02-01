@@ -6,7 +6,9 @@ import {
   fetchCellsStart,
   fetchCellsError,
   fetchCellsComplete,
+  saveCellsError,
 } from './slices/cellsSlice';
+import { RootState } from '../state';
 import axios from 'axios';
 
 export const createBundle = (cellId: string, input: string) => {
@@ -48,6 +50,26 @@ export const fetchCells = () => {
         );
       } else {
         throw error;
+      }
+    }
+  };
+};
+
+export const saveCells = () => {
+  return async (dispatch: Dispatch, getState: () => RootState) => {
+    const {
+      cells: { data, order },
+    } = getState();
+
+    const cells = order.map((id) => data[id]);
+
+    try {
+      await axios.post('/cells', { cells });
+    } catch (error) {
+      if (error instanceof Error) {
+        dispatch(saveCellsError({ payload: error.message }));
+      } else {
+        console.log(error);
       }
     }
   };

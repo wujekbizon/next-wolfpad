@@ -43,7 +43,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
           <div className={styles.progress_wrapper}>
             {!bundle || bundle.loading ? (
               <div className={styles.progress_cover}>
-                <progress className="progress is-small is-primary" max="100">
+                <progress className={styles.progress} max="100">
                   Loading
                 </progress>
               </div>
