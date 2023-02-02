@@ -6,6 +6,7 @@ import Resizable from '../Resizable/Resizable';
 import { Cell } from '../../state/cell';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useCumulativeCode } from '../../hooks/useCumulativeCode';
 import ProgressBar from '../ProgressBar/ProgressBar';
 
 interface CodeCellProps {
@@ -15,16 +16,17 @@ interface CodeCellProps {
 const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const { updateCell, createBundle } = useActions();
   const bundle = useTypedSelector((state) => state.bundles[cell.id]);
+  const cumulativeCode = useCumulativeCode(cell.id);
 
   useEffect(() => {
     const timer: NodeJS.Timer = setTimeout(async () => {
-      createBundle(cell.id, cell.content);
+      createBundle(cell.id, cumulativeCode);
     }, 750);
 
     return () => {
       clearTimeout(timer);
     };
-  }, [cell.content, cell.id, createBundle]);
+  }, [cumulativeCode, cell.id, createBundle]);
 
   return (
     <>
