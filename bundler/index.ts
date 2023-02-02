@@ -28,6 +28,8 @@ const codeProcessor = async (rawCode: string) => {
       bundle: true,
       write: false,
       plugins: [unpkgPathPlugin(), fetchPlugin(rawCode)],
+      jsxFactory: '_React.createElement',
+      jsxFragment: '_React.Fragment',
     });
     return {
       code: result.outputFiles[0].text,

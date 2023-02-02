@@ -1,5 +1,5 @@
 import styles from './CodeEditor.module.css';
-import { useState, useEffect, useMemo } from 'react';
+import { useState } from 'react';
 import MonacoEditor from '@monaco-editor/react';
 import prettier from 'prettier';
 import parser from 'prettier/parser-babel';
@@ -28,39 +28,6 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
 
     onChange(formattedCode);
   };
-
-  // const memoizeHandleKeyPress = useMemo(() => {
-  //   return (e: KeyboardEvent) => {
-  //     if (e.key === 'Alt') {
-  //       try {
-  //         const formatted = prettier
-  //           .format(initialValue, {
-  //             parser: 'babel',
-  //             plugins: [parser],
-  //             useTabs: false,
-  //             semi: true,
-  //             singleQuote: true,
-  //           })
-  //           .replace(/\n$/, '');
-
-  //         onChange(formatted);
-  //       } catch (error) {
-  //         if (error instanceof Error) {
-  //           // later use global state to get this error
-  //           console.log(error);
-  //         }
-  //       }
-  //     }
-  //   };
-  // }, [onChange, initialValue]);
-
-  // useEffect(() => {
-  //   window.addEventListener('keydown', memoizeHandleKeyPress);
-
-  //   return () => {
-  //     window.removeEventListener('keydown', memoizeHandleKeyPress);
-  //   };
-  // }, [memoizeHandleKeyPress]);
 
   return (
     <div className={styles.editor_wrapper}>
