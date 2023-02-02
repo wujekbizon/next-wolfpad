@@ -4,7 +4,11 @@ import ProgressBar from '../../components/ProgressBar/ProgressBar';
 const DynamicCellList = dynamic(
   () => import('../../components/CellList/CellList'),
   {
-    loading: () => <ProgressBar />,
+    loading: () => (
+      <div className="dynamic-loader">
+        <ProgressBar />
+      </div>
+    ),
     ssr: false,
   }
 );
