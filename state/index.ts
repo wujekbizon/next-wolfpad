@@ -36,12 +36,13 @@ export const actionCreators = {
 store.dispatch(
   insertCellAfter({
     id: null,
-    type: 'text',
+    type: 'code',
   })
 );
+
 store.dispatch(
   insertCellAfter({
     id: null,
-    type: 'code',
+    type: 'text',
   })
 );

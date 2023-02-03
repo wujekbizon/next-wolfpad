@@ -127,6 +127,10 @@ a {
   pointer-events: none;
 }
 
+.react-draggable-transparent-selection .cell-list {
+  margin-bottom: 100vh;
+}
+
 .dynamic-loader {
   height: 100vh;
   display: flex;

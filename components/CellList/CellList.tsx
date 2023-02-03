@@ -10,7 +10,7 @@ const CellList = () => {
   );
 
   return (
-    <div className={styles.cell_list}>
+    <div className={`cell-list ${styles.cell_list}`}>
       <AddCell prevCellId={null} forceVisible={cells.length === 0} />
       {cells.map((cell) => {
         return (

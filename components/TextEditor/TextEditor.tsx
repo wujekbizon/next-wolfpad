@@ -18,8 +18,12 @@ import { TRANSFORMERS } from '@lexical/markdown';
 import ToolbarPlugin from './Plugins/ToolbarPlugin';
 import CodeHighlightPlugin from './Plugins/CodeHighlightPlugin';
 import ActionsPlugin from './Plugins/ActionPlugin';
+import Placeholder from './Placeholder';
+import prepopulatedText from './SampleText';
 
-import { testText } from './SampleText';
+interface TextEditorProps {
+  cell: Cell;
+}
 
 const MyCustomAutoFocusPlugin = () => {
   const [editor] = useLexicalComposerContext();
@@ -31,27 +35,16 @@ const MyCustomAutoFocusPlugin = () => {
   return null;
 };
 
-const Placeholder = () => {
-  return (
-    <div className="editor-placeholder">
-      Play around with the Markdown plugin...
-    </div>
-  );
-};
-
 const onError = (error: Error) => {
   console.error(error.message);
   throw error;
 };
 
-interface TextEditorProps {
-  cell: Cell;
-}
-
 const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
+  console.log(cell.content);
   const initialConfig = {
     namespace: 'Wolfpad_Editor',
-    editorState: testText,
+    // editorState: prepopulatedText,
     theme: exampleTheme,
     onError,
 

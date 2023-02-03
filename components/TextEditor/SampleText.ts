@@ -7,55 +7,43 @@ const prepopulatedText = () => {
   const root = $getRoot();
 
   const heading = $createHeadingNode('h1');
-  heading.append($createTextNode('OpenAi Jarvis chatbot'));
-  root.append(heading);
-  const quote = $createQuoteNode();
-  quote.append($createTextNode('This is a quote node.'));
-  root.append(quote);
-  const paragraph = $createParagraphNode();
-  paragraph.append(
-    $createTextNode('Here are some text formats: '),
-    $createTextNode('code').toggleFormat('code'),
-    $createTextNode(', '),
-    $createTextNode('bold').toggleFormat('bold'),
-    $createTextNode(', '),
-    $createTextNode('italic').toggleFormat('italic'),
-    $createTextNode(' and so on.')
+  heading.append(
+    $createTextNode('Welcome to Wolfpad - an interactive coding environment.')
   );
-  root.append(paragraph);
+  root.append(heading);
 
-  const paragraph2 = $createParagraphNode();
-  paragraph2.append($createTextNode(`Here is a list example:`));
-  root.append(paragraph2);
-  const list = $createListNode('bullet');
+  const heading2 = $createHeadingNode('h1');
+  heading2.append(
+    $createTextNode(
+      `You can write Javascript, see it executed, and write comprehensive documentation using built in markdown editor.`
+    )
+  );
+
+  root.append(heading2);
+  const list = $createListNode('number');
   list.append(
     $createListItemNode().append(
-      $createTextNode(`These are links (e.g., `),
-      $createLinkNode('https://wolfai-chat-bot.vercel.app/').append(
-        $createTextNode('The New Era Of AI')
-      ),
-      $createTextNode(`).`)
+      $createTextNode(
+        `The code in each code editor is all joined together into one file. If you define a variable in cell #1, you can refer to it in any following cell!`
+      )
     ),
     $createListItemNode().append(
-      $createTextNode(`Press twice on the link to see and edit the URL.`)
+      $createTextNode(
+        `You can show any React component, string, number, or anything else by calling the > show < function. This is a function built into this environment. Call show multiple times to show multiple values`
+      )
+    ),
+    $createListItemNode().append(
+      $createTextNode(
+        `Re-order or delete cells using the buttons on the top right`
+      )
+    ),
+    $createListItemNode().append(
+      $createTextNode(
+        `Add new cells by hovering on the divider between each cell`
+      )
     )
   );
   root.append(list);
-  const paragraph3 = $createParagraphNode();
-  paragraph3.append(
-    $createTextNode(
-      `Press the bottom right button to switch to Markdown & vice versa.`
-    )
-  );
-  root.append(paragraph3);
 };
 
 export default prepopulatedText;
-
-export const testText = () => {
-  const root = $getRoot();
-
-  const heading = $createHeadingNode('h1');
-  heading.append($createTextNode('Click me'));
-  root.append(heading);
-};
