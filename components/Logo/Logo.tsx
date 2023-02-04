@@ -1,6 +1,10 @@
 import styles from './Logo.module.css';
 
-const Logo = () => {
-  return <h2 className={`gradient_text ${styles.logo}`}>Wolfpad</h2>;
+type LogoProps = {
+  title: string;
+};
+
+const Logo = ({ title }: LogoProps) => {
+  return <h2 className={`gradient_text ${styles.logo}`}>{title}</h2>;
 };
 export default Logo;

@@ -1,0 +1,29 @@
+.header_container {
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  position: relative;
+}
+
+.nav_center {
+  width: 90vw;
+  height: 100%;
+  max-width: 1170px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_links {
+  display: flex;
+  align-items: center;
+}
+
+.link_btn {
+  font-size: 1.4rem;
+  color: white;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+}

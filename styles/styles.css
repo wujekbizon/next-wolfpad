@@ -145,7 +145,7 @@ h1 {
 }
 
 .editor-text-code {
-  background-color: rgb(240, 242, 245);
+  background-color: #30363d;
   padding: 1px 0.25rem;
   font-family: Menlo, Consolas, Monaco, monospace;
   font-size: 94%;

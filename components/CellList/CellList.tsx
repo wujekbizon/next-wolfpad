@@ -1,5 +1,5 @@
 import styles from './CellList.module.css';
-import { useEffect, Fragment } from 'react';
+import { Fragment } from 'react';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import CellListItem from '../CellListItem/CellListItem';
 import AddCell from '../AddCell/AddCell';
