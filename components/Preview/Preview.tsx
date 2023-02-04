@@ -43,7 +43,7 @@ const Preview: React.FC<PreviewProps> = ({ code, error }) => {
     // reseting the contents of the iframe
     iframe.current.srcdoc = html;
     setTimeout(() => {
-      iframe.current.contentWindow.postMessage(code, '*');
+      iframe.current?.contentWindow.postMessage(code, '*');
     }, 50);
   }, [code]);
 
