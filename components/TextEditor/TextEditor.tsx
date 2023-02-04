@@ -19,7 +19,6 @@ import ToolbarPlugin from './Plugins/ToolbarPlugin';
 import CodeHighlightPlugin from './Plugins/CodeHighlightPlugin';
 import ActionsPlugin from './Plugins/ActionPlugin';
 import Placeholder from './Placeholder';
-import prepopulatedText from './SampleText';
 import Resizable from '../Resizable/Resizable';
 
 interface TextEditorProps {
