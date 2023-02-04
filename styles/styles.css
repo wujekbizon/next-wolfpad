@@ -4,7 +4,7 @@
   position: absolute;
   text-align: right;
   padding: 10px;
-  bottom: 0;
+  top: 0;
   right: 0;
 }
 
@@ -82,18 +82,17 @@ h1 {
   line-height: 20px;
   font-weight: 400;
   text-align: left;
+  margin-bottom: 20px;
 }
 
 .editor-inner {
   min-height: 100%;
   background: #1e1e1e;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
   position: relative;
 }
 
 .editor-input {
-  min-height: 250px;
+  min-height: 280px;
   height: 100%;
   font-size: 15px;
   caret-color: rgb(5, 5, 5);
@@ -102,6 +101,20 @@ h1 {
   outline: 0;
   padding: 15px 10px;
   caret-color: #444;
+}
+
+.editor-scroller::-webkit-scrollbar {
+  width: 10px;
+}
+
+.editor-scroller::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.editor-scroller::-webkit-scrollbar-thumb {
+  background: linear-gradient(189.97deg, #ae67fa 1.84%, #f49867 102.67%);
+  border-radius: 20px;
+  border: 3px solid #30363d;
 }
 
 .editor-placeholder {
@@ -122,6 +135,7 @@ h1 {
   font-weight: 300;
   color: #999;
   margin-left: 20px;
+  line-height: 30px;
 }
 .editor-placeholder .placeholder-list {
   list-style: decimal;
@@ -131,10 +145,10 @@ h1 {
 }
 
 .editor-placeholder .placeholder-note {
-  text-align: center;
   letter-spacing: 0.1rem;
-  font-size: 10px;
-  font-family: 'Nunito';
+  font-size: 8px;
+  margin-top: 20px;
+  margin-left: 50px;
   text-transform: uppercase;
 }
 
@@ -145,14 +159,10 @@ h1 {
 }
 
 .editor-scroller {
-  min-height: 50px;
-  border: 0;
-  cursor: text;
-  display: block;
+  min-height: 150px;
+  height: 100%;
   position: relative;
-  outline: 0;
   overflow: auto;
-  resize: vertical;
 }
 
 .editor-text-bold {
@@ -320,15 +330,6 @@ h1 {
 
 .editor-nested-listitem {
   list-style-type: none;
-}
-
-pre::-webkit-scrollbar {
-  background: transparent;
-  width: 10px;
-}
-
-pre::-webkit-scrollbar-thumb {
-  background: #999;
 }
 
 .toolbar {

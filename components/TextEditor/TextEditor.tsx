@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Cell } from '../../state/cell';
 import exampleTheme from './Themes';
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
@@ -20,6 +20,7 @@ import CodeHighlightPlugin from './Plugins/CodeHighlightPlugin';
 import ActionsPlugin from './Plugins/ActionPlugin';
 import Placeholder from './Placeholder';
 import prepopulatedText from './SampleText';
+import Resizable from '../Resizable/Resizable';
 
 interface TextEditorProps {
   cell: Cell;
@@ -41,7 +42,6 @@ const onError = (error: Error) => {
 };
 
 const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
-  console.log(cell.content);
   const initialConfig = {
     namespace: 'Wolfpad_Editor',
     // editorState: prepopulatedText,
@@ -67,21 +67,23 @@ const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
     <LexicalComposer initialConfig={initialConfig}>
       <div className="editor-container">
         <ToolbarPlugin />
-        <div className="editor-scroller">
-          <div className="editor-inner">
-            <RichTextPlugin
-              contentEditable={<ContentEditable className="editor-input" />}
-              placeholder={<Placeholder />}
-              ErrorBoundary={LexicalErrorBoundary}
-            />
-            <MyCustomAutoFocusPlugin />
-            <ListPlugin />
-            <LinkPlugin />
-            <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
-            <CodeHighlightPlugin />
-            <ActionsPlugin />
+        <Resizable direction="vertical">
+          <div className="editor-scroller">
+            <div className="editor-inner">
+              <RichTextPlugin
+                contentEditable={<ContentEditable className="editor-input" />}
+                placeholder={<Placeholder />}
+                ErrorBoundary={LexicalErrorBoundary}
+              />
+              <MyCustomAutoFocusPlugin />
+              <ListPlugin />
+              <LinkPlugin />
+              <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+              <CodeHighlightPlugin />
+              <ActionsPlugin />
+            </div>
           </div>
-        </div>
+        </Resizable>
       </div>
     </LexicalComposer>
   );
