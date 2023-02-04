@@ -117,47 +117,6 @@ h1 {
   border: 3px solid #30363d;
 }
 
-.editor-placeholder {
-  color: #999;
-  overflow: hidden;
-  position: absolute;
-  text-overflow: ellipsis;
-  top: 15px;
-  left: 10px;
-  font-size: 15px;
-  user-select: none;
-  display: inline-block;
-  pointer-events: none;
-}
-
-.editor-placeholder .placeholder-title {
-  font-size: 35px;
-  font-weight: 300;
-  color: #999;
-  margin-left: 20px;
-  line-height: 30px;
-}
-.editor-placeholder .placeholder-list {
-  list-style: decimal;
-  margin-left: 40px;
-  color: #5c5b5b;
-  letter-spacing: 0.09rem;
-}
-
-.editor-placeholder .placeholder-note {
-  letter-spacing: 0.1rem;
-  font-size: 8px;
-  margin-top: 20px;
-  margin-left: 50px;
-  text-transform: uppercase;
-}
-
-.editor-placeholder .placeholder-info {
-  margin-left: 20px;
-  color: #5c5b5b;
-  font-size: 20px;
-}
-
 .editor-scroller {
   min-height: 150px;
   height: 100%;

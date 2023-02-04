@@ -1,0 +1,40 @@
+.editor_placeholder {
+  color: #999;
+  overflow: hidden;
+  position: absolute;
+  text-overflow: ellipsis;
+  top: 15px;
+  left: 10px;
+  font-size: 15px;
+  user-select: none;
+  display: inline-block;
+  pointer-events: none;
+}
+
+.placeholder_title {
+  font-size: 35px;
+  font-weight: 300;
+  color: #999;
+  margin-left: 20px;
+  line-height: 30px;
+}
+.placeholder_list {
+  list-style: decimal;
+  margin-left: 40px;
+  color: #5c5b5b;
+  letter-spacing: 0.09rem;
+}
+
+.placeholder_note {
+  letter-spacing: 0.1rem;
+  font-size: 8px;
+  margin-top: 20px;
+  margin-left: 50px;
+  text-transform: uppercase;
+}
+
+.placeholder_info {
+  margin-left: 20px;
+  color: #5c5b5b;
+  font-size: 20px;
+}
