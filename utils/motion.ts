@@ -144,3 +144,19 @@ export const slideIn = (
     },
   },
 });
+
+export const titleVariants = (direction: string, rotate = 0) => ({
+  hidden: {
+    x: direction === 'left' ? '-100%' : '100%',
+    rotate: 120,
+  },
+  show: {
+    x: 0,
+    rotate: rotate,
+    transition: {
+      type: 'spring',
+      duration: 1.8,
+      delay: 0.5,
+    },
+  },
+});
