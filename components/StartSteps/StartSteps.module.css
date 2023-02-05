@@ -12,7 +12,6 @@
   width: 70px;
   height: 70px;
   border-radius: 24px;
-  background-color: rgba(50, 63, 93, 1);
 }
 
 .content {
@@ -29,5 +28,5 @@
   font-family: 'Eudoxus Sans';
   font-weight: 700;
   font-size: 20px;
-  color: white;
+  color: #040c18;
 }

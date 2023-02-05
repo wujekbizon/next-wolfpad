@@ -85,6 +85,10 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid #30363d;
 }
 
+.gradient_relative {
+  position: relative;
+}
+
 .gradient_text {
   background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
   background-clip: text;
@@ -174,4 +178,16 @@ a {
 
   background: #7aebfb;
   filter: blur(170px);
+}
+
+.gradient-04 {
+  position: absolute;
+  width: 304px;
+  height: 100vh;
+  left: 30%;
+  top: 10%;
+
+  background: rgba(45, 72, 152, 0.75);
+  filter: blur(200px);
+  transform: rotate(-53.13deg);
 }
