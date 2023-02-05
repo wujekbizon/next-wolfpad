@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Logo from '../Logo/Logo';
 import { motion } from 'framer-motion';
 import { navVariants } from '../../utils/motion';
+import Image from 'next/image';
 
 const Navbar = () => {
   return (
@@ -15,10 +16,17 @@ const Navbar = () => {
     >
       <div className={`${styles.navbar_gradient} gradient-01 `} />
       <nav className={styles.nav_center}>
-        <div>
+        <div className={styles.image_container}>
           <Link href="/">
-            <Logo title="Wolfpad" />
+            <Image
+              src="/images/wolfpad.png"
+              alt="wolfpad"
+              width={80}
+              height={80}
+              className={styles.logo}
+            />
           </Link>
+          <Logo title="Wolfpad" />
         </div>
 
         <ul className={styles.nav_links}>

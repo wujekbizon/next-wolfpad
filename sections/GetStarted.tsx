@@ -1,6 +1,6 @@
 import styles from './GetStarted.module.css';
 import { motion } from 'framer-motion';
-import { staggerContainer, fadeIn, titleVariants } from '../utils/motion';
+import { staggerContainer, fadeIn } from '../utils/motion';
 import { startingFeatures } from '../data/features';
 import StartSteps from '../components/StartSteps/StartSteps';
 import { TitleText } from '../components/Animation/CustomText';
@@ -17,7 +17,7 @@ const GetStarted = () => {
         className={styles.content}
       >
         <motion.div
-          variants={titleVariants('left')}
+          variants={fadeIn('right', 'tween', 0.4, 1)}
           className={styles.image_container}
         >
           <img

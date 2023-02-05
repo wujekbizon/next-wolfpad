@@ -13,8 +13,8 @@ export const newFeatures = [
   },
   {
     imgUrl: '/images/bot.svg',
-    title: 'ChatGPT3',
+    title: 'Chat GPT3',
     subtitle:
-      'Coming soon, OpenAi chatbot, that will make the awesome addition to this project',
+      'Coming soon, OpenAi chatbot. Lets fully experience the power of AI.',
   },
 ];

@@ -1,7 +1,7 @@
 import styles from './WhatsNew.module.css';
 import { newFeatures } from '../data/features';
 import { motion } from 'framer-motion';
-import { fadeIn, staggerContainer, titleVariants } from '../utils/motion';
+import { fadeIn, staggerContainer } from '../utils/motion';
 import Title from '../components/Animation/Title';
 import { TitleText } from '../components/Animation/CustomText';
 import NewFeature from '../components/NewFeature/NewFeature';
@@ -31,11 +31,11 @@ const WhatsNew = () => {
           </div>
         </motion.div>
         <motion.div
-          variants={titleVariants('right')}
+          variants={fadeIn('left', 'tween', 0.4, 1)}
           className={styles.image_container}
         >
           <img
-            src="/images/code.jpg"
+            src="/images/chatbot.png"
             alt="get-started"
             className={styles.image}
           />

@@ -25,7 +25,7 @@ const Hero = () => {
           className={styles.image_motion}
         >
           <div className={`${styles.image_container} submenu-gradient`} />
-          <img src="/images/code.jpg" alt="code" className={styles.image} />
+          <img src="/images/cell.png" alt="code" className={styles.image} />
         </motion.div>
       </motion.div>
     </section>
