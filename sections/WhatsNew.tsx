@@ -35,7 +35,7 @@ const WhatsNew = () => {
           className={styles.image_container}
         >
           <img
-            src="/images/vr.avif"
+            src="/images/code.jpg"
             alt="get-started"
             className={styles.image}
           />
