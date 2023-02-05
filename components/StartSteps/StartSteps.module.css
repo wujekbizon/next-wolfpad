@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.item_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 24px;
+  background-color: rgba(50, 63, 93, 1);
+}
+
+.content {
+  flex: 1 1 0%;
+  margin-left: 30px;
+  font-family: 'Eudoxus Sans';
+  font-weight: 400;
+  font-size: 18px;
+  color: rgb(176, 176, 176, 1);
+  line-height: 32.4px;
+}
+
+.item {
+  font-family: 'Eudoxus Sans';
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+}
