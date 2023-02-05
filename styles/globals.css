@@ -96,6 +96,20 @@ body::-webkit-scrollbar-thumb {
   background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
 }
 
+.animated_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.animated_title span {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Eudoxus Sans';
+  text-transform: capitalize;
+}
+
 a {
   color: inherit;
   text-decoration: none;

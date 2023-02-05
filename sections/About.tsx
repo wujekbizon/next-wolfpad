@@ -1,6 +1,7 @@
 import styles from './About.module.css';
 import { motion } from 'framer-motion';
 import { staggerContainer, fadeIn } from '../utils/motion';
+import Title from '../components/Animation/Title';
 
 const About = () => {
   return (
@@ -13,6 +14,10 @@ const About = () => {
         viewport={{ once: false, amount: 0.25 }}
         className={styles.about_content}
       >
+        <div className="animated_title">
+          <Title title="about wolfpad" />
+        </div>
+
         <motion.p
           variants={fadeIn('up', 'tween', 0.2, 1)}
           className={styles.about_content}

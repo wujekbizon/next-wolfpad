@@ -11,7 +11,7 @@ const Title = ({
   textStyles?: string;
 }) => {
   return (
-    <div className="title-wrapper">
+    <div>
       <motion.div
         variants={fadeIn('left', 'tween', 1.1, 1.5)}
         className={styles.divider}

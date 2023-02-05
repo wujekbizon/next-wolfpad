@@ -1,4 +1,4 @@
-import styles from 'StartSteps.module.css';
+import styles from './StartSteps.module.css';
 
 type Props = {
   number: string;

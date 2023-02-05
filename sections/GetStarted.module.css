@@ -1,0 +1,43 @@
+.get_started {
+  position: relative;
+  z-index: 10;
+  padding: 64px;
+}
+
+.content {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.image_container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 70%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.content_features {
+  flex: 0.75;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.get_started_wrapper {
+  margin-top: 31px;
+  display: flex;
+  flex-direction: column;
+  max-width: 370px;
+  gap: 24px;
+}

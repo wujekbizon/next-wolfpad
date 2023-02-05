@@ -14,22 +14,27 @@ const GetStarted = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
-        className={styles.get_started_content}
+        className={styles.content}
       >
         <motion.div
           variants={titleVariants('left')}
-          className={styles.get_started_image_container}
+          className={styles.image_container}
         >
-          <img src="/images/code.jpg" alt="get-started" />
+          <img
+            src="/images/code.jpg"
+            alt="get-started"
+            className={styles.image}
+          />
         </motion.div>
         <motion.div
           variants={fadeIn('left', 'tween', 0.2, 1)}
-          className={styles.get_started_content_features}
+          className={styles.content_features}
         >
           <div className="animated_title">
             <Title title="Wolfpad 2.0" />
           </div>
-          <TitleText title={<>Get started with just a few clicks</>} />
+
+          <TitleText title={<>Get started </>} />
           <div className={styles.get_started_wrapper}>
             {startingFeatures.map((feature, index) => (
               <StartSteps
