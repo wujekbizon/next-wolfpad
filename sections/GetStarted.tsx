@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { staggerContainer, fadeIn, titleVariants } from '../utils/motion';
 import { startingFeatures } from '../data/features';
 import StartSteps from '../components/StartSteps/StartSteps';
+import { TitleText } from '../components/Animation/CustomText';
+import Title from '../components/Animation/Title';
 
 const GetStarted = () => {
   return (
