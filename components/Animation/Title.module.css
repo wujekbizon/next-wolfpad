@@ -1,6 +1,5 @@
 .divider {
   display: block;
-  max-width: 50%;
   height: 4px;
   border-radius: 2px;
   background: linear-gradient(103.22deg, #ae67fa -13.86%, #f49867 99.55%);

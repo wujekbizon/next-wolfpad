@@ -5,10 +5,12 @@
 
 .hero_container {
   max-width: 1280px;
+  height: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .hero_title {
@@ -43,11 +45,11 @@
 .image_container {
   position: absolute;
   width: 100%;
-  height: 470px;
+  height: 440px;
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
   z-index: 0;
-  top: -70px;
+  top: -60px;
 }
 
 .image {

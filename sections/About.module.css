@@ -9,7 +9,7 @@
   padding: 64px;
 }
 
-.about_content {
+.about_container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,4 +24,6 @@
   font-weight: 200;
   font-size: 30px;
   color: white;
+  line-height: 120%;
+  margin: 0;
 }

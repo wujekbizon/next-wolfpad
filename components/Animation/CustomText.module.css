@@ -1,10 +1,13 @@
-/* .text_typed span {
-  font-family: 'Eudoxus Sans';
+.text_typed span {
   font-size: 14px;
   font-weight: 500;
   text-transform: capitalize;
   color: whitesmoke;
-} */
+}
+.text_typed {
+  margin: 16px 0;
+}
+
 .text_title {
   font-size: 64px;
   color: white;

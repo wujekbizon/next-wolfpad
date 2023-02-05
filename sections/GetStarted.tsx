@@ -26,6 +26,7 @@ const GetStarted = () => {
             className={styles.image}
           />
         </motion.div>
+
         <motion.div
           variants={fadeIn('left', 'tween', 0.2, 1)}
           className={styles.content_features}
@@ -33,8 +34,7 @@ const GetStarted = () => {
           <div className="animated_title">
             <Title title="Wolfpad 2.0" />
           </div>
-
-          <TitleText title={<>Get started </>} />
+          <TitleText title={<>Get started with just a few clicks</>} />
           <div className={styles.get_started_wrapper}>
             {startingFeatures.map((feature, index) => (
               <StartSteps

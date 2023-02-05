@@ -12,7 +12,7 @@ const About = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
-        className={styles.about_content}
+        className={styles.about_container}
       >
         <div className="animated_title">
           <Title title="about wolfpad" />
@@ -31,7 +31,10 @@ const About = () => {
         </motion.p>
         <br />
 
-        <motion.p variants={fadeIn('up', 'tween', 0.4, 1)}>
+        <motion.p
+          variants={fadeIn('up', 'tween', 0.4, 1)}
+          className={styles.about_content}
+        >
           Additionally, Wolfpad comes with helpful features such as syntax
           highlighting, auto-completion, and debugging tools that make coding
           more efficient. With these features, developers can focus on the logic

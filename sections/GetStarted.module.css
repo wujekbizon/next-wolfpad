@@ -21,8 +21,8 @@
 }
 
 .image {
-  width: 70%;
-  height: 70%;
+  width: 80%;
+  height: 80%;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -30,12 +30,11 @@
 .content_features {
   flex: 0.75;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
 }
 
 .get_started_wrapper {
-  margin-top: 31px;
   display: flex;
   flex-direction: column;
   max-width: 370px;

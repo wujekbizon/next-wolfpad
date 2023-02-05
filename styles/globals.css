@@ -100,14 +100,6 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
-}
-
-.animated_title span {
-  font-size: 13px;
-  font-weight: 600;
-  font-family: 'Eudoxus Sans';
-  text-transform: capitalize;
 }
 
 a {
