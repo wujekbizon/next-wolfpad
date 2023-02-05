@@ -13,8 +13,8 @@ const Navbar = () => {
       whileInView="show"
       className={styles.header_container}
     >
+      <div className={`${styles.navbar_gradient} gradient-01 `} />
       <nav className={styles.nav_center}>
-        <div className={`${styles.navbar_gradient} gradient-01 `} />
         <div>
           <Link href="/">
             <Logo title="Wolfpad" />

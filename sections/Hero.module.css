@@ -23,7 +23,6 @@
 .hero_title h1 {
   font-weight: 700;
   font-size: 144px;
-  font-family: 'La Belle Aurore';
   letter-spacing: 1.25rem;
   color: white;
 }
@@ -33,7 +32,6 @@
   letter-spacing: 0.09rem;
   font-weight: 400;
   font-size: 40px;
-  margin-top: -20px;
 }
 
 .image_motion {

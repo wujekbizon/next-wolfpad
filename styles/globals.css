@@ -158,3 +158,14 @@ a {
   );
   filter: blur(125px);
 }
+
+.gradient-02 {
+  position: absolute;
+  width: 200px;
+  height: 438px;
+  top: 0px;
+  left: 50%;
+
+  background: #7aebfb;
+  filter: blur(190px);
+}
