@@ -2,3 +2,9 @@
   font-size: 22px;
   font-weight: 500;
 }
+.logo {
+  font-family: 'La Belle Aurore';
+  font-size: 50px;
+  font-weight: 400;
+  letter-spacing: 0.8rem;
+}

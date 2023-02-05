@@ -82,12 +82,14 @@ h1 {
   line-height: 20px;
   font-weight: 400;
   text-align: left;
+  background: #1e1e1e;
   margin-bottom: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .editor-inner {
   min-height: 100%;
-  background: #1e1e1e;
   position: relative;
 }
 

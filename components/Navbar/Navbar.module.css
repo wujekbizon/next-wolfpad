@@ -7,6 +7,15 @@
   position: relative;
 }
 
+.navbar_gradient {
+  position: absolute;
+  width: 50%;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
 .nav_center {
   width: 90vw;
   height: 100%;

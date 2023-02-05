@@ -1,25 +1,59 @@
 .home_wrapper {
   height: 100vh;
+  width: 100%;
+  padding: 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
 }
 
-.home_wrapper h1 {
+.hero_title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.hero_title h1 {
+  font-weight: 700;
+  font-size: 144px;
+  font-family: 'La Belle Aurore';
+  letter-spacing: 2rem;
   color: white;
 }
 
-.home_wrapper button {
-  padding: 10px 35px;
-  font-size: 18px;
-  background-color: rgba(67, 30, 63, 1);
-  color: white;
-  opacity: 0.6;
-  cursor: pointer;
+.hero_title h2 {
+  color: #040c18;
+  letter-spacing: 0.09rem;
+  font-weight: 400;
+  font-size: 40px;
+  margin-top: -20px;
 }
 
-.home_wrapper button:hover {
-  color: rgb(170, 108, 164);
-  opacity: 1;
+.image_motion {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.image_container {
+  position: absolute;
+  width: 100%;
+  height: 490px;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  z-index: 0;
+  top: -70px;
+}
+
+.image {
+  width: 900px;
+  height: 400px;
+  object-fit: cover;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  position: relative;
+  z-index: 10;
 }

@@ -1,5 +1,26 @@
 import { Variants } from 'framer-motion';
 
+export const navVariants = {
+  hidden: {
+    opacity: 0,
+    y: -50,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 140,
+    },
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 80,
+      delay: 1,
+    },
+  },
+};
+
 export const staggerContainer = {
   hidden: {},
   show: {
@@ -10,6 +31,22 @@ export const staggerContainer = {
   },
 } as Variants;
 
+export const textTitleVariant = (delay: number) => ({
+  hidden: {
+    y: 50,
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      duration: 1.25,
+      delay,
+    },
+  },
+});
+
 export const textContainer = {
   hidden: {
     opacity: 0,
@@ -17,6 +54,16 @@ export const textContainer = {
   show: (i = 1) => ({
     opacity: 1,
     transition: { staggerChildren: 0.04, delayChildren: i * 0.04 },
+  }),
+};
+
+export const titleTextContainer = {
+  hidden: {
+    opacity: 0,
+  },
+  show: (i = 1) => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: i * 0.1 },
   }),
 };
 
@@ -69,6 +116,28 @@ export const zoomIn = (delay: number, duration: number) => ({
     opacity: 1,
     transition: {
       type: 'tween',
+      delay,
+      duration,
+      ease: 'easeOut',
+    },
+  },
+});
+
+export const slideIn = (
+  direction: string,
+  type: string,
+  delay: number,
+  duration: number
+) => ({
+  hidden: {
+    x: direction === 'left' ? '-100%' : direction === 'right' ? '150%' : 0,
+    y: direction === 'up' ? '100%' : direction === 'down' ? '100%' : 0,
+  },
+  show: {
+    x: 0,
+    y: 0,
+    transition: {
+      type,
       delay,
       duration,
       ease: 'easeOut',

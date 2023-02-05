@@ -13,8 +13,6 @@ const ActionBar: React.FC<ActionBarProps> = ({ id }) => {
   const { moveCell, deleteCell } = useActions();
   return (
     <div className={styles.action_bar}>
-      <Logo title="Wolfpad" />
-
       <ActionButton
         icon={<FiArrowUp />}
         onClick={() =>
