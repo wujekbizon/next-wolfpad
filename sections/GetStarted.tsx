@@ -2,6 +2,7 @@ import styles from './GetStarted.module.css';
 import { motion } from 'framer-motion';
 import { staggerContainer, fadeIn, titleVariants } from '../utils/motion';
 import { startingFeatures } from '../data/features';
+import StartSteps from '../components/StartSteps/StartSteps';
 
 const GetStarted = () => {
   return (
