@@ -21,7 +21,7 @@ const GetStarted = () => {
           className={styles.image_container}
         >
           <img
-            src="/images/code.jpg"
+            src="/images/cell.png"
             alt="get-started"
             className={styles.image}
           />

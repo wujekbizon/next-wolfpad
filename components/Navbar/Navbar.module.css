@@ -33,22 +33,31 @@
 
 .link_btn {
   font-size: 1.4rem;
-  color: white;
+
+  color: grey;
   letter-spacing: 1px;
   padding: 10px 20px;
 }
 
+.link_btn:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.active {
+  text-decoration: underline;
+  color: white;
+}
+
 .image_container {
-  /* border-radius: 50%; */
-  width: 200px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .logo {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
   border-radius: 50%;
 }

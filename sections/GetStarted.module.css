@@ -21,8 +21,8 @@
 }
 
 .image {
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -38,5 +38,5 @@
   display: flex;
   flex-direction: column;
   max-width: 370px;
-  gap: 24px;
+  gap: 10px;
 }
