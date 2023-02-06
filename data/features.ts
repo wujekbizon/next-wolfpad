@@ -24,13 +24,13 @@ export const exploreFeatures = [
     id: 'feature-1',
     url: '/wolfpad',
     imgUrl: '/images/cell.png',
-    title: 'Wolfpad an interactive coding enviroment',
+    title: 'Interactive Coding Enviroment',
   },
   {
     id: 'feature-2',
     url: '/chat',
     imgUrl: '/images/chatbot2.png',
-    title: 'Access to the Artificial Inteligence',
+    title: 'Access to the Artificial Intelligence',
   },
   {
     id: 'feature-3',

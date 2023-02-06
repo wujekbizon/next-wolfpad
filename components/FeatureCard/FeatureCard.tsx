@@ -35,7 +35,9 @@ const FeatureCard = ({
     >
       <img src={imgUrl} alt={title} className={styles.feature_card_image} />
       {active !== id ? (
-        <h3 className={styles.feature_card_title}>{title}</h3>
+        <h3 className={`gradient_preview ${styles.feature_card_title}`}>
+          {title}
+        </h3>
       ) : (
         <div className={styles.active_title_container}>
           <div className={`${styles.active_image_container} glassmorphism`}>
@@ -48,7 +50,7 @@ const FeatureCard = ({
           <Link href={url}>
             <p className={styles.active_content}>Explore Feature</p>
           </Link>
-          <h2 className={styles.active_title}>{title}</h2>
+          <h2 className={`gradient_text ${styles.active_title}`}>{title}</h2>
         </div>
       )}
     </motion.div>

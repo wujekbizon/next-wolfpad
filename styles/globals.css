@@ -94,6 +94,7 @@ body::-webkit-scrollbar-thumb {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
 }
 
 .submenu-gradient {
@@ -161,6 +162,14 @@ a {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.gradient_preview {
+  background: linear-gradient(360deg, #040c18, rgba(173, 255, 47, 1));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
 }
 
 .gradient-01 {

@@ -1,6 +1,7 @@
 import styles from './Home.module.css';
 import { Hero, About, GetStarted } from '../../sections';
 import WhatsNew from '../../sections/WhatsNew';
+import Explore from '../../sections/Explore';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       </div>
       <GetStarted />
       <WhatsNew />
+      <Explore />
     </main>
   );
 };

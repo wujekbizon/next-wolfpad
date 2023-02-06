@@ -25,7 +25,7 @@ const Explore = () => {
         <TitleText
           title={
             <>
-              Let's explore main features of <br /> School Locker
+              Let's explore main features of <br /> Wolfpad
             </>
           }
         />
