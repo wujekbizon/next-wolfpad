@@ -7,7 +7,7 @@ type Props = {
 const StartSteps = ({ number, text }: Props) => {
   return (
     <div className={styles.container}>
-      <div className={`submenu-gradient ${styles.item_wrapper}`}>
+      <div className={`glassmorphism ${styles.item_wrapper}`}>
         <p className={styles.item}>{number}</p>
       </div>
       <p className={styles.content}>{text}</p>

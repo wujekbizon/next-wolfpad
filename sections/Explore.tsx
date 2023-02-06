@@ -1,6 +1,6 @@
 import styles from './Explore.module.css';
 import { useState } from 'react';
-import FeatureCard from '../components/cards/FeatureCard';
+import FeatureCard from '../components/FeatureCard/FeatureCard';
 import { motion } from 'framer-motion';
 import { staggerContainer } from '../utils/motion';
 import { exploreFeatures } from '../data/features';

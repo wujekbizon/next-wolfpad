@@ -8,7 +8,7 @@ type NewFeatureProps = {
 
 const NewFeature = ({ imgUrl, title, subtitle }: NewFeatureProps) => (
   <div className={styles.new_feature_container}>
-    <div className={`${styles.image_container} submenu-gradient`}>
+    <div className={`${styles.image_container} glassmorphism`}>
       <img src={imgUrl} alt="icon" />
     </div>
     <h1 className={styles.title}>{title}</h1>
