@@ -18,3 +18,24 @@ export const newFeatures = [
       'Coming soon, OpenAi chatbot. Lets fully experience the power of AI.',
   },
 ];
+
+export const exploreFeatures = [
+  {
+    id: 'feature-1',
+    url: '/wolfpad',
+    imgUrl: '/images/cell.png',
+    title: 'Wolfpad an interactive coding enviroment',
+  },
+  {
+    id: 'feature-2',
+    url: '/chat',
+    imgUrl: '/images/chatbot2.png',
+    title: 'Access to the Artificial Inteligence',
+  },
+  {
+    id: 'feature-3',
+    url: '/',
+    imgUrl: '/images/me.png',
+    title: 'Meet the creator of Wolfpad',
+  },
+];
