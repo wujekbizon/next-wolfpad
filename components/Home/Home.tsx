@@ -2,6 +2,7 @@ import styles from './Home.module.css';
 import { Hero, About, GetStarted } from '../../sections';
 import WhatsNew from '../../sections/WhatsNew';
 import Explore from '../../sections/Explore';
+import Footer from '../../sections/Footer';
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <GetStarted />
       <WhatsNew />
       <Explore />
+      <Footer />
     </main>
   );
 };

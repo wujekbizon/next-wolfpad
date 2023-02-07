@@ -11,13 +11,15 @@
   pointer-events: none;
 }
 
-.placeholder_title {
+.placeholder_title span {
   font-size: 35px;
   font-weight: 300;
   color: #999;
-  margin-left: 20px;
-  line-height: 30px;
 }
+.placeholder_title span:first-child {
+  margin-left: 20px;
+}
+
 .placeholder_list {
   list-style: decimal;
   margin-left: 40px;
