@@ -34,7 +34,7 @@ export const exploreFeatures = [
   },
   {
     id: 'feature-3',
-    url: '/',
+    url: '#founder',
     imgUrl: '/images/me.png',
     title: 'Meet the founder of Wolfpad',
   },
