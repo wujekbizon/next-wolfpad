@@ -39,3 +39,22 @@ export const exploreFeatures = [
     title: 'Meet the founder of Wolfpad',
   },
 ];
+
+export const socials = [
+  {
+    name: 'twitter',
+    url: '/images/icons/twitter.svg',
+  },
+  {
+    name: 'linkedin',
+    url: '/images/icons/linkedin.svg',
+  },
+  {
+    name: 'instagram',
+    url: '/images/icons/instagram.svg',
+  },
+  {
+    name: 'facebook',
+    url: '/images/icons/facebook.svg',
+  },
+];
