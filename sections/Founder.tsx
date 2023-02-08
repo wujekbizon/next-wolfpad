@@ -43,8 +43,17 @@ const Founder = () => (
           className={styles.founder_image}
         />
 
-        <motion.div variants={zoomIn(0.4, 1)} className={styles.stamp}>
-          <Image width={150} height={150} src="/images/stamp.png" alt="stamp" />
+        <motion.div
+          variants={zoomIn(0.4, 1)}
+          className={`glassmorphism ${styles.stamp}`}
+        >
+          <Image
+            width={100}
+            height={100}
+            src="/images/wolfpad.png"
+            alt="stamp"
+            className={styles.image}
+          />
         </motion.div>
       </motion.div>
     </motion.div>
