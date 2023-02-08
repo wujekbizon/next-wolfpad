@@ -1,0 +1,44 @@
+.chat {
+  position: relative;
+  padding: 64px;
+}
+
+.content_container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.content_wrapper {
+  flex: 1;
+  height: 700px;
+  background-image: url('/images/ai.png');
+  background-position: center;
+  background-size: cover;
+  overflow: scroll;
+}
+
+.content {
+  height: 100%;
+  /* background: rgba(0, 0, 0, 0.3); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 45px;
+  color: white;
+}
+
+.content_wrapper p {
+  color: white;
+}
+
+.chat_container {
+  flex: 1;
+}
