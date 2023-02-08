@@ -1,8 +1,18 @@
 import styles from './Chat.module.css';
 import { motion } from 'framer-motion';
 import { staggerContainer, fadeIn } from '../../utils/motion';
+import { useRef } from 'react';
+
+import InputForm from './InputForm';
 
 const Chat = () => {
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const submitFormHandler: React.FormEventHandler<HTMLFormElement> = (
+    event
+  ) => {
+    event.preventDefault();
+  };
+
   return (
     <main className={styles.chat}>
       <motion.div
@@ -29,7 +39,9 @@ const Chat = () => {
         <motion.div
           variants={fadeIn('left', 'tween', 0.4, 1)}
           className={styles.chat_container}
-        ></motion.div>
+        >
+          <InputForm formRef={formRef} onHandleSubmit={submitFormHandler} />
+        </motion.div>
       </motion.div>
     </main>
   );

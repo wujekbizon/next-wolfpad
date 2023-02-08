@@ -1,0 +1,48 @@
+.form {
+  width: 70%;
+  max-width: 1280px;
+  margin: 10px auto;
+
+  padding: 10px;
+  background: #031b34;
+
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.form textarea {
+  width: 100%;
+
+  color: #fff;
+  font-size: 18px;
+
+  padding: 10px;
+  background: transparent;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.form textarea::placeholder {
+  color: #c0c5cc;
+  font-weight: 200;
+}
+
+.form button {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 5px;
+  background: rgba(4, 12, 24, 0.5);
+  transition: all 0.3s ease-out;
+}
+
+.form button:hover {
+  background: rgba(4, 12, 24, 1);
+}
