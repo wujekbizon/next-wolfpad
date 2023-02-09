@@ -9,6 +9,7 @@
   margin-right: auto;
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -41,4 +42,25 @@
 
 .chat_container {
   flex: 1;
+  border-radius: 10px;
+  background: #1e1e1e;
+  padding: 15px;
+}
+
+.chat_inner {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
 }

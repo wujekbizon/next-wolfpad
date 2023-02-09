@@ -4,7 +4,7 @@
   margin: 10px auto;
 
   padding: 10px;
-  background: #031b34;
+  background: #30363d;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
@@ -45,5 +45,5 @@
 }
 
 .form button:hover {
-  background: rgba(4, 12, 24, 1);
+  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
 }
