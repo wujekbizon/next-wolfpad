@@ -117,7 +117,7 @@ const Chat = () => {
             )}
           </header>
           <section
-            className={`glassmorphism ${styles.chat_inner}`}
+            className={`${styles.chat_inner}`}
             ref={chatContainerRef}
           ></section>
           <InputForm formRef={formRef} onHandleSubmit={handleSubmitCallback} />
