@@ -45,6 +45,10 @@
   border-radius: 10px;
   background: #1e1e1e;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .chat_inner {
@@ -63,4 +67,34 @@
 
   padding-bottom: 10px;
   scroll-behavior: smooth;
+}
+
+.header {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.header h4 {
+  color: white;
+  transition: all 0.3s linear;
+  font-size: 12px;
+  letter-spacing: 0.3rem;
+}
+
+.line {
+  width: 5vw;
+  height: 3px;
+  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
+  transition: all 0.3s linear;
+}
+
+.online {
+  width: 55vw;
+  height: 3px;
+  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
+  transition: all 0.5s linear;
 }

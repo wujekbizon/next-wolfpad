@@ -10,14 +10,14 @@ type InputFormProps = {
 const InputForm = ({ onHandleSubmit, formRef }: InputFormProps) => {
   return (
     <>
-      {/* <Resizable direction="vertical"> */}
       <form className={styles.form} onSubmit={onHandleSubmit} ref={formRef}>
-        <textarea name="prompt" placeholder="Ask Jarvis..."></textarea>
+        <Resizable direction="vertical">
+          <textarea name="prompt" placeholder="How Can I Help You?"></textarea>
+        </Resizable>
         <button className={styles.send}>
-          <Image src="/images/send.svg" alt="send" width={40} height={70} />
+          <Image src="/images/send.svg" alt="send" width={25} height={25} />
         </button>
       </form>
-      {/* </Resizable> */}
     </>
   );
 };

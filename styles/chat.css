@@ -1,0 +1,64 @@
+/* Chat GPT3 CSS */
+
+.chat_wrapper {
+  width: 100%;
+  padding: 15px;
+}
+
+.ai {
+  background: #040c18;
+}
+
+.chat {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat_profile {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ai .chat_profile {
+  background: radial-gradient(
+    circle at 30% -100%,
+    #042c54 25%,
+    #042c54 85%,
+    #1b78de 100%
+  );
+}
+
+.ai .chat_message {
+  color: #ae67fa;
+}
+
+.chat_profile img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.chat_message {
+  flex: 1;
+  color: white;
+  font-size: 20px;
+  max-width: 100%;
+  overflow-x: scroll;
+  white-space: pre-wrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.chat_message::-webkit-scrollbar {
+  display: none;
+}

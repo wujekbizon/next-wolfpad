@@ -5,6 +5,7 @@ import { useRef, useEffect, useMemo, useCallback, useState } from 'react';
 import fetchOpenAiApi from '../../helpers/chatApiCalls';
 import { generateUniqueId, chatStripe, loader } from '../../helpers/helpers';
 import InputForm from './InputForm';
+import Resizable from '../Resizable/Resizable';
 
 let loadInterval: NodeJS.Timer;
 
@@ -104,6 +105,18 @@ const Chat = () => {
           variants={fadeIn('left', 'tween', 0.4, 1)}
           className={styles.chat_container}
         >
+          <header className={styles.header}>
+            <div
+              className={
+                !isInitializing ? `${styles.line}` : `${styles.online}`
+              }
+            />
+            {!isInitializing ? (
+              <h4>Bot initializing ...</h4>
+            ) : (
+              <h4>Chat Bot Online</h4>
+            )}
+          </header>
           <section
             className={styles.chat_inner}
             ref={chatContainerRef}

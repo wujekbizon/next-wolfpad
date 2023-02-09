@@ -1,18 +1,20 @@
 .form {
   width: 100%;
   max-width: 1280px;
+  max-height: 500px;
   margin: 10px auto;
-
-  padding: 10px;
+  padding: 10px 0;
   background: #30363d;
   border-radius: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 10px;
+  position: relative;
 }
 
 .form textarea {
   width: 100%;
+  height: 100%;
   resize: none;
   color: #fff;
   font-size: 18px;
@@ -31,7 +33,6 @@
 }
 
 .form button {
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +42,10 @@
   background: transparent;
   border-radius: 5px;
   background: rgba(4, 12, 24, 0.5);
-  transition: all 0.3s ease-out;
+  width: 5%;
+  right: 10px;
+  bottom: 10px;
+  position: absolute;
 }
 
 .form button:hover {
