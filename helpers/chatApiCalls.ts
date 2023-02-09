@@ -5,7 +5,7 @@ const fetchOpenAiApi = async (
   interval: NodeJS.Timer,
   element: HTMLElement
 ) => {
-  const response = await fetch('/api/chat', {
+  const response = await fetch('api/chat', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

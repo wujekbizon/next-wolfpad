@@ -5,7 +5,8 @@
   margin: 10px auto;
   padding: 10px 0;
   background: #30363d;
-  border-radius: 10px;
+  border-radius: 5px;
+
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -21,7 +22,6 @@
   font-family: 'Eudoxus Sans';
   padding: 5px;
   background: transparent;
-  border-radius: 5px;
   border: none;
   outline: none;
 }

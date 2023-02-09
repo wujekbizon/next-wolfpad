@@ -78,7 +78,7 @@ const Chat = () => {
   }, [memoizeKeyPressHandler]);
 
   return (
-    <main className={styles.chat}>
+    <main className={styles.chat_section}>
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -111,13 +111,13 @@ const Chat = () => {
               }
             />
             {!isInitializing ? (
-              <h4>Bot initializing ...</h4>
+              <h4>Chat Bot Initializing ...</h4>
             ) : (
               <h4>Chat Bot Online</h4>
             )}
           </header>
           <section
-            className={styles.chat_inner}
+            className={`glassmorphism ${styles.chat_inner}`}
             ref={chatContainerRef}
           ></section>
           <InputForm formRef={formRef} onHandleSubmit={handleSubmitCallback} />
