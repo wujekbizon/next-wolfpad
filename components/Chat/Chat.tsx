@@ -5,7 +5,6 @@ import { useRef, useEffect, useMemo, useCallback, useState } from 'react';
 import fetchOpenAiApi from '../../helpers/chatApiCalls';
 import { generateUniqueId, chatStripe, loader } from '../../helpers/helpers';
 import InputForm from './InputForm';
-import Resizable from '../Resizable/Resizable';
 
 let loadInterval: NodeJS.Timer;
 
