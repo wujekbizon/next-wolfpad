@@ -1,7 +1,7 @@
 .form {
   width: 100%;
   max-width: 1280px;
-  max-height: 500px;
+  height: 100%;
   margin: 10px auto;
   padding: 10px 0;
   background: #30363d;

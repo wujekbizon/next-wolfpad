@@ -5,6 +5,7 @@ import { useRef, useEffect, useMemo, useCallback, useState } from 'react';
 import fetchOpenAiApi from '../../helpers/chatApiCalls';
 import { generateUniqueId, chatStripe, loader } from '../../helpers/helpers';
 import InputForm from './InputForm';
+import ChatBot from '../ChatBot/ChatBot';
 
 let loadInterval: NodeJS.Timer;
 
@@ -78,7 +79,7 @@ const Chat = () => {
   }, [memoizeKeyPressHandler]);
 
   return (
-    <main className={styles.chat_section}>
+    <section className={styles.chat_section}>
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -92,6 +93,7 @@ const Chat = () => {
         >
           <div className={styles.content}>
             <h1 className={styles.title}>Chat</h1>
+
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
               suscipit totam aspernatur inventore neque ipsa aliquid deserunt
@@ -104,26 +106,15 @@ const Chat = () => {
           variants={fadeIn('left', 'tween', 0.4, 1)}
           className={styles.chat_container}
         >
-          <header className={styles.header}>
-            <div
-              className={
-                !isInitializing ? `${styles.line}` : `${styles.online}`
-              }
-            />
-            {!isInitializing ? (
-              <h4>Chat Bot Initializing ...</h4>
-            ) : (
-              <h4>Chat Bot Online</h4>
-            )}
-          </header>
-          <section
-            className={`${styles.chat_inner}`}
-            ref={chatContainerRef}
-          ></section>
-          <InputForm formRef={formRef} onHandleSubmit={handleSubmitCallback} />
+          <ChatBot
+            isInitializing={isInitializing}
+            formRef={formRef}
+            chatContainerRef={chatContainerRef}
+            handleSubmitCallback={handleSubmitCallback}
+          />
         </motion.div>
       </motion.div>
-    </main>
+    </section>
   );
 };
 
