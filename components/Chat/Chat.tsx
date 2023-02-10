@@ -89,7 +89,7 @@ const Chat = () => {
       >
         <motion.div
           variants={fadeIn('down', 'tween', 0.4, 1)}
-          className={styles.content_wrapper}
+          className={styles.image_container}
         >
           <div className={`glassmorphism ${styles.content}`}>
             <h1>Get an AI Tutor today</h1>
@@ -101,16 +101,11 @@ const Chat = () => {
               plan.
             </p>
           </div>
-        </motion.div>
-        <motion.div
-          variants={fadeIn('left', 'tween', 0.4, 1)}
-          className={styles.image_container}
-        >
           <Image
             src="/images/chatbot.png"
             alt="chatbot"
-            height={500}
-            width={550}
+            height={550}
+            width={600}
             className={styles.content_image}
           />
         </motion.div>
