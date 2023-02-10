@@ -1,5 +1,6 @@
 .chat_section {
   position: relative;
+  min-height: calc(100vh - 96px);
   padding: 64px;
   background-image: url('/images/ai.png');
   background-attachment: fixed;
@@ -8,40 +9,56 @@
 }
 
 .content_container {
-  max-width: 1280px;
+  max-width: 1480px;
+  height: 70vh;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  gap: 10rem;
+  padding: 30px 0;
 }
 
 .content_wrapper {
   flex: 1;
+  display: flex;
+  align-self: flex-start;
 }
 
 .content {
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  overflow: scroll;
+  padding: 24px;
+  height: 350px;
+  width: 450px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-between; */
+  justify-content: space-evenly;
+  transform: rotate(5deg);
+  border-bottom-right-radius: 20px;
 }
 
-.title {
-  font-size: 45px;
-  color: white;
+.content h1 {
+  font-size: 35px;
+  color: rgba(4, 12, 24, 1);
+  font-weight: 400;
 }
 
-.content_wrapper p {
+.content p {
   color: white;
+  font-size: 21px;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+}
+
+.image_container {
+  align-self: flex-end;
+}
+
+.content_image {
+  border-radius: 10px;
 }
 
 .chat_container {
-  flex: 1;
+  max-width: 600px;
   border-radius: 10px;
   background: #1e1e1e;
   padding: 15px;

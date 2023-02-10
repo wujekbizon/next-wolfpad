@@ -4,8 +4,8 @@ import { staggerContainer, fadeIn } from '../../utils/motion';
 import { useRef, useEffect, useMemo, useCallback, useState } from 'react';
 import fetchOpenAiApi from '../../helpers/chatApiCalls';
 import { generateUniqueId, chatStripe, loader } from '../../helpers/helpers';
-import InputForm from './InputForm';
 import ChatBot from '../ChatBot/ChatBot';
+import Image from 'next/image';
 
 let loadInterval: NodeJS.Timer;
 
@@ -88,32 +88,41 @@ const Chat = () => {
         className={styles.content_container}
       >
         <motion.div
-          variants={fadeIn('right', 'tween', 0.4, 1)}
+          variants={fadeIn('down', 'tween', 0.4, 1)}
           className={styles.content_wrapper}
         >
-          <div className={styles.content}>
-            <h1 className={styles.title}>Chat</h1>
+          <div className={`glassmorphism ${styles.content}`}>
+            <h1>Get an AI Tutor today</h1>
 
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-              suscipit totam aspernatur inventore neque ipsa aliquid deserunt
-              vero, quasi at aut pariatur eaque blanditiis minima molestiae
-              molestias optio iusto! Ut.
+              With the newest addition of GPT-3 Artificial Intelligence to our
+              project. You can choose and fully customize, a friendly chabot.
+              This is a paid feature and can be only accessible thru our premium
+              plan.
             </p>
           </div>
         </motion.div>
         <motion.div
           variants={fadeIn('left', 'tween', 0.4, 1)}
-          className={styles.chat_container}
+          className={styles.image_container}
         >
-          <ChatBot
-            isInitializing={isInitializing}
-            formRef={formRef}
-            chatContainerRef={chatContainerRef}
-            handleSubmitCallback={handleSubmitCallback}
+          <Image
+            src="/images/chatbot.png"
+            alt="chatbot"
+            height={500}
+            width={550}
+            className={styles.content_image}
           />
         </motion.div>
       </motion.div>
+      <div className={styles.chat_container}>
+        <ChatBot
+          isInitializing={isInitializing}
+          formRef={formRef}
+          chatContainerRef={chatContainerRef}
+          handleSubmitCallback={handleSubmitCallback}
+        />
+      </div>
     </section>
   );
 };
