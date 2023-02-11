@@ -2,3 +2,9 @@
   width: 100%;
   height: 400px;
 }
+
+.divider h1 {
+  text-align: center;
+  font-size: 65px;
+  margin-top: 150px;
+}

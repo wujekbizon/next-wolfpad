@@ -78,3 +78,17 @@
 .image {
   border-radius: 50%;
 }
+
+.icon {
+  position: absolute;
+  color: white;
+  font-size: 45px;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: black;
+  transition: all 0.3s ease-in-out;
+}

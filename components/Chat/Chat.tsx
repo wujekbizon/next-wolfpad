@@ -44,7 +44,7 @@ const Chat = () => {
           />
         </motion.div>
       </motion.div>
-      <Divider />
+      <Divider title="CHATBOT OPENAI" />
       <motion.div
         variants={staggerContainer}
         initial="hidden"

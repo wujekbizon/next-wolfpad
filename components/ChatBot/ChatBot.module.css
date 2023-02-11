@@ -69,7 +69,7 @@
 .form_image {
   width: 35%;
   height: 110px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .chat_container {

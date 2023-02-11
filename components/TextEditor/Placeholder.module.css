@@ -12,9 +12,9 @@
 }
 
 .placeholder_title span {
-  font-size: 35px;
-  font-weight: 300;
-  color: #999;
+  font-size: 35px !important;
+  font-weight: 300 !important;
+  color: #999 !important;
 }
 .placeholder_title span:first-child {
   margin-left: 20px;
