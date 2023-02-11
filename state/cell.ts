@@ -1,4 +1,4 @@
-export type CellTypes = 'code' | 'text';
+export type CellTypes = 'code' | 'text' | 'chatbot';
 
 export interface Cell {
   id: string;

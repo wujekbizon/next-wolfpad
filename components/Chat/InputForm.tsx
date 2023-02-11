@@ -11,9 +11,7 @@ const InputForm = ({ onHandleSubmit, formRef }: InputFormProps) => {
   return (
     <>
       <form className={styles.form} onSubmit={onHandleSubmit} ref={formRef}>
-        <Resizable direction="vertical">
-          <textarea name="prompt" placeholder="How Can I Help You?"></textarea>
-        </Resizable>
+        <textarea name="prompt" placeholder="How Can I Help You?"></textarea>
         <button className={styles.send}>
           <Image src="/images/send.svg" alt="send" width={25} height={25} />
         </button>

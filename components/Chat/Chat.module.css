@@ -54,14 +54,3 @@
 .content_image {
   border-radius: 20px;
 }
-
-.chat_container {
-  max-width: 600px;
-  border-radius: 10px;
-  background: #1e1e1e;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}

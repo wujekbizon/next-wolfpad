@@ -32,7 +32,6 @@
 
 .chat_inner {
   width: 100%;
-  min-height: 200px;
   height: 100%;
   overflow-y: scroll;
   padding: 10px 0;
@@ -44,4 +43,13 @@
   scrollbar-width: none;
   scroll-behavior: smooth;
   border-radius: 5px;
+}
+
+.chat_container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #1e1e1e;
 }

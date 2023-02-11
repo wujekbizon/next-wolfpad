@@ -33,6 +33,15 @@ const AddCell: React.FC<AddCellProps> = ({ prevCellId, forceVisible }) => {
           </span>{' '}
           <span>Text</span>
         </button>
+        <button
+          className={styles.add_btn}
+          onClick={() => insertCellAfter({ id: prevCellId, type: 'chatbot' })}
+        >
+          <span className={styles.icon}>
+            <BiPlus />
+          </span>{' '}
+          <span>Chat</span>
+        </button>
       </div>
       <div className={styles.divider} />
     </div>
