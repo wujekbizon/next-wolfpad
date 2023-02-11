@@ -78,7 +78,7 @@ const ChatBot = () => {
 
   return (
     <>
-      <Resizable direction="vertical">
+      <Resizable direction="vertical" constraint={300}>
         <div className={`${styles.chat_container}`}>
           <header className={styles.header}>
             <div
@@ -96,7 +96,12 @@ const ChatBot = () => {
             className={`${styles.chat_inner}`}
             ref={chatContainerRef}
           ></section>
-          <InputForm formRef={formRef} onHandleSubmit={handleSubmitCallback} />
+          <div className={styles.form_container}>
+            <InputForm
+              formRef={formRef}
+              onHandleSubmit={handleSubmitCallback}
+            />
+          </div>
         </div>
       </Resizable>
     </>
