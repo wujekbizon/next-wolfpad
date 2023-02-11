@@ -63,8 +63,8 @@ const Chat = () => {
             className={styles.text}
           >
             <p>
-              Let's try it out, the newest chatbot, that's using latest AI
-              technology, developed by OpenAI.
+              Let&apos;s try it out, the newest chatbot, that&apos;s using
+              latest AI technology, developed by OpenAI.
             </p>
             <p>
               We got in plans to add more AI chatbots : Prometheus AI, Bard AI

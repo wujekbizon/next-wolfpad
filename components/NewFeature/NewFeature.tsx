@@ -1,4 +1,5 @@
 import styles from './NewFeature.module.css';
+import Image from 'next/image';
 
 type NewFeatureProps = {
   imgUrl: string;
@@ -9,7 +10,7 @@ type NewFeatureProps = {
 const NewFeature = ({ imgUrl, title, subtitle }: NewFeatureProps) => (
   <div className={styles.new_feature_container}>
     <div className={`${styles.image_container} glassmorphism`}>
-      <img src={imgUrl} alt="icon" />
+      <Image src={imgUrl} alt="icon" width={34} height={34} />
     </div>
     <h1 className={styles.title}>{title}</h1>
     <p className={styles.subtitle}>{subtitle}</p>

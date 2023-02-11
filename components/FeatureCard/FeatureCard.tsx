@@ -1,5 +1,5 @@
 import styles from './FeatureCard.module.css';
-
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../utils/motion';
@@ -33,7 +33,13 @@ const FeatureCard = ({
       }
       onClick={() => handleClick(id)}
     >
-      <img src={imgUrl} alt={title} className={styles.feature_card_image} />
+      <Image
+        width={700}
+        height={600}
+        src={imgUrl}
+        alt={title}
+        className={styles.feature_card_image}
+      />
       {active !== id ? (
         <h3 className={`gradient_preview ${styles.feature_card_title}`}>
           {title}
@@ -41,9 +47,11 @@ const FeatureCard = ({
       ) : (
         <div className={styles.active_title_container}>
           <div className={`${styles.active_image_container} glassmorphism`}>
-            <img
+            <Image
               src="/images/vrpano.svg"
               alt="headset"
+              width={50}
+              height={50}
               className={styles.explore_image}
             />
           </div>
