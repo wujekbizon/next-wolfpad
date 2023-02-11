@@ -89,6 +89,10 @@ body::-webkit-scrollbar-thumb {
   position: relative;
 }
 
+.radius {
+  border-radius: 10px;
+}
+
 .gradient_text {
   background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
   background-clip: text;

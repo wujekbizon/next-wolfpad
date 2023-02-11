@@ -79,7 +79,7 @@ const ChatBot = () => {
   return (
     <>
       <Resizable direction="vertical">
-        <div className={styles.chat_container}>
+        <div className={`${styles.chat_container}`}>
           <header className={styles.header}>
             <div
               className={
