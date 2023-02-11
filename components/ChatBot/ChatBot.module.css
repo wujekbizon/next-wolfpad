@@ -63,6 +63,13 @@
   height: 150px;
   display: flex;
   align-items: flex-end;
+  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
+}
+
+.form_image {
+  width: 35%;
+  height: 110px;
+  object-fit: cover;
 }
 
 .chat_container {

@@ -116,42 +116,6 @@ a {
   text-decoration: none;
 }
 
-.react-resizable-handle {
-  display: block;
-  background: rgba(29, 28, 37, 1) 0%;
-}
-
-.react-resizable-handle-s {
-  height: 10px;
-  width: 100%;
-  cursor: row-resize;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background: linear-gradient(189.97deg, #ae67fa 1.84%, #f49867 102.67%);
-  border: 4px solid #30363d;
-}
-
-.react-resizable-handle-e {
-  min-width: 10px;
-  height: 100%;
-  cursor: col-resize;
-  background: linear-gradient(189.97deg, #ae67fa 1.84%, #f49867 102.67%);
-  border: 4px solid #30363d;
-}
-
-.resize-horizontal {
-  display: flex;
-  flex-direction: row;
-}
-
-.react-draggable-transparent-selection iframe {
-  pointer-events: none;
-}
-
-.react-draggable-transparent-selection .cell-list {
-  margin-bottom: 100vh;
-}
-
 .dynamic-loader {
   height: 100vh;
   display: flex;

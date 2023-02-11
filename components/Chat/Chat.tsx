@@ -1,6 +1,6 @@
 import styles from './Chat.module.css';
 import { motion } from 'framer-motion';
-import { staggerContainer, fadeIn } from '../../utils/motion';
+import { staggerContainer, fadeIn, slideIn } from '../../utils/motion';
 import ChatBot from '../ChatBot/ChatBot';
 import Image from 'next/image';
 
@@ -36,8 +36,20 @@ const Chat = () => {
             className={styles.content_image}
           />
         </motion.div>
+        <div>
+          <p>hello</p>
+        </div>
       </motion.div>
-      <ChatBot />
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.25 }}
+      >
+        <motion.div variants={slideIn('left', 'tween', 0.4, 1)}>
+          <ChatBot />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

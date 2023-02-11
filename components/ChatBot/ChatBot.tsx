@@ -4,6 +4,8 @@ import { useRef, useEffect, useMemo, useCallback, useState } from 'react';
 import fetchOpenAiApi from '../../helpers/chatApiCalls';
 import { generateUniqueId, chatStripe, loader } from '../../helpers/helpers';
 import Resizable from '../Resizable/Resizable';
+import Image from 'next/image';
+import Logo from '../Logo/Logo';
 
 let loadInterval: NodeJS.Timer;
 
@@ -100,6 +102,13 @@ const ChatBot = () => {
             <InputForm
               formRef={formRef}
               onHandleSubmit={handleSubmitCallback}
+            />
+            <Image
+              src="/images/bot.svg"
+              alt="bot"
+              width={100}
+              height={70}
+              className={styles.form_image}
             />
           </div>
         </div>
