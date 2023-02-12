@@ -1,6 +1,5 @@
 .excalidraw_wrapper {
-  height: 400px;
-
+  height: calc(100% - 10px);
   position: relative;
-  overflow: hidden;
+  overflow: scroll;
 }

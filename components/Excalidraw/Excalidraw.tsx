@@ -40,6 +40,7 @@ import {
 import { Comment, PointerDownState } from './types';
 
 import initialData from './initialData';
+import Resizable from '../Resizable/Resizable';
 
 declare global {
   interface Window {
@@ -85,7 +86,7 @@ const Excalidraw = () => {
             onSelect={() => console.log('copy as PNG')}
             className="btn_custom-element"
           >
-            <MdContentCopy fontSize="small" />
+            <MdContentCopy />
             PNG
           </Button>
         )}
@@ -95,7 +96,7 @@ const Excalidraw = () => {
             onSelect={() => console.log('copy as SVG')}
             className="btn_custom-element"
           >
-            <MdContentCopy fontSize="small" />
+            <MdContentCopy />
             SVG
           </Button>
         )}
@@ -105,7 +106,7 @@ const Excalidraw = () => {
             onSelect={() => console.log('copy as JSON')}
             className="btn_custom-element"
           >
-            <MdContentCopy fontSize="small" />
+            <MdContentCopy />
             JSON
           </Button>
         )}
@@ -473,33 +474,32 @@ const Excalidraw = () => {
         <MainMenu.DefaultItems.Help />
         <MainMenu.Separator />
         <MainMenu.ItemCustom>
-          <div className="theme-mode_container dropdown-menu-item">
-            {theme === 'light' && (
-              <>
-                <MdOutlineNightsStay
-                  fontSize="inherit"
-                  className="light-icon"
-                />
-                <button onClick={() => setTheme('dark')}>Dark mode</button>
-              </>
-            )}
-            {theme === 'dark' && (
-              <>
-                <MdOutlineLightMode className="dark-icon" />
-                <button className="dark-btn" onClick={() => setTheme('light')}>
-                  Light mode
-                </button>
-              </>
-            )}
-          </div>
+          {theme === 'light' && (
+            <div
+              className="theme-mode_container dropdown-menu-item"
+              onClick={() => setTheme('dark')}
+            >
+              <MdOutlineNightsStay className={styles.light_icon} />
+              Dark mode
+            </div>
+          )}
+          {theme === 'dark' && (
+            <div
+              className="theme-mode_container dropdown-menu-item"
+              onClick={() => setTheme('light')}
+            >
+              <MdOutlineLightMode />
+              Light mode
+            </div>
+          )}
         </MainMenu.ItemCustom>
         <MainMenu.ItemCustom>
           <div
             className="theme-mode_container dropdown-menu-item dropdown-menu-custom"
             onClick={() => setViewModeEnabled(!viewModeEnabled)}
           >
-            <MdViewModule fontSize="inherit" />
-            <button>View mode</button>
+            <MdViewModule />
+            View mode
           </div>
         </MainMenu.ItemCustom>
         <MainMenu.ItemCustom>
@@ -507,8 +507,8 @@ const Excalidraw = () => {
             className="theme-mode_container dropdown-menu-item dropdown-menu-custom"
             onClick={() => setGridModeEnabled(!gridModeEnabled)}
           >
-            <MdGridOn fontSize="inherit" />
-            <button>Grid mode</button>
+            <MdGridOn />
+            Grid mode
           </div>
         </MainMenu.ItemCustom>
         <MainMenu.Separator />
@@ -520,40 +520,42 @@ const Excalidraw = () => {
 
   return (
     <div className={styles.excalidraw_app} ref={appRef}>
-      <div className={styles.excalidraw_wrapper}>
-        <Draw
-          ref={(api: ExcalidrawImperativeAPI) => setExcalidrawAPI(api)}
-          // initialData={initialStatePromiseRef.current.promise}
-          onChange={(elements, state) => {
-            // console.info('Elements :', elements, 'State : ', state);
-          }}
-          onPointerUpdate={(payload: {
-            pointer: { x: number; y: number };
-            button: 'down' | 'up';
-            pointersMap: Gesture['pointers'];
-          }) => setPointerData(payload)}
-          viewModeEnabled={viewModeEnabled}
-          zenModeEnabled={zenModeEnabled}
-          gridModeEnabled={gridModeEnabled}
-          theme={theme}
-          name="Custom name of drawing"
-          UIOptions={{ canvasActions: { loadScene: false } }}
-          renderTopRightUI={renderTopRightUI}
-          onLinkOpen={onLinkOpen}
-          onPointerDown={onPointerDown}
-          onScrollChange={rerenderCommentIcons}
-          // renderSidebar={renderSidebar}
-        >
-          {excalidrawAPI && (
-            <Footer>
-              <CustomFooter excalidrawAPI={excalidrawAPI} />
-            </Footer>
-          )}
-          {renderMenu()}
-        </Draw>
-        {Object.keys(commentIcons || []).length > 0 && renderCommentIcons()}
-        {comment && renderComment()}
-      </div>
+      <Resizable direction="vertical">
+        <div className={styles.excalidraw_wrapper}>
+          <Draw
+            ref={(api: ExcalidrawImperativeAPI) => setExcalidrawAPI(api)}
+            // initialData={initialStatePromiseRef.current.promise}
+            onChange={(elements, state) => {
+              // console.info('Elements :', elements, 'State : ', state);
+            }}
+            onPointerUpdate={(payload: {
+              pointer: { x: number; y: number };
+              button: 'down' | 'up';
+              pointersMap: Gesture['pointers'];
+            }) => setPointerData(payload)}
+            viewModeEnabled={viewModeEnabled}
+            zenModeEnabled={zenModeEnabled}
+            gridModeEnabled={gridModeEnabled}
+            theme={theme}
+            name="Custom name of drawing"
+            UIOptions={{ canvasActions: { loadScene: false } }}
+            renderTopRightUI={renderTopRightUI}
+            onLinkOpen={onLinkOpen}
+            onPointerDown={onPointerDown}
+            onScrollChange={rerenderCommentIcons}
+            // renderSidebar={renderSidebar}
+          >
+            {excalidrawAPI && (
+              <Footer>
+                <CustomFooter excalidrawAPI={excalidrawAPI} />
+              </Footer>
+            )}
+            {renderMenu()}
+          </Draw>
+          {Object.keys(commentIcons || []).length > 0 && renderCommentIcons()}
+          {comment && renderComment()}
+        </div>
+      </Resizable>
     </div>
   );
 };

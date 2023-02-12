@@ -1,0 +1,43 @@
+.theme-mode_container {
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  padding: 0;
+  gap: 8px;
+}
+
+.theme-mode_container:hover {
+  background-color: inherit;
+}
+
+.theme-mode_container button {
+  color: inherit;
+  background-color: transparent;
+  border: none;
+}
+
+.excalidraw {
+  --color-primary: #faa2c1;
+  --color-primary-darker: #f783ac;
+  --color-primary-darkest: #e64980;
+  --color-primary-light: #fcc2d7;
+}
+
+.excalidraw button.custom-element {
+  width: auto;
+  height: 2.25rem;
+  margin: 0 10px;
+}
+
+.excalidraw .custom-footer,
+.custom-element {
+  padding: 0.1rem;
+}
+
+.excalidraw button.btn_custom-element {
+  font-size: 12px;
+  width: auto;
+  height: 2.25rem;
+}

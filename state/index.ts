@@ -33,12 +33,12 @@ export const actionCreators = {
   createBundle,
 };
 
-store.dispatch(
-  insertCellAfter({
-    id: null,
-    type: 'code',
-  })
-);
+// store.dispatch(
+//   insertCellAfter({
+//     id: null,
+//     type: 'code',
+//   })
+// );
 
 store.dispatch(
   insertCellAfter({
