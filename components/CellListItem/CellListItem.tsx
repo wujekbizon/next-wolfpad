@@ -4,6 +4,7 @@ import TextEditor from '../TextEditor/TextEditor';
 import CodeCell from '../CodeCell/CodeCell';
 import ActionBar from '../ActionBar/ActionBar';
 import ChatBot from '../ChatBot/ChatBot';
+import Excalidraw from '../Excalidraw/Excalidraw';
 
 interface CellListItemProps {
   cell: Cell;
@@ -34,6 +35,14 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
             <ActionBar id={cell.id} />
           </div>
           <ChatBot />
+        </div>
+      )}
+      {cell.type === 'draw' && (
+        <div className="glassmorphism radius">
+          <div className={styles.action_bar_wrapper}>
+            <ActionBar id={cell.id} />
+          </div>
+          <Excalidraw />
         </div>
       )}
     </div>

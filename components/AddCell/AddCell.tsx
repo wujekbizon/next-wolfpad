@@ -54,6 +54,15 @@ const AddCell: React.FC<AddCellProps> = ({ prevCellId, forceVisible }) => {
             </svg>
           </span>
         </button>
+        <button
+          className={styles.add_btn}
+          onClick={() => insertCellAfter({ id: prevCellId, type: 'draw' })}
+        >
+          <span className={styles.icon}>
+            <BiPlus />
+          </span>{' '}
+          <span>Draw</span>
+        </button>
       </div>
       <div className={styles.divider} />
     </div>

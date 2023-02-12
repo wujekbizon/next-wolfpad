@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@excalidraw/excalidraw": "^0.14.2",
     "@lexical/react": "^0.7.5",
     "@monaco-editor/react": "^4.4.6",
     "@reduxjs/toolkit": "^1.9.1",
