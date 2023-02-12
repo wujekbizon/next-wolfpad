@@ -27,3 +27,7 @@
   line-height: 120%;
   margin: 0;
 }
+
+.about_content span {
+  font-weight: 800;
+}

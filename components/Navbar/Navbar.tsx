@@ -45,7 +45,6 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <button>Sign in</button>
       </nav>
     </motion.header>
   );

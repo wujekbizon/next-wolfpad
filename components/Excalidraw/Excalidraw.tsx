@@ -394,7 +394,7 @@ const Excalidraw = () => {
             });
           }}
         >
-          <div className="comment-avatar">
+          <div className={styles.comment_avatar}>
             <img src="/images/download.png" alt="doremon" />
           </div>
         </div>

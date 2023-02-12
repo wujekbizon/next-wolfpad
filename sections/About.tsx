@@ -22,12 +22,11 @@ const About = () => {
           variants={fadeIn('up', 'tween', 0.2, 1)}
           className={styles.about_content}
         >
-          Wolfpad, an interactive coding environment is a powerful tool for
-          developers of all levels. It provides an intuitive and user-friendly
-          interface that allows users to quickly create, edit, and debug code.
-          With an interactive coding environment, users can easily test their
-          code in real-time and get immediate feedback on their progress. This
-          makes it easier to identify errors and make changes quickly.
+          <span>Wolfpad</span> is a powerful tool for developers of all levels.
+          It provides an intuitive and user-friendly interface that allows users
+          to quickly create, edit, and debug code. With an interactive coding
+          environment, users can easily test their code in real-time and get
+          immediate feedback on their progress.
         </motion.p>
         <br />
 
@@ -35,7 +34,7 @@ const About = () => {
           variants={fadeIn('up', 'tween', 0.4, 1)}
           className={styles.about_content}
         >
-          Additionally, Wolfpad comes with helpful features such as syntax
+          <span>Wolfpad</span> comes with helpful features such as syntax
           highlighting, auto-completion, and debugging tools that make coding
           more efficient. With these features, developers can focus on the logic
           of their code rather than worrying about syntax or other technical

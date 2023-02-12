@@ -1,5 +1,5 @@
 .hero_wrapper {
-  padding: 4rem 4rem 4rem 0;
+  padding: 24px 24px 24px 0;
   height: calc(100vh - 95.99px);
 }
 
@@ -61,4 +61,10 @@
   border-bottom-right-radius: 40px;
   position: relative;
   z-index: 10;
+}
+
+@media (min-width: 640px) {
+  .hero_wrapper {
+    padding: 64px 64px 64px 0;
+  }
 }
