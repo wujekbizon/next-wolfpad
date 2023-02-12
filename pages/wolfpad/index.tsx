@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import Divider from '../../components/Layout/Divider';
 
 const DynamicCellList = dynamic(
   () => import('../../components/CellList/CellList'),
@@ -14,6 +15,10 @@ const DynamicCellList = dynamic(
 );
 
 const PlaygroundPage = () => {
-  return <DynamicCellList />;
+  return (
+    <>
+      <DynamicCellList />
+    </>
+  );
 };
 export default PlaygroundPage;

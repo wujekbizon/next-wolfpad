@@ -76,6 +76,10 @@
   text-transform: uppercase;
 }
 
+.active_content:hover {
+  color: #ae67fa;
+}
+
 .active_title {
   margin-top: 24px;
   font-family: 'Eudoxus Sans';
