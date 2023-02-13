@@ -1,10 +1,10 @@
 .hero_wrapper {
-  padding: 24px 24px 24px 0;
+  /* padding: 24px 24px 24px 0; */
   height: calc(100vh - 95.99px);
 }
 
 .hero_container {
-  max-width: 1024px;
+  max-width: 1280px;
   height: 100%;
   margin: auto;
   display: flex;
@@ -23,42 +23,41 @@
 }
 
 .hero_title h1 {
-  font-weight: 700;
-  font-size: 144px;
-  letter-spacing: 1.25rem;
+  font-weight: 400;
+  font-size: 55px;
+  letter-spacing: 0.25rem;
   color: white;
   text-transform: uppercase;
 }
 
 .hero_title h2 {
   color: white;
-  font-weight: 400;
-  font-size: 55px;
-  margin-top: -15px;
+  font-weight: 200;
+  font-size: 20px;
 }
 
 .image_motion {
   position: relative;
-  width: 90%;
+  width: 100%;
   margin-top: 30px;
 }
 
 .image_container {
   position: absolute;
   width: 100%;
-  height: 150px;
-  border-top-right-radius: 40px;
-  border-bottom-right-radius: 40px;
+  height: 80px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
   z-index: 0;
-  top: -35px;
+  top: -15px;
 }
 
 .image {
   width: 100%;
-  height: 450px;
+  height: 380px;
   object-fit: cover;
-  border-top-right-radius: 40px;
-  border-bottom-right-radius: 40px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
   position: relative;
   z-index: 10;
 }
@@ -66,5 +65,48 @@
 @media (min-width: 640px) {
   .hero_wrapper {
     padding: 64px 64px 64px 0;
+  }
+
+  .hero_title h1 {
+    font-weight: 500;
+    font-size: 85px;
+    letter-spacing: 0.75rem;
+  }
+
+  .hero_title h2 {
+    font-weight: 300;
+    font-size: 35px;
+    margin-top: -15px;
+  }
+
+  .image_motion {
+    width: 90%;
+  }
+
+  .image_container {
+    top: -35px;
+    height: 180px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+
+  .image {
+    height: 480px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+}
+
+@media (min-width: 980px) {
+  .hero_title h1 {
+    font-weight: 700;
+    font-size: 144px;
+    letter-spacing: 1.25rem;
+  }
+
+  .hero_title h2 {
+    font-weight: 400;
+    font-size: 55px;
+    margin-top: -15px;
   }
 }
