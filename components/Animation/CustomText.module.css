@@ -9,8 +9,14 @@
 }
 
 .text_title {
-  font-size: 64px;
+  font-size: 40px;
   color: white;
   font-weight: 600;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .text_title {
+    font-size: 64px;
+  }
 }
