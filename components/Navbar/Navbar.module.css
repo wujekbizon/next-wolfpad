@@ -1,5 +1,5 @@
 .header_container {
-  height: 6rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +9,7 @@
 
 .navbar_gradient {
   position: absolute;
-  width: 50%;
+  width: 100%;
   top: 0px;
   left: 0px;
   right: 0px;
@@ -27,8 +27,7 @@
 }
 
 .nav_links {
-  display: flex;
-  align-items: center;
+  display: none;
 }
 
 .link_btn {
@@ -60,4 +59,29 @@
   height: 60px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.nav_menu {
+  display: flex;
+  font-size: 45px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .header_container {
+    height: 6rem;
+  }
+
+  .navbar_gradient {
+    width: 50%;
+  }
+
+  .nav_links {
+    display: flex;
+    align-items: center;
+  }
+  .nav_menu {
+    display: none;
+  }
 }

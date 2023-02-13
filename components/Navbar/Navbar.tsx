@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { navVariants } from '../../utils/motion';
 import Image from 'next/image';
 import { useState } from 'react';
+import { MdMenu } from 'react-icons/md';
 
 const Navbar = () => {
   const [active, setActive] = useState(0);
@@ -29,7 +30,7 @@ const Navbar = () => {
 
           <Logo title=".wolfpad" />
         </div>
-
+        <MdMenu className={styles.nav_menu} />
         <ul className={styles.nav_links}>
           {navLinks.map((link, index) => (
             <li
