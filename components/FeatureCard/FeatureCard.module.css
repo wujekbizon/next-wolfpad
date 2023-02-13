@@ -1,10 +1,10 @@
 .feature_card_container {
   position: relative;
-  flex: 0.5;
+  flex: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 300px;
+  min-width: 170px;
   height: 700px;
   transition-property: flex;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -15,7 +15,7 @@
 }
 
 .feature_active {
-  flex: 3.5;
+  flex: 10;
 }
 
 .feature_card_image {
@@ -29,13 +29,10 @@
 .feature_card_title {
   font-family: 'Eudoxus Sans';
   font-weight: 500;
-  font-size: 30px;
+  font-size: 18px;
   line-height: 55px;
   position: absolute;
   z-index: 0;
-  bottom: 8rem;
-  transform: rotate(-90deg);
-  transform-origin: 0, 0;
 }
 
 .active_title_container {
@@ -84,6 +81,32 @@
   margin-top: 24px;
   font-family: 'Eudoxus Sans';
   font-weight: 600;
-  font-size: 32px;
+  font-size: 24px;
   color: white;
+}
+
+@media (min-width: 1024px) {
+  .feature_card_container {
+    flex: 0.5;
+  }
+
+  .feature_active {
+    flex: 3.5;
+  }
+
+  .feature_card_title {
+    bottom: 5rem;
+    transform: rotate(-90deg);
+    transform-origin: 0, 0;
+  }
+}
+
+@media (min-width: 640px) {
+  .feature_card_title {
+    font-size: 30px;
+  }
+
+  .active_title {
+    font-size: 32px;
+  }
 }

@@ -24,15 +24,15 @@ const Founder = () => {
           <div className="feedback-gradient" />
           <div>
             <h4 className={styles.name}>Gregory</h4>
-            <p className={styles.company}>Founder Wolfpad</p>
+            <p className={styles.company}>Founder of Wolfpad</p>
           </div>
 
           <p className={styles.content}>
-            “What is a Wolfpad ?
+            “What is Wolfpad ?
             <br />
-            It's started as a simple coding project. Then I decided to continue
-            with development, and started work on adding new features. Now with
-            the latest AI addition, it became a very powerfull and useful tool.”
+            It started as a simple coding project. Then I decided to continue
+            with development, and add new features.Now with the latest addition
+            of AI, it has become a very powerful and useful tool.”
           </p>
         </motion.div>
 

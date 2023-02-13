@@ -20,7 +20,7 @@
   gap: 1.25rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1024px) {
   .explore {
     padding: 64px;
   }

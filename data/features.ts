@@ -30,13 +30,19 @@ export const exploreFeatures = [
     id: 'feature-2',
     url: '/chat',
     imgUrl: '/images/chatbot2.png',
-    title: 'Access to the Artificial Intelligence',
+    title: 'Artificial Intelligence',
   },
   {
     id: 'feature-3',
     url: '#founder',
     imgUrl: '/images/me.png',
     title: 'Meet the founder of Wolfpad',
+  },
+  {
+    id: 'feature-4',
+    url: '/pricing',
+    imgUrl: '/images/support.png',
+    title: 'Signup for Premium Account',
   },
 ];
 
