@@ -6,7 +6,7 @@
   flex-direction: column;
   background: #040c18;
   position: relative;
-  padding: 64px;
+  padding: 24px;
 }
 
 .about_container {
@@ -22,7 +22,7 @@
 .about_content {
   font-family: 'Eudoxus Sans';
   font-weight: 200;
-  font-size: 30px;
+  font-size: 22px;
   color: white;
   line-height: 120%;
   margin: 0;
@@ -30,4 +30,15 @@
 
 .about_content span {
   font-weight: 800;
+}
+
+@media (min-width: 640px) {
+  .about {
+    padding: 64px;
+  }
+
+  .about_content {
+    font-size: 30px;
+    line-height: 120%;
+  }
 }
