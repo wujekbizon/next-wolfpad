@@ -86,6 +86,28 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid #30363d;
 }
 
+.error_page {
+  height: 70vh;
+  max-width: 1280px;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error_page h2 {
+  color: white;
+  font-size: 30px;
+}
+
+.error_page p {
+  color: grey;
+  font-size: 16px;
+}
+
 .gradient_relative {
   position: relative;
 }

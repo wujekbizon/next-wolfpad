@@ -34,7 +34,7 @@ export const exploreFeatures = [
   },
   {
     id: 'feature-3',
-    url: '/pricing',
+    url: '/signup',
     imgUrl: '/images/support.png',
     title: 'Signup for Premium Account',
   },
