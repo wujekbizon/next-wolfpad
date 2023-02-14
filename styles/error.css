@@ -1,0 +1,52 @@
+.error_page {
+  height: 90vh;
+  max-width: 1280px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error_page img {
+  width: 100%;
+  height: auto;
+  min-height: 210px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+.error_page h2 {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.error_page p {
+  color: grey;
+  font-size: 14px;
+  margin-top: 100px;
+}
+
+@media (min-width: 640px) {
+  .error_page {
+    padding: 64px;
+  }
+
+  .error_page img {
+    height: 610px;
+    border-radius: 40px;
+  }
+
+  .error_page h2 {
+    font-size: 30px;
+  }
+
+  .error_page p {
+    font-size: 16px;
+    margin-top: 0;
+  }
+}

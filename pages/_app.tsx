@@ -3,6 +3,7 @@ import '../styles/styles.css';
 import '../styles/chat.css';
 import '../styles/resizable.css';
 import '../styles/excalidraw.css';
+import '../styles/error.css';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import { store } from '../state';
