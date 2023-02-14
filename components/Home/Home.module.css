@@ -1,3 +1,14 @@
 .home_wrapper {
   overflow: hidden;
+  position: relative;
+}
+
+.side_menu {
+  position: fixed;
+  width: 200px;
+  height: 1000px;
+  top: -170px;
+  z-index: 33;
+  background: rgba(0, 0, 0, 0.9);
+  transform: rotate(-125.2deg);
 }
