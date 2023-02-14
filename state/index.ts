@@ -11,12 +11,18 @@ import {
   updateCell,
   moveCell,
 } from './slices/cellsSlice';
+import {
+  modalsReducer,
+  openSideMenu,
+  closeSideMenu,
+} from './slices/modalsSlice';
 import { createBundle } from './apiCalls';
 
 export const store = configureStore({
   reducer: {
     bundles: bundlesReducer,
     cells: cellsReducer,
+    modals: modalsReducer,
   },
 });
 
@@ -31,6 +37,8 @@ export const actionCreators = {
   updateCell,
   moveCell,
   createBundle,
+  openSideMenu,
+  closeSideMenu,
 };
 
 // store.dispatch(

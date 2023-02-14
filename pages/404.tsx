@@ -10,10 +10,10 @@ const ErrorPage = () => {
         height={400}
       />
       <h2>This part of application is under construction.... </h2>
-      <h2>Please comeback here later. Thank you</h2>
+      <h2>Please come back later. Thank you</h2>
 
       <p>
-        This project is made by Grzegorz Wolfinger | Next JS/ React Developer
+        This project is made by Grzegorz Wolfinger | Next JS / React Developer
       </p>
     </div>
   );

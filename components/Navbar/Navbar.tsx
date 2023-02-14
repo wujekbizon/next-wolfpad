@@ -7,10 +7,14 @@ import { navVariants } from '../../utils/motion';
 import Image from 'next/image';
 import { useState } from 'react';
 import { MdMenu, MdClose } from 'react-icons/md';
+import { useActions } from '../../hooks/useActions';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const Navbar = () => {
+  const isMenuOpen = useTypedSelector((state) => state.modals.isMenuOpen);
+  const { openSideMenu, closeSideMenu } = useActions();
   const [active, setActive] = useState(0);
-  const [menuOpen, setMenuOpen] = useState(true);
+
   return (
     <motion.header
       variants={navVariants}
@@ -31,16 +35,13 @@ const Navbar = () => {
 
           <Logo title=".wolfpad" />
         </div>
-        {menuOpen ? (
+        {isMenuOpen ? (
           <MdClose
             className={styles.nav_menu}
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => closeSideMenu()}
           />
         ) : (
-          <MdMenu
-            className={styles.nav_menu}
-            onClick={() => setMenuOpen(!menuOpen)}
-          />
+          <MdMenu className={styles.nav_menu} onClick={() => openSideMenu()} />
         )}
         <ul className={styles.nav_links}>
           {navLinks.map((link, index) => (
