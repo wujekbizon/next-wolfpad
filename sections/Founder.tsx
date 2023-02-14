@@ -1,13 +1,9 @@
 import styles from './Founder.module.css';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn, staggerContainer, zoomIn } from '../utils/motion';
 import Image from 'next/image';
-import { MdFlipCameraAndroid } from 'react-icons/md';
 
 const Founder = () => {
-  const [imageActive, setImageActive] = useState(false);
-
   return (
     <section className={styles.founder} id="founder">
       <motion.div
@@ -40,24 +36,14 @@ const Founder = () => {
           variants={fadeIn('left', 'tween', 0.2, 1)}
           className={styles.founder_image_container}
         >
-          {' '}
-          {imageActive ? (
-            <Image
-              width={600}
-              height={610}
-              src="/images/founder.jpg"
-              alt="planet-09"
-              className={styles.founder_image}
-            />
-          ) : (
-            <Image
-              width={600}
-              height={610}
-              src="/images/me.png"
-              alt="planet-09"
-              className={styles.founder_image}
-            />
-          )}
+          <Image
+            width={600}
+            height={250}
+            src="/images/founder.jpg"
+            alt="planet-09"
+            className={styles.founder_image}
+          />
+
           <motion.div variants={zoomIn(0.4, 1)} className={`${styles.stamp}`}>
             <Image
               width={100}
@@ -67,10 +53,6 @@ const Founder = () => {
               className={styles.image}
             />
           </motion.div>
-          <MdFlipCameraAndroid
-            className={styles.icon}
-            onClick={() => setImageActive(!imageActive)}
-          />
         </motion.div>
       </motion.div>
     </section>

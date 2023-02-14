@@ -134,11 +134,12 @@ a {
 }
 
 .gradient_preview {
-  background: linear-gradient(360deg, #040c18, rgba(173, 255, 47, 1));
+  background: white;
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 2px;
+
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 0px;
 }
 
 .gradient-01 {
@@ -218,4 +219,14 @@ a {
 
   background: #65c4fa;
   filter: blur(150px);
+}
+
+@media (min-width: 640px) {
+  .gradient_preview {
+    background: linear-gradient(360deg, #040c18, rgba(173, 255, 47, 1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+  }
 }

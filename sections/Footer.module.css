@@ -1,10 +1,10 @@
 .footer {
   position: relative;
-  padding: 64px;
+  padding: 32px 24px;
 }
 
 .footer_container {
-  width: 1280px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -21,7 +21,7 @@
 }
 
 .title {
-  font-size: 64px;
+  font-size: 44px;
   color: white;
   font-weight: 700;
 }
@@ -63,7 +63,7 @@
 .socials_container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 4px;
 }
@@ -100,4 +100,20 @@
 
 .icons:hover {
   background-color: rgb(37 97 139);
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding: 64px;
+  }
+
+  .footer_container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 64px;
+  }
 }

@@ -23,7 +23,13 @@ const WhatsNew = () => {
           <div className="animated_title">
             <Title title="Whats New ?" />
           </div>
-          <TitleText title={<>What's new about Wolfpad ?</>} />
+          <TitleText
+            title={
+              <>
+                What's new about <br /> Wolfpad ?
+              </>
+            }
+          />
           <div className={styles.wrapper}>
             {newFeatures.map((feature) => (
               <NewFeature key={feature.title} {...feature} />

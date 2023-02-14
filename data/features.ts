@@ -34,15 +34,15 @@ export const exploreFeatures = [
   },
   {
     id: 'feature-3',
-    url: '#founder',
-    imgUrl: '/images/me.png',
-    title: 'Meet the founder of Wolfpad',
-  },
-  {
-    id: 'feature-4',
     url: '/pricing',
     imgUrl: '/images/support.png',
     title: 'Signup for Premium Account',
+  },
+  {
+    id: 'feature-4',
+    url: '#founder',
+    imgUrl: '/images/me.png',
+    title: 'Meet the founder of Wolfpad',
   },
 ];
 
