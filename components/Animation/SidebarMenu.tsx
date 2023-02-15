@@ -3,8 +3,11 @@ import Link from 'next/link';
 import { navLinks } from '../../data/links';
 import { motion } from 'framer-motion';
 import { staggerContainer, slideIn } from '../../utils/motion';
+import { useActions } from '../../hooks/useActions';
 
 export const SidebarMenu = () => {
+  const { closeSideMenu } = useActions();
+
   return (
     <motion.div
       variants={staggerContainer}
@@ -22,6 +25,7 @@ export const SidebarMenu = () => {
             variants={slideIn('up', 'tween', 0.6 + index / 2, 0.9)}
             key={link.id}
             className={`${styles.shadow} ${styles.link}`}
+            onClick={() => closeSideMenu()}
           >
             <Link href={link.url} className={styles.label}>
               <h2 className={`label_${index + 1}`}>{link.label}</h2>
