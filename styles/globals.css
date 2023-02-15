@@ -87,11 +87,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 h2.label_1 {
-  margin-right: 170px;
+  margin-right: 190px;
+}
+
+h2.label_2 {
+  margin-left: 50px;
 }
 
 h2.label_3 {
-  margin-left: 170px;
+  margin-left: 130px;
 }
 
 .radius {

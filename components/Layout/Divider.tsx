@@ -7,7 +7,7 @@ type DividerProps = {
 
 const Divider = ({ title, className }: DividerProps) => {
   return (
-    <div className={`glassmorphism ${className} ${styles.divider}`}>
+    <div className={`${className} ${styles.divider}`}>
       <h1>{title}</h1>
     </div>
   );
