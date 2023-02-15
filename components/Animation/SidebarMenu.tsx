@@ -19,9 +19,9 @@ export const SidebarMenu = () => {
       >
         {navLinks.map((link, index) => (
           <motion.li
-            variants={slideIn('up', 'tween', 0.7 + index / 2, 1)}
+            variants={slideIn('up', 'tween', 0.6 + index / 2, 1)}
             key={link.id}
-            className={`glassmorphism ${styles.link}`}
+            className={`${styles.shadow} ${styles.link}`}
           >
             <Link href={link.url} className={styles.label}>
               <h2 className={`label_${index + 1}`}>{link.label}</h2>
