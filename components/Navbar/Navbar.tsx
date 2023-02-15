@@ -5,15 +5,15 @@ import Logo from '../Logo/Logo';
 import { motion } from 'framer-motion';
 import { navVariants } from '../../utils/motion';
 import Image from 'next/image';
-import { useState } from 'react';
 import { MdMenu, MdClose } from 'react-icons/md';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
+  const router = useRouter();
   const isMenuOpen = useTypedSelector((state) => state.modals.isMenuOpen);
   const { openSideMenu, closeSideMenu } = useActions();
-  const [active, setActive] = useState(0);
 
   return (
     <motion.header
@@ -44,15 +44,14 @@ const Navbar = () => {
           <MdMenu className={styles.nav_menu} onClick={() => openSideMenu()} />
         )}
         <ul className={styles.nav_links}>
-          {navLinks.map((link, index) => (
+          {navLinks.map((link) => (
             <li
               className={
-                active === index
+                link.url === router.pathname
                   ? `${styles.active} ${styles.link_btn}`
                   : `${styles.link_btn}`
               }
               key={link.id}
-              onClick={() => setActive(index)}
             >
               <Link href={link.url}>{link.label}</Link>
             </li>

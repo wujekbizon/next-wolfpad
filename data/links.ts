@@ -1,13 +1,13 @@
 export const navLinks = [
   {
     id: 1,
-    label: 'Wolfpad',
-    url: '/wolfpad',
+    label: 'Home',
+    url: '/',
   },
   {
     id: 2,
-    label: 'Home',
-    url: '/',
+    label: 'Wolfpad',
+    url: '/wolfpad',
   },
 
   {
