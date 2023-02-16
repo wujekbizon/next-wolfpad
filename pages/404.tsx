@@ -1,21 +1,17 @@
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
+const DynamicCustomError = dynamic(
+  () => import('../components/CustomError/CustomError'),
+  {
+    loading: () => (
+      <div className="dynamic-loader">
+        <h1>404....</h1>
+      </div>
+    ),
+    ssr: false,
+  }
+);
 
 const ErrorPage = () => {
-  return (
-    <div className="error_page">
-      <Image
-        src="/images/inprogress.png"
-        alt="coding"
-        width={500}
-        height={400}
-      />
-      <h2>This part of application is under construction.... </h2>
-      <h2>Please come back later. Thank you</h2>
-
-      <p>
-        This project is made by Grzegorz Wolfinger | Next JS / React Developer
-      </p>
-    </div>
-  );
+  return <DynamicCustomError />;
 };
 export default ErrorPage;
