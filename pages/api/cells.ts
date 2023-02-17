@@ -12,7 +12,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       console.log(result);
       res.status(201).json({ message: 'Cells', cells: result });
     } catch (error) {
-      res.status(500).json({ message: 'Fetching data failed!' });
+      res.status(404).json({ message: 'Fetching data failed!' });
       return;
     }
   }

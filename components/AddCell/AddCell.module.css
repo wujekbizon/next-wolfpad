@@ -32,7 +32,7 @@
 }
 
 .add_buttons button {
-  margin: 0 30px;
+  margin: 0 5px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -41,26 +41,43 @@
 
 .add_btn {
   background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
-  width: 115px;
-  border-radius: 10px;
-  font-size: 18px;
+  width: 70px;
+  border-radius: 5px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.3rem;
   cursor: pointer;
   border: none;
+  color: white;
   transition: all 0.3s ease-in-out;
 }
 
 .add_btn:hover {
-  color: white;
-}
-
-.add_btn:hover .icon {
   color: black;
 }
 
+/* .add_btn:hover .icon {
+  color: black;
+} */
+
 .icon {
-  display: flex;
-  color: white;
-  font-size: 18px;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .icon {
+    display: flex;
+    color: white;
+    font-size: 27px;
+  }
+
+  .add_buttons button {
+    margin: 0 30px;
+  }
+
+  .add_btn {
+    width: 115px;
+    font-size: 24px;
+    border-radius: 10px;
+    /* letter-spacing: 0.3rem; */
+  }
 }

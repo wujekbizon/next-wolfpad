@@ -50,9 +50,9 @@ export const actionCreators = {
 //   })
 // );
 
-store.dispatch(
-  insertCellAfter({
-    id: null,
-    type: 'text',
-  })
-);
+// store.dispatch(
+//   insertCellAfter({
+//     id: null,
+//     type: 'text',
+//   })
+// );
