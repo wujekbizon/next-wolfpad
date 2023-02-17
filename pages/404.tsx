@@ -7,7 +7,6 @@ const DynamicCustomError = dynamic(
         <h1>404....</h1>
       </div>
     ),
-    ssr: false,
   }
 );
 

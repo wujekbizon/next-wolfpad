@@ -1,18 +1,18 @@
 import styles from './ActionBar.module.css';
-import { FiArrowUp, FiArrowDown } from 'react-icons/fi';
+import { FiArrowUp, FiArrowDown, FiSave } from 'react-icons/fi';
 import { MdClose } from 'react-icons/md';
 import ActionButton from '../ActionButton/ActionButton';
 import { useActions } from '../../hooks/useActions';
-import Logo from '../Logo/Logo';
 
 interface ActionBarProps {
   id: string;
 }
 
 const ActionBar: React.FC<ActionBarProps> = ({ id }) => {
-  const { moveCell, deleteCell } = useActions();
+  const { moveCell, deleteCell, saveCells } = useActions();
   return (
     <div className={styles.action_bar}>
+      <ActionButton icon={<FiSave />} onClick={() => saveCells()} />
       <ActionButton
         icon={<FiArrowUp />}
         onClick={() =>

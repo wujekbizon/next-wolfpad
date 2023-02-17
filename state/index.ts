@@ -16,7 +16,7 @@ import {
   openSideMenu,
   closeSideMenu,
 } from './slices/modalsSlice';
-import { createBundle } from './apiCalls';
+import { createBundle, fetchCells, saveCells } from './apiCalls';
 
 export const store = configureStore({
   reducer: {
@@ -39,6 +39,8 @@ export const actionCreators = {
   createBundle,
   openSideMenu,
   closeSideMenu,
+  fetchCells,
+  saveCells,
 };
 
 // store.dispatch(
