@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Cell } from '../../state/cell';
 import exampleTheme from './Themes';
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
@@ -21,9 +21,9 @@ import ActionsPlugin from './Plugins/ActionPlugin';
 import Placeholder from './Placeholder';
 import Resizable from '../Resizable/Resizable';
 
-interface TextEditorProps {
+type TextEditorProps = {
   cell: Cell;
-}
+};
 
 const MyCustomAutoFocusPlugin = () => {
   const [editor] = useLexicalComposerContext();
@@ -40,10 +40,10 @@ const onError = (error: Error) => {
   throw error;
 };
 
-const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
+const TextEditor = ({ cell }: TextEditorProps) => {
   const initialConfig = {
     namespace: 'Wolfpad_Editor',
-    // editorState: prepopulatedText,
+    // editorState: editorState,
     theme: exampleTheme,
     onError,
 

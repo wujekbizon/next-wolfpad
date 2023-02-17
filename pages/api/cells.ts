@@ -12,18 +12,23 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       console.log(result);
       res.status(201).json({ message: 'Cells', cells: result });
     } catch (error) {
-      res.status(500).json({ message: 'Inserting data failed!' });
+      res.status(500).json({ message: 'Fetching data failed!' });
       return;
     }
   }
 
   if (req.method === 'POST') {
-    console.log(req.body);
-    const { cells }: { cells: Cell[] } = req.body;
+    try {
+      console.log(req.body);
+      const { cells }: { cells: Cell[] } = req.body;
 
-    console.log(cells);
-    // await fs.writeFile(filesDirectory, JSON.stringify(cells), 'utf-8');
-    res.status(201).json({ message: 'save' });
+      console.log(cells);
+      await fs.writeFile(filesDirectory, JSON.stringify(cells), 'utf-8');
+      res.status(201).json({ message: 'save' });
+    } catch (error) {
+      res.status(500).json({ message: 'Saving cells failed!' });
+      return;
+    }
   }
 };
 

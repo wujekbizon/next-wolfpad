@@ -97,7 +97,7 @@
   font-size: 24px;
   font-weight: 500;
   color: white;
-  line-height: 50px;
+  line-height: 40px;
   height: 100%;
 }
 
@@ -133,7 +133,8 @@
   font-size: 24px;
   font-weight: 500;
   color: white;
-  line-height: 50px;
+  line-height: 35px;
+  margin-top: 50px;
 }
 
 .tutor_text p {
@@ -202,6 +203,7 @@
   .text p {
     font-size: 36px;
     line-height: 60px;
+    margin-top: 0;
   }
 
   .tutor_text {
