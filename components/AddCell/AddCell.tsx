@@ -1,5 +1,5 @@
 import styles from './AddCell.module.css';
-import { BiPlus } from 'react-icons/bi';
+import { cellButtons } from '../../data/links';
 
 import { useActions } from '../../hooks/useActions';
 
@@ -16,42 +16,15 @@ const AddCell: React.FC<AddCellProps> = ({ prevCellId, forceVisible }) => {
       className={`${forceVisible && styles.force_visible} ${styles.add_cell}`}
     >
       <div className={styles.add_buttons}>
-        <button
-          className={styles.add_btn}
-          onClick={() => insertCellAfter({ id: prevCellId, type: 'code' })}
-        >
-          <span className={styles.icon}>
-            <BiPlus />
-          </span>
-          <span>Code</span>
-        </button>
-        <button
-          className={styles.add_btn}
-          onClick={() => insertCellAfter({ id: prevCellId, type: 'text' })}
-        >
-          <span className={styles.icon}>
-            <BiPlus />
-          </span>{' '}
-          <span>Text</span>
-        </button>
-        <button
-          className={styles.add_btn}
-          onClick={() => insertCellAfter({ id: prevCellId, type: 'chatbot' })}
-        >
-          <span className={styles.icon}>
-            <BiPlus />
-          </span>{' '}
-          <span>Chat</span>
-        </button>
-        <button
-          className={styles.add_btn}
-          onClick={() => insertCellAfter({ id: prevCellId, type: 'draw' })}
-        >
-          <span className={styles.icon}>
-            <BiPlus />
-          </span>{' '}
-          <span>Draw</span>
-        </button>
+        {cellButtons.map(({ id, type, cellName }) => (
+          <button
+            key={id}
+            className={styles.add_btn}
+            onClick={() => insertCellAfter({ id: prevCellId, type })}
+          >
+            <span>{cellName}</span>
+          </button>
+        ))}
       </div>
       <div className={styles.divider} />
     </div>

@@ -17,7 +17,7 @@ export const SidebarMenu = () => {
       className={styles.side_menu}
     >
       <motion.ul
-        variants={slideIn('up', 'tween', 0.2, 1)}
+        variants={slideIn('up', 'tween', 0.2, 0.5)}
         className={` ${styles.menu_list}`}
       >
         {navLinks.map((link, index) => (
@@ -25,8 +25,8 @@ export const SidebarMenu = () => {
             variants={fadeIn(
               index % 2 ? 'left' : 'right',
               'tween',
-              1.2 + index / 2,
-              0.9
+              0.8 + index / 2,
+              0.6
             )}
             key={link.id}
             className={`${styles.shadow} ${styles.link}`}
