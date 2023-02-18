@@ -7,7 +7,7 @@
 }
 
 @media (min-width: 640px) {
-  .cell-list {
+  .cell_list {
     margin: 10vh 64px 30vh;
   }
 }

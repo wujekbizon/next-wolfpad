@@ -2,7 +2,7 @@ import styles from './SidebarMenu.module.css';
 import Link from 'next/link';
 import { navLinks } from '../../data/links';
 import { motion } from 'framer-motion';
-import { staggerContainer, slideIn } from '../../utils/motion';
+import { staggerContainer, slideIn, fadeIn } from '../../utils/motion';
 import { useActions } from '../../hooks/useActions';
 
 export const SidebarMenu = () => {
@@ -17,12 +17,17 @@ export const SidebarMenu = () => {
       className={styles.side_menu}
     >
       <motion.ul
-        variants={slideIn('down', 'tween', 0.2, 0.8)}
+        variants={slideIn('up', 'tween', 0.2, 1)}
         className={` ${styles.menu_list}`}
       >
         {navLinks.map((link, index) => (
           <motion.li
-            variants={slideIn('up', 'tween', 0.6 + index / 2, 0.9)}
+            variants={fadeIn(
+              index % 2 ? 'left' : 'right',
+              'tween',
+              1.2 + index / 2,
+              0.9
+            )}
             key={link.id}
             className={`${styles.shadow} ${styles.link}`}
             onClick={() => closeSideMenu()}

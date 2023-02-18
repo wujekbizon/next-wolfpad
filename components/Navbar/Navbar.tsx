@@ -25,14 +25,15 @@ const Navbar = () => {
       <div className={`${styles.navbar_gradient} gradient-01 `} />
       <nav className={styles.nav_center}>
         <div className={styles.image_container}>
-          <Image
-            src="/images/wolfpad.png"
-            alt="wolfpad"
-            width={80}
-            height={80}
-            className={styles.logo}
-          />
-
+          {!isMenuOpen && (
+            <Image
+              src="/images/wolfpad.png"
+              alt="wolfpad"
+              width={80}
+              height={80}
+              className={styles.logo}
+            />
+          )}
           <Logo title=".wolfpad" />
         </div>
         {isMenuOpen ? (
