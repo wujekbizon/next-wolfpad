@@ -26,15 +26,17 @@ const Navbar = () => {
       <nav className={styles.nav_center}>
         <div className={styles.image_container}>
           {!isMenuOpen && (
-            <Image
-              src="/images/wolfpad.png"
-              alt="wolfpad"
-              width={80}
-              height={80}
-              className={styles.logo}
-            />
+            <>
+              <Image
+                src="/images/wolfpad.png"
+                alt="wolfpad"
+                width={80}
+                height={80}
+                className={styles.logo}
+              />
+              <Logo title=".wolfpad" />
+            </>
           )}
-          <Logo title=".wolfpad" />
         </div>
         {isMenuOpen ? (
           <MdClose

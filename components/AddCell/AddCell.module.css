@@ -1,6 +1,6 @@
 .add_cell {
   position: relative;
-  opacity: 0;
+  opacity: 0.4;
   transition: opacity 0.3s ease-in 0.1s;
   margin: 10px 0;
 }
@@ -52,6 +52,10 @@
 }
 
 @media (min-width: 770px) {
+  .add_cell {
+    opacity: 0;
+  }
+
   .add_buttons button {
     margin: 0 20px;
   }

@@ -1,9 +1,9 @@
 import styles from './CellList.module.css';
 import { Fragment, useEffect } from 'react';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import CellListItem from '../CellListItem/CellListItem';
 import AddCell from '../AddCell/AddCell';
 import { useActions } from '../../hooks/useActions';
+import CellListItem from '../CellListItem/CellListItem';
 
 const CellList = () => {
   const cells = useTypedSelector(({ cells: { order, data } }) =>
