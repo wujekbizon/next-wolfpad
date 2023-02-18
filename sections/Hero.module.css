@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .hero_title {
@@ -64,10 +64,6 @@
 @media (min-width: 640px) {
   .hero_wrapper {
     padding: 64px 64px 64px 0;
-  }
-
-  .hero_container {
-    justify-content: center;
   }
 
   .hero_title h1 {
