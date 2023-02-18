@@ -76,6 +76,7 @@ h1 {
 }
 
 .editor-container {
+  position: relative;
   max-width: 100%;
   color: #000;
   position: relative;
@@ -84,8 +85,8 @@ h1 {
   text-align: left;
   background: #1e1e1e;
   margin-bottom: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  /* border-top-left-radius: 10px;
+  border-top-right-radius: 10px; */
 }
 
 .editor-inner {
@@ -295,10 +296,12 @@ h1 {
 
 .toolbar {
   display: flex;
-  background: #30363d;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  /* background: #30363d; */
   padding: 4px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  /* border-top-left-radius: 10px;
+  border-top-right-radius: 10px; */
   vertical-align: middle;
 }
 

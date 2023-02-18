@@ -9,7 +9,8 @@
 .editor_wrapper .btn_mode {
   position: absolute;
   top: -40px;
-  left: 0;
+  left: 0px;
+  margin-left: 5px;
 }
 
 .editor_wrapper .btn_format {

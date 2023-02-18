@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import '../styles/styles.css';
+import '../styles/lexical.css';
 import '../styles/chat.css';
 import '../styles/resizable.css';
 import '../styles/excalidraw.css';

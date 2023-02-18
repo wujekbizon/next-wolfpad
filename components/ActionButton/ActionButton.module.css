@@ -1,14 +1,8 @@
 .action_btn {
   padding: 8px;
-  /* background: linear-gradient(
-    180deg,
-    rgba(29, 28, 37, 1) 0%,
-    rgba(67, 30, 63, 1) 100%
-  ); */
   background-color: transparent;
   border: transparent;
   cursor: pointer;
-  margin-left: 10px;
 }
 
 .action_btn:hover {
