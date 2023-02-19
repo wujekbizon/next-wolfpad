@@ -38,8 +38,7 @@ const About = () => {
           highlighting, auto-completion, and debugging tools that make coding
           more efficient. With these features, developers can focus on the logic
           of their code rather than worrying about syntax or other technical
-          details. An interactive coding environment is a great way to learn
-          programming quickly and efficiently.
+          details.
         </motion.p>
       </motion.div>
     </section>

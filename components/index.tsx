@@ -1,4 +1,3 @@
-import ChatBot from './ChatBot/ChatBot';
 import dynamic from 'next/dynamic';
 import ProgressBar from './ProgressBar/ProgressBar';
 
