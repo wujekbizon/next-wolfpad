@@ -1,21 +1,17 @@
 import styles from './RegisterForm.module.css';
-import { useState } from 'react';
+import { FormInputs } from '../Register/Register';
 
-const RegisterForm = () => {
-  const [formInputs, setFormInputs] = useState({
-    name: '',
-    email: '',
-    password: '',
-    checked: false,
-  });
+type RegisterFormType = {
+  onSubmitHandler: React.FormEventHandler<HTMLFormElement>;
+  formInputs: FormInputs;
+  setFormInputs: React.Dispatch<React.SetStateAction<FormInputs>>;
+};
 
-  const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault();
-
-    // reseting inputs
-    setFormInputs({ name: '', email: '', password: '', checked: false });
-  };
-
+const RegisterForm = ({
+  onSubmitHandler,
+  formInputs,
+  setFormInputs,
+}: RegisterFormType) => {
   return (
     <form className={styles.form} onSubmit={onSubmitHandler}>
       <input
