@@ -39,7 +39,7 @@ const Register = () => {
       console.log('Invalid Inputs');
       return;
     }
-    const newUser: User = { name, email, password, isAdmin: true };
+    const newUser: User = { name, email, password };
     try {
       registerNewUser(newUser);
     } catch (error) {}
