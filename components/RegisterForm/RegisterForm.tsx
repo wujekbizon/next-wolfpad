@@ -2,18 +2,18 @@ import styles from './RegisterForm.module.css';
 import { useState } from 'react';
 
 const RegisterForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [checked, setChecked] = useState(false);
+  const [formInputs, setFormInputs] = useState({
+    name: '',
+    email: '',
+    password: '',
+    checked: false,
+  });
 
   const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
 
     // reseting inputs
-    setName('');
-    setEmail('');
-    setPassword('');
+    setFormInputs({ name: '', email: '', password: '', checked: false });
   };
 
   return (
@@ -23,24 +23,28 @@ const RegisterForm = () => {
         name="name"
         placeholder="Enter name"
         required
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={formInputs.name}
+        onChange={(e) => setFormInputs({ ...formInputs, name: e.target.value })}
       />
       <input
         type="email"
         name="email"
         placeholder="Enter email"
         required
-        value={email}
+        value={formInputs.email}
         autoComplete="username"
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) =>
+          setFormInputs({ ...formInputs, email: e.target.value })
+        }
       />
       <input
         type="password"
         name="password"
         placeholder="Enter password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        value={formInputs.password}
+        onChange={(e) =>
+          setFormInputs({ ...formInputs, password: e.target.value })
+        }
         required
         autoComplete="current-password"
       />
@@ -49,8 +53,10 @@ const RegisterForm = () => {
           type="checkbox"
           id="checkbox"
           name="newsletter"
-          checked={checked}
-          onChange={(e) => setChecked(e.target.checked)}
+          checked={formInputs.checked}
+          onChange={(e) =>
+            setFormInputs({ ...formInputs, checked: e.target.checked })
+          }
         />
         <label htmlFor="checkbox">
           I want to recive latest news and offers about Wolfpad
