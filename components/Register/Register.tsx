@@ -2,6 +2,7 @@ import styles from './Register.module.css';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import RegisterContent from '../RegisterContent/RegisterContent';
 import { useState } from 'react';
+import axios from 'axios';
 
 export interface FormInputs {
   name: string;
@@ -36,6 +37,9 @@ const Register = () => {
       console.log('Invalid Inputs');
       return;
     }
+
+    try {
+    } catch (error) {}
 
     // reseting inputs
     setFormInputs({ name: '', email: '', password: '', checked: false });

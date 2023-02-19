@@ -16,6 +16,16 @@ import {
   openSideMenu,
   closeSideMenu,
 } from './slices/modalsSlice';
+import {
+  usersReducer,
+  loginFailure,
+  loginStart,
+  loginSuccess,
+  registerFailure,
+  registerStart,
+  registerSuccess,
+  logoutUser,
+} from './slices/usersSlice';
 import { createBundle, fetchCells, saveCells } from './apiCalls';
 
 export const store = configureStore({
@@ -23,6 +33,7 @@ export const store = configureStore({
     bundles: bundlesReducer,
     cells: cellsReducer,
     modals: modalsReducer,
+    users: usersReducer,
   },
 });
 
@@ -41,6 +52,13 @@ export const actionCreators = {
   closeSideMenu,
   fetchCells,
   saveCells,
+  registerStart,
+  registerSuccess,
+  registerFailure,
+  loginFailure,
+  loginStart,
+  loginSuccess,
+  logoutUser,
 };
 
 // store.dispatch(
