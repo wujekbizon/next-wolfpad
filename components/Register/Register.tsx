@@ -20,6 +20,22 @@ const Register = () => {
 
   const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
+    const { name, email, password } = formInputs;
+
+    // optional handling validation on client side
+    if (
+      !name ||
+      name.trim() === '' ||
+      !email ||
+      !email.includes('@') ||
+      email.trim() === '' ||
+      !password ||
+      password.trim().length < 8
+    ) {
+      // add later notification for the client
+      console.log('Invalid Inputs');
+      return;
+    }
 
     // reseting inputs
     setFormInputs({ name: '', email: '', password: '', checked: false });
