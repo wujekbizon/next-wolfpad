@@ -4,11 +4,11 @@ const RegisterContent = () => {
   return (
     <div className={styles.content_wrappper}>
       <h1 className="gradient_text">
-        Signup Free
+        Signup For Free And
         <br />
-        And Get Your Premium Account Today
+        Get Your Premium Account Today
       </h1>
-      ;
+
       <p>
         By registering for our Premium plan, You will get unlimited access to
         the latest features, such as: Chatbot AI, Draw a virtual whiteboard for

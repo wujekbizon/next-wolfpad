@@ -9,10 +9,11 @@ const RegisterForm = () => {
 
   const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    console.log(name);
-    console.log(email);
-    console.log(password);
-    console.log(checked);
+
+    // reseting inputs
+    setName('');
+    setEmail('');
+    setPassword('');
   };
 
   return (

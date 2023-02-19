@@ -1,7 +1,16 @@
 .register {
-  padding: 64px;
+  padding: 64px 24px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
+  gap: 100px;
+}
+
+@media (min-width: 1024px) {
+  .register {
+    padding: 64px;
+    flex-direction: row;
+    gap: 0px;
+  }
 }

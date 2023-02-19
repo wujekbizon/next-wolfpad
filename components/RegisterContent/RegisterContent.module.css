@@ -8,17 +8,30 @@
 }
 
 .content_wrappper h1 {
-  font-size: 75px;
+  font-size: 50px;
   font-weight: 700;
   text-align: center;
-  letter-spacing: 0.1rem;
+  margin-bottom: 50px;
 }
 
 .content_wrappper p {
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 200;
   color: white;
-  padding: 0 50px;
+  padding: 0;
   text-align: center;
-  line-height: 60px;
+  line-height: 40px;
+}
+
+@media (min-width: 780px) {
+  .content_wrappper p {
+    font-size: 30px;
+    padding: 0 50px;
+    line-height: 60px;
+  }
+
+  .content_wrappper h1 {
+    font-size: 70px;
+    margin-bottom: 0;
+  }
 }

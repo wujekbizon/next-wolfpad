@@ -1,7 +1,7 @@
 .form {
   flex: 1;
   display: flex;
-  height: 60vh;
+  height: 80vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -9,7 +9,7 @@
 }
 
 .form input {
-  width: 60%;
+  width: 100%;
   height: 40px;
   border: none;
   outline: none;
@@ -22,7 +22,7 @@
 }
 
 .form_newsletter {
-  width: 60%;
+  width: 100%;
   display: flex;
   align-items: center;
 }
@@ -42,9 +42,23 @@
 .form button {
   padding: 8px 45px;
   cursor: pointer;
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .form button:hover {
   background: linear-gradient(189.97deg, #ae67fa 1.84%, #f49867 102.67%);
+}
+
+@media (min-width: 1024px) {
+  .form input {
+    width: 60%;
+  }
+
+  .form_newsletter {
+    width: 60%;
+  }
+
+  .form button {
+    font-size: 28px;
+  }
 }
