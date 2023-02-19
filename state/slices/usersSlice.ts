@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User } from '../user';
 
 interface UsersState {
-  currentUser: null | User;
+  currentUser: null | { message: string };
   isFetching: boolean;
   error: boolean;
 }
@@ -19,7 +19,10 @@ const userSlice = createSlice({
       state.isFetching = true;
       state.error = false;
     },
-    loginSuccess: (state: UsersState, { payload }: PayloadAction<User>) => {
+    loginSuccess: (
+      state: UsersState,
+      { payload }: PayloadAction<{ message: string }>
+    ) => {
       state.isFetching = false;
       state.currentUser = payload;
     },
@@ -34,7 +37,10 @@ const userSlice = createSlice({
       state.isFetching = true;
       state.error = false;
     },
-    registerSuccess: (state: UsersState, { payload }: PayloadAction<User>) => {
+    registerSuccess: (
+      state: UsersState,
+      { payload }: PayloadAction<{ message: string }>
+    ) => {
       state.isFetching = false;
       state.currentUser = payload;
     },
