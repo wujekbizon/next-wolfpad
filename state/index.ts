@@ -26,7 +26,13 @@ import {
   registerSuccess,
   logoutUser,
 } from './slices/usersSlice';
-import { createBundle, fetchCells, saveCells } from './apiCalls';
+import {
+  createBundle,
+  fetchCells,
+  saveCells,
+  registerNewUser,
+  loginUser,
+} from './apiCalls';
 
 export const store = configureStore({
   reducer: {
@@ -59,6 +65,8 @@ export const actionCreators = {
   loginStart,
   loginSuccess,
   logoutUser,
+  registerNewUser,
+  loginUser,
 };
 
 // store.dispatch(

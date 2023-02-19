@@ -84,32 +84,36 @@ export const saveCells = () => {
   };
 };
 
-export const registerNewUser = async (dispatch: Dispatch, user: User) => {
-  dispatch(registerStart());
+export const registerNewUser = (user: User) => {
+  return async (dispatch: Dispatch) => {
+    dispatch(registerStart());
 
-  try {
-    const response = await axios.post('/api/signup', user);
-    dispatch(registerSuccess(response.data));
-  } catch (error) {
-    if (error instanceof Error) {
-      dispatch(registerFailure());
-    } else {
-      console.log(error);
+    try {
+      const response = await axios.post('/api/signup', user);
+      dispatch(registerSuccess(response.data));
+    } catch (error) {
+      if (error instanceof Error) {
+        dispatch(registerFailure());
+      } else {
+        console.log(error);
+      }
     }
-  }
+  };
 };
 
-export const loginUser = async (dispatch: Dispatch, user: User) => {
-  dispatch(loginStart());
+export const loginUser = (user: User) => {
+  return async (dispatch: Dispatch) => {
+    dispatch(loginStart());
 
-  try {
-    const response = await axios.post('/api/login', user);
-    dispatch(loginSuccess(response.data));
-  } catch (error) {
-    if (error instanceof Error) {
-      dispatch(loginFailure());
-    } else {
-      console.log(error);
+    try {
+      const response = await axios.post('/api/login', user);
+      dispatch(loginSuccess(response.data));
+    } catch (error) {
+      if (error instanceof Error) {
+        dispatch(loginFailure());
+      } else {
+        console.log(error);
+      }
     }
-  }
+  };
 };

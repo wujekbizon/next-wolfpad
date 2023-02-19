@@ -2,7 +2,8 @@ import styles from './Register.module.css';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import RegisterContent from '../RegisterContent/RegisterContent';
 import { useState } from 'react';
-import axios from 'axios';
+import { User } from '../../state/user';
+import { useActions } from '../../hooks/useActions';
 
 export interface FormInputs {
   name: string;
@@ -18,6 +19,7 @@ const Register = () => {
     password: '',
     checked: false,
   });
+  const { registerNewUser } = useActions();
 
   const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
@@ -37,8 +39,9 @@ const Register = () => {
       console.log('Invalid Inputs');
       return;
     }
-
+    const newUser: User = { name, email, password, isAdmin: true };
     try {
+      registerNewUser(newUser);
     } catch (error) {}
 
     // reseting inputs
