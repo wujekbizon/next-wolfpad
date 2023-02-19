@@ -8,8 +8,17 @@ import {
   fetchCellsComplete,
   saveCellsError,
 } from './slices/cellsSlice';
+import {
+  loginStart,
+  loginFailure,
+  loginSuccess,
+  registerFailure,
+  registerStart,
+  registerSuccess,
+} from './slices/usersSlice';
 import { RootState } from '../state';
 import axios from 'axios';
+import { User } from './user';
 
 export const createBundle = (cellId: string, input: string) => {
   return async (dispatch: Dispatch) => {
@@ -35,7 +44,7 @@ export const fetchCells = () => {
     dispatch(fetchCellsStart());
 
     try {
-      const { data }: { data: Cell[] } = await axios.get('api/cells');
+      const { data }: { data: Cell[] } = await axios.get('/api/cells');
       dispatch(
         fetchCellsComplete({
           payload: data,
@@ -73,4 +82,34 @@ export const saveCells = () => {
       }
     }
   };
+};
+
+export const registerNewUser = async (dispatch: Dispatch, user: User) => {
+  dispatch(registerStart());
+
+  try {
+    const response = await axios.post('/api/signup', user);
+    dispatch(registerSuccess(response.data));
+  } catch (error) {
+    if (error instanceof Error) {
+      dispatch(registerFailure());
+    } else {
+      console.log(error);
+    }
+  }
+};
+
+export const loginUser = async (dispatch: Dispatch, user: User) => {
+  dispatch(loginStart());
+
+  try {
+    const response = await axios.post('/api/login', user);
+    dispatch(loginSuccess(response.data));
+  } catch (error) {
+    if (error instanceof Error) {
+      dispatch(loginFailure());
+    } else {
+      console.log(error);
+    }
+  }
 };
