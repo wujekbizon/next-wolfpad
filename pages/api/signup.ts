@@ -14,8 +14,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       password: hashedPassword,
     };
 
-    console.log(newUser);
-
     if (
       !email ||
       !email.includes('@') ||
