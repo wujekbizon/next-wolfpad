@@ -2,7 +2,7 @@ import { MongoClient, ObjectId } from 'mongodb';
 import { User } from '../state/user';
 
 type FilteredDocument<Document> = {
-  [key: string]: Document | string | number | Date | ObjectId;
+  [key: string]: Document | string | number | boolean | ObjectId;
 };
 
 export const connectToDatabase = async (dbName: string) => {

@@ -9,7 +9,7 @@ import {
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
-    const { email, password, name }: User = req.body;
+    const { email, password, name, checked }: User = req.body;
 
     const hashedPassword = await hashPassword(password);
 
@@ -17,6 +17,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       name,
       email,
       password: hashedPassword,
+      newsletter: checked,
     };
 
     if (

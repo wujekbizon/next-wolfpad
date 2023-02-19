@@ -23,7 +23,7 @@ const Register = () => {
 
   const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    const { name, email, password } = formInputs;
+    const { name, email, password, checked } = formInputs;
 
     // optional handling validation on client side
     if (
@@ -39,7 +39,7 @@ const Register = () => {
       console.log('Invalid Inputs');
       return;
     }
-    const newUser: User = { name, email, password };
+    const newUser: User = { name, email, password, checked };
     try {
       registerNewUser(newUser);
     } catch (error) {}
