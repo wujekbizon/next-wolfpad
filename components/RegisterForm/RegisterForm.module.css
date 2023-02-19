@@ -1,0 +1,50 @@
+.form {
+  flex: 1;
+  display: flex;
+  height: 60vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.form input {
+  width: 60%;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-size: 25px;
+  color: black;
+}
+
+.form input::placeholder {
+  font-size: 20px;
+}
+
+.form_newsletter {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+.form_newsletter input {
+  flex: 0.5;
+  height: 20px;
+}
+
+.form_newsletter label {
+  flex: 3;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+
+.form button {
+  padding: 8px 45px;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.form button:hover {
+  background: linear-gradient(189.97deg, #ae67fa 1.84%, #f49867 102.67%);
+}

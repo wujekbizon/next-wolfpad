@@ -1,9 +1,13 @@
 import styles from './Home.module.css';
-import { Hero, About, GetStarted } from '../../sections';
-import WhatsNew from '../../sections/WhatsNew';
-import Explore from '../../sections/Explore';
-import Footer from '../../sections/Footer';
-import Founder from '../../sections/Founder';
+import {
+  Hero,
+  About,
+  GetStarted,
+  WhatsNew,
+  Explore,
+  Footer,
+  Founder,
+} from '../../sections';
 
 const Home = () => {
   return (
