@@ -8,7 +8,7 @@ import {
   MdContentCopy,
   MdSync,
 } from 'react-icons/md';
-
+import Image from 'next/image';
 import {
   exportToClipboard,
   Excalidraw as Draw,
@@ -39,7 +39,7 @@ import {
 } from './utils';
 import { Comment, PointerDownState } from './types';
 
-import initialData from './initialData';
+import { initialData } from './initialData';
 import Resizable from '../Resizable/Resizable';
 
 declare global {
@@ -395,7 +395,12 @@ const Excalidraw = () => {
           }}
         >
           <div className={styles.comment_avatar}>
-            <img src="/images/download.png" alt="doremon" />
+            <Image
+              src="/images/download.png"
+              alt="doremon"
+              height={200}
+              width={200}
+            />
           </div>
         </div>
       );

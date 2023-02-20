@@ -14,7 +14,7 @@ const CellList = () => {
 
   useEffect(() => {
     fetchCells();
-  }, []);
+  }, [fetchCells]);
 
   return (
     <div className={`cell-list ${styles.cell_list}`}>

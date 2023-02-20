@@ -1,4 +1,4 @@
-export default {
+export const initialData = {
   elements: [
     {
       id: '6sVDp9mCGQTomD9Cg5w1b',
