@@ -106,7 +106,7 @@ export const loginUser = (user: User) => {
     dispatch(loginStart());
 
     try {
-      const response = await axios.post('/api/login', user);
+      const response = await axios.post('/api/signin', user);
       dispatch(loginSuccess(response.data));
     } catch (error) {
       if (error instanceof Error) {
