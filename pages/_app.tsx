@@ -6,16 +6,23 @@ import '../styles/excalidraw.css';
 import '../styles/error.css';
 import '../styles/gradients.css';
 import type { AppProps } from 'next/app';
+import type { Session } from 'next-auth';
 import { Provider } from 'react-redux';
 import { store } from '../state';
 import Layout from '../components/Layout/Layout';
+import { SessionProvider } from 'next-auth/react';
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps<{ session: Session }>) {
   return (
-    <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </Provider>
+    <SessionProvider session={session}>
+      <Provider store={store}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </Provider>
+    </SessionProvider>
   );
 }

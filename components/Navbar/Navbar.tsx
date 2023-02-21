@@ -9,11 +9,13 @@ import { MdMenu, MdClose } from 'react-icons/md';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 
 const Navbar = () => {
   const router = useRouter();
   const isMenuOpen = useTypedSelector((state) => state.modals.isMenuOpen);
   const { openSideMenu, closeSideMenu } = useActions();
+  const { data: session, status } = useSession();
 
   return (
     <motion.header
@@ -38,6 +40,7 @@ const Navbar = () => {
             </>
           )}
         </div>
+
         {isMenuOpen ? (
           <MdClose
             className={styles.nav_menu}
@@ -46,20 +49,26 @@ const Navbar = () => {
         ) : (
           <MdMenu className={styles.nav_menu} onClick={() => openSideMenu()} />
         )}
-        <ul className={styles.nav_links}>
-          {navLinks.map((link) => (
-            <li
-              className={
-                link.url === router.pathname
-                  ? `${styles.active} ${styles.link_btn}`
-                  : `${styles.link_btn}`
-              }
-              key={link.id}
-            >
-              <Link href={link.url}>{link.label}</Link>
-            </li>
-          ))}
-        </ul>
+        {session && status === 'authenticated' ? (
+          <ul className={styles.nav_links}>
+            {navLinks.map((link) => (
+              <li
+                className={
+                  link.url === router.pathname
+                    ? `${styles.active} ${styles.link_btn}`
+                    : `${styles.link_btn}`
+                }
+                key={link.id}
+              >
+                <Link href={link.url}>{link.label}</Link>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <button>
+            <Link href="/signin">Sign In</Link>
+          </button>
+        )}
       </nav>
     </motion.header>
   );

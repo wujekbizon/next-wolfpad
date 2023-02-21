@@ -1,24 +1,32 @@
-import dynamic from 'next/dynamic';
-import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import { GetServerSideProps } from 'next';
+import { getSession } from 'next-auth/react';
 import CellList from '../../components/CellList/CellList';
-
-const DynamicCellList = dynamic(
-  () => import('../../components/CellList/CellList'),
-  {
-    loading: () => (
-      <div className="dynamic-loader">
-        <ProgressBar />
-      </div>
-    ),
-    ssr: false,
-  }
-);
 
 const PlaygroundPage = () => {
   return (
     <>
+      {' '}
       <CellList />
     </>
   );
 };
 export default PlaygroundPage;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getSession({ req: context.req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/signin',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      session,
+    },
+  };
+};
