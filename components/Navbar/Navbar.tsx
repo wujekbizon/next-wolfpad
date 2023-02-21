@@ -10,6 +10,7 @@ import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
 
 const Navbar = () => {
   const router = useRouter();
@@ -49,7 +50,7 @@ const Navbar = () => {
         ) : (
           <MdMenu className={styles.nav_menu} onClick={() => openSideMenu()} />
         )}
-        {session && status === 'authenticated' ? (
+        {session && status === 'authenticated' && (
           <ul className={styles.nav_links}>
             {navLinks.map((link) => (
               <li
@@ -64,9 +65,18 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-        ) : (
-          <button>
+        )}
+
+        {!session ? (
+          <button className={styles.nav_btn}>
             <Link href="/signin">Sign In</Link>
+          </button>
+        ) : (
+          <button
+            className={styles.nav_btn}
+            onClick={() => signOut({ redirect: true, callbackUrl: '/' })}
+          >
+            Sign Out
           </button>
         )}
       </nav>
