@@ -14,6 +14,7 @@ const SignInForm = () => {
     event
   ) => {
     event.preventDefault();
+
     const result = await signIn('credentials', {
       redirect: false,
       email,

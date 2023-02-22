@@ -4,6 +4,7 @@ import RegisterContent from '../RegisterContent/RegisterContent';
 import { useState } from 'react';
 import { User } from '../../state/user';
 import { useActions } from '../../hooks/useActions';
+import { toast } from 'react-toastify';
 
 export interface FormInputs {
   name: string;
@@ -36,12 +37,14 @@ const Register = () => {
       password.trim().length < 8
     ) {
       // add later notification for the client
+      toast.error('Please Fill Out All Fields');
       console.log('Invalid Inputs');
       return;
     }
     const newUser: User = { name, email, password, checked };
     try {
       registerNewUser(newUser);
+      toast.success('User registered succesfully');
     } catch (error) {}
 
     // reseting inputs
