@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
-import Logo from '../Logo/Logo';
 import Image from 'next/image';
 
 const SignInForm = () => {
@@ -28,7 +27,10 @@ const SignInForm = () => {
 
   return (
     <section className={styles.signin_form}>
-      <form onSubmit={onSubmitHandler} className={styles.form}>
+      <form
+        onSubmit={onSubmitHandler}
+        className={`glassmorphism ${styles.form}`}
+      >
         <div className={styles.logo_container}>
           <Image
             className={styles.logo_image}
@@ -37,9 +39,8 @@ const SignInForm = () => {
             width={65}
             height={65}
           />
-          <Logo title=".wolfpad" className={styles.logo} />
+          <h3>Sign In</h3>
         </div>
-        <h3>Sign In</h3>
         <div className={styles.form_row}>
           <label htmlFor="email">Email</label>
           <input
@@ -48,6 +49,7 @@ const SignInForm = () => {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
         <div className={styles.form_row}>
@@ -58,12 +60,19 @@ const SignInForm = () => {
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
-        <button type="submit">Sign In</button>
+        <button className={styles.submit_btn} type="submit">
+          Sign In
+        </button>
 
-        <p className={styles.register}>Not a member yet?</p>
-        <Link href="signup">Register</Link>
+        <div className={styles.register}>
+          <p>Not a member yet?</p>
+          <Link className={styles.register_btn} href="signup">
+            Register
+          </Link>
+        </div>
       </form>
     </section>
   );

@@ -70,16 +70,16 @@
 }
 
 .nav_btn {
-  background: rgb(66, 64, 64);
-  padding: 5px 15px;
+  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
+  padding: 5px 20px;
   font-size: 18px;
-  border-radius: 10px;
-  color: white;
+  border-radius: 50px;
+  color: #040c18;
   cursor: pointer;
 }
 
 .nav_btn:hover {
-  background: rgb(46, 44, 44);
+  color: white;
 }
 
 @media (min-width: 768px) {
