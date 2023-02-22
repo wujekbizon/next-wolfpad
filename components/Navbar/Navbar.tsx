@@ -30,13 +30,15 @@ const Navbar = () => {
         <div className={styles.image_container}>
           {!isMenuOpen && (
             <>
-              <Image
-                src="/images/wolfpad.png"
-                alt="wolfpad"
-                width={80}
-                height={80}
-                className={styles.logo}
-              />
+              <Link href="/">
+                <Image
+                  src="/images/wolfpad.png"
+                  alt="wolfpad"
+                  width={80}
+                  height={80}
+                  className={styles.logo}
+                />
+              </Link>
               <Logo title=".wolfpad" />
             </>
           )}
