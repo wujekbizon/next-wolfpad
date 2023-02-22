@@ -18,7 +18,6 @@ const RegisterForm = ({
         type="text"
         name="name"
         placeholder="Enter name"
-        required
         value={formInputs.name}
         onChange={(e) => setFormInputs({ ...formInputs, name: e.target.value })}
       />
@@ -26,7 +25,6 @@ const RegisterForm = ({
         type="email"
         name="email"
         placeholder="Enter email"
-        required
         value={formInputs.email}
         autoComplete="username"
         onChange={(e) =>
@@ -41,7 +39,6 @@ const RegisterForm = ({
         onChange={(e) =>
           setFormInputs({ ...formInputs, password: e.target.value })
         }
-        required
         autoComplete="current-password"
       />
       <div className={styles.form_newsletter}>
