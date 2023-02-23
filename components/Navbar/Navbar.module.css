@@ -71,11 +71,20 @@
 
 .nav_btn {
   background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
-  padding: 5px 20px;
-  font-size: 18px;
-  border-radius: 50px;
-  color: #040c18;
+  width: 35px;
+  height: 35px;
+  font-size: 25px;
+  border-radius: 5px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav_btn a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav_btn:hover {

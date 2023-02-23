@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { navVariants } from '../../utils/motion';
 import Image from 'next/image';
 import { MdMenu, MdClose } from 'react-icons/md';
+import { GoSignIn, GoSignOut } from 'react-icons/go';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useRouter } from 'next/router';
@@ -52,6 +53,7 @@ const Navbar = () => {
         ) : (
           <MdMenu className={styles.nav_menu} onClick={() => openSideMenu()} />
         )}
+
         {session && status === 'authenticated' && (
           <ul className={styles.nav_links}>
             {navLinks.map((link) => (
@@ -69,18 +71,20 @@ const Navbar = () => {
           </ul>
         )}
 
-        {!session ? (
-          <button className={styles.nav_btn}>
-            <Link href="/signin">Sign In</Link>
-          </button>
-        ) : (
-          <button
-            className={styles.nav_btn}
-            onClick={() => signOut({ redirect: true, callbackUrl: '/' })}
-          >
-            Sign Out
-          </button>
-        )}
+        {!isMenuOpen &&
+          (!session ? (
+            <button className={styles.nav_btn}>
+              <Link href="/signin">
+                <GoSignIn />
+              </Link>
+            </button>
+          ) : (
+            <button className={styles.nav_btn}>
+              <GoSignOut
+                onClick={() => signOut({ redirect: true, callbackUrl: '/' })}
+              />
+            </button>
+          ))}
       </nav>
     </motion.header>
   );

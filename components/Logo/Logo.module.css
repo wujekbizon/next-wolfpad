@@ -6,7 +6,7 @@
   display: none;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 840px) {
   .logo {
     display: flex;
     font-size: 45px;
