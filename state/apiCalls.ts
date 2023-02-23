@@ -89,7 +89,10 @@ export const registerNewUser = (user: User) => {
     dispatch(registerStart());
 
     try {
-      const response = await axios.post('/api/signup', user);
+      const response = await axios.post(
+        'https://wolfpad.vercel.app/api/signup',
+        user
+      );
       dispatch(registerSuccess(response.data));
     } catch (error) {
       if (error instanceof Error) {

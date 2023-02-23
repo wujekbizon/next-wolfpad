@@ -39,7 +39,7 @@ const authOptions: NextAuthOptions = {
     }),
   ],
   pages: {
-    signIn: '/signin',
+    signIn: 'https://wolfpad.vercel.app/signin',
   },
   callbacks: {
     session: async ({ session, user, token }) => {
