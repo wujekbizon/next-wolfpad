@@ -73,16 +73,19 @@ const Navbar = () => {
 
         {!isMenuOpen &&
           (!session ? (
-            <button className={styles.nav_btn}>
-              <Link href="/signin">
-                <GoSignIn />
-              </Link>
-            </button>
+            <Link href="/signin">
+              <button className={styles.nav_btn}>
+                <GoSignIn className={styles.icon} />
+                Sign In
+              </button>
+            </Link>
           ) : (
-            <button className={styles.nav_btn}>
-              <GoSignOut
-                onClick={() => signOut({ redirect: true, callbackUrl: '/' })}
-              />
+            <button
+              className={styles.nav_btn}
+              onClick={() => signOut({ redirect: true, callbackUrl: '/' })}
+            >
+              <GoSignOut className={styles.icon} />
+              Sign Out
             </button>
           ))}
       </nav>

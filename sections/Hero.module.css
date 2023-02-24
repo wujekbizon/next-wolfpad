@@ -1,5 +1,6 @@
 .hero_wrapper {
-  height: calc(100vh - 95.99px);
+  height: calc(85vh - 80px);
+  padding: 0px 24px;
 }
 
 .hero_container {
@@ -53,7 +54,7 @@
 
 .image {
   width: 100%;
-  height: 420px;
+  height: 320px;
   object-fit: cover;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
@@ -63,6 +64,7 @@
 
 @media (min-width: 640px) {
   .hero_wrapper {
+    height: calc(100vh - 95.99px);
     padding: 64px 64px 64px 0;
   }
 
