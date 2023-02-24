@@ -5,14 +5,18 @@
   justify-content: center;
 }
 
-.form {
-  max-width: 500px;
-  margin: 48px 0;
-  padding: 20px;
-  background-color: white;
-  border-radius: 5px;
+.wrapper {
   border-top: 5px solid #ae67fa;
+  background-color: white;
+  margin: 48px 0;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.form {
+  max-width: 450px;
   width: 90vw;
+  background-color: white;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -73,6 +77,32 @@
   margin-top: 20px;
 }
 
+.google_btn {
+  height: 30px;
+  margin-top: 20px;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: #d4dbe6;
+  border: 1px solid #a3a9b3;
+}
+
+.google_btn span {
+  margin-left: 3px;
+}
+
+.google_btn:hover span {
+  color: red;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 22px;
+}
+
 .submit_btn:hover {
   color: white;
 }
@@ -110,7 +140,7 @@
     font-size: 20px;
   }
 
-  .form {
+  .wrapper {
     padding: 32px;
   }
 
