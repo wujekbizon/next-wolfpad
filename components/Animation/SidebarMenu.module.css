@@ -55,8 +55,6 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* color: white; */
-  /* background: rgba(4, 12, 24, 1); */
 }
 
 @media (min-width: 480px) {

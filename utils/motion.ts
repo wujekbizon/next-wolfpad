@@ -16,7 +16,7 @@ export const navVariants = {
     transition: {
       type: 'spring',
       stiffness: 80,
-      delay: 0.7,
+      delay: 0.4,
     },
   },
 };

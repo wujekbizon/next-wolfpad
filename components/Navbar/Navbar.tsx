@@ -12,12 +12,19 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 import { signOut } from 'next-auth/react';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const router = useRouter();
   const isMenuOpen = useTypedSelector((state) => state.modals.isMenuOpen);
   const { openSideMenu, closeSideMenu } = useActions();
   const { data: session, status } = useSession();
+
+  const onSignOut: React.MouseEventHandler<HTMLButtonElement> = () => {
+    const user = session?.user?.name;
+    toast.success(`Signing out, goodbye ${user}`);
+    signOut({ redirect: false, callbackUrl: '/' });
+  };
 
   return (
     <motion.header
@@ -80,10 +87,7 @@ const Navbar = () => {
               </button>
             </Link>
           ) : (
-            <button
-              className={styles.nav_btn}
-              onClick={() => signOut({ redirect: true, callbackUrl: '/' })}
-            >
+            <button className={styles.nav_btn} onClick={onSignOut}>
               <GoSignOut className={styles.icon} />
               Sign Out
             </button>

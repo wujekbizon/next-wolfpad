@@ -1,5 +1,6 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
 import { connectToDatabase, findOneDocument } from '../../../helpers/db';
 import { verifyPassword } from '../../../helpers/auth';
 
@@ -33,10 +34,22 @@ const authOptions: NextAuthOptions = {
         }
 
         const id = user._id.toString();
+        const userName = user.name;
 
-        return { email: user.email, id };
+        return { email: user.email, id, name: userName };
       },
     }),
+    // GoogleProvider({
+    //   clientId: process.env.GOOGLE_ID,
+    //   clientSecret: process.env.GOOGLE_SECRET,
+    //   authorization: {
+    //     params: {
+    //       prompt: "consent",
+    //       access_type: "offline",
+    //       response_type: "code"
+    //     }
+    //   }
+    // })
   ],
   secret: process.env.NEXTAUTH_SECRET,
   pages: {

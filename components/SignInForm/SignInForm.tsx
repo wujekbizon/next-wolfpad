@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { toast } from 'react-toastify';
+import { useSession } from 'next-auth/react';
 
 const SignInForm = () => {
   const [email, setEmail] = useState('');
@@ -15,15 +17,14 @@ const SignInForm = () => {
   ) => {
     event.preventDefault();
 
-    const result = await signIn('credentials', {
+    await signIn('credentials', {
       redirect: false,
       email,
       password,
     });
 
-    console.log(result);
-
-    router.replace('/');
+    toast.success('Welcome back user!');
+    router.push('/');
   };
 
   return (
@@ -39,6 +40,7 @@ const SignInForm = () => {
             alt="wolf"
             width={65}
             height={65}
+            priority
           />
           <h3>Sign In</h3>
         </div>
@@ -49,6 +51,7 @@ const SignInForm = () => {
             id="email"
             name="email"
             value={email}
+            autoComplete="username"
             onChange={(e) => setEmail(e.target.value)}
             required
           />
@@ -76,6 +79,9 @@ const SignInForm = () => {
           </Link>
         </div>
       </form>
+      <button onClick={() => signIn('google')} className={styles.submit_btn}>
+        Sign in with Google
+      </button>
     </section>
   );
 };
