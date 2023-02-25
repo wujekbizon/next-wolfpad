@@ -44,10 +44,11 @@ export const fetchCells = () => {
     dispatch(fetchCellsStart());
 
     try {
-      const { data }: { data: Cell[] } = await axios.get('/api/cells');
+      const { data }: { data: { message: string; cells: Cell[] } } =
+        await axios.get('/api/cells');
       dispatch(
         fetchCellsComplete({
-          payload: data,
+          payload: data.cells,
         })
       );
     } catch (error) {
@@ -71,9 +72,8 @@ export const saveCells = () => {
     } = getState();
 
     const cells = order.map((id) => data[id]);
-
     try {
-      await axios.post('api/cells', { cells });
+      await axios.post('/api/cells', { cells });
     } catch (error) {
       if (error instanceof Error) {
         dispatch(saveCellsError({ payload: error.message }));
