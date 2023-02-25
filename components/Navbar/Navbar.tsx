@@ -22,7 +22,7 @@ const Navbar = () => {
 
   const onSignOut: React.MouseEventHandler<HTMLButtonElement> = () => {
     const user = session?.user?.name;
-    toast.success(`Signing out, goodbye ${user}`);
+    toast.success(`Goodbye ${user}`);
     signOut({ redirect: false, callbackUrl: '/' });
   };
 

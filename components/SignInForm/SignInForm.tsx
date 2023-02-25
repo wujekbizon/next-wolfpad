@@ -12,23 +12,43 @@ const SignInForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
+  const { status } = useSession();
 
   const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = async (
     event
   ) => {
     event.preventDefault();
 
-    await signIn('credentials', {
+    if (!email || !password) {
+      toast.error('Please provide email and password');
+      return;
+    }
+
+    const result = await signIn('credentials', {
       redirect: false,
       email,
       password,
     });
 
-    toast.success('Welcome back user!');
-    router.push('/');
+    if (result?.error && status === 'unauthenticated') {
+      toast.error('No user found! Please use valid credentials');
+      setPassword('');
+      return;
+    }
+
+    if (result?.ok) {
+      router.push('/');
+      toast.success('Welcome back!');
+    }
   };
 
-  const onGoogleSignHandler = () => {};
+  const onGoogleSignHandler = async () => {
+    await signIn('google', {
+      redirect: false,
+      callbackUrl: '/',
+    });
+    toast.success('Welcome back!');
+  };
 
   return (
     <section className={styles.signin_form}>
@@ -54,7 +74,6 @@ const SignInForm = () => {
               value={email}
               autoComplete="username"
               onChange={(e) => setEmail(e.target.value)}
-              required
             />
           </div>
           <div className={styles.form_row}>
@@ -66,7 +85,6 @@ const SignInForm = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
-              required
             />
           </div>
           <button className={styles.submit_btn} type="submit">
@@ -80,7 +98,7 @@ const SignInForm = () => {
             </Link>
           </div>
         </form>
-        <button className={styles.google_btn} onClick={() => signIn('google')}>
+        <button className={styles.google_btn} onClick={onGoogleSignHandler}>
           <FcGoogle className={styles.icon} />
           Sign in with <span> Google</span>
         </button>
