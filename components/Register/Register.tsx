@@ -33,13 +33,21 @@ const Register = () => {
       !email ||
       !email.includes('@') ||
       email.trim() === '' ||
-      !password ||
-      password.trim().length < 8
+      !password
     ) {
       // add later notification for the client
       toast.error('Please Fill Out All Fields');
-      console.log('Invalid Inputs');
+
       return;
+    }
+
+    if (password.trim().length < 8) {
+      toast.error('Password need to be at least 8 characters long');
+      return;
+    }
+
+    if (checked) {
+      toast.success(`Thank ${name} for signing up to our newsletter`);
     }
     const newUser: User = { name, email, password, checked };
     try {
