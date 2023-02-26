@@ -18,7 +18,7 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
       {cell.type === 'code' && (
         <div className="glassmorphism radius">
           <div className={styles.action_bar_wrapper}>
-            <ActionBar id={cell.id} />
+            <ActionBar cell={cell} />
           </div>
           <DynamicCodeCell cell={cell} />
         </div>
@@ -26,7 +26,7 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
       {cell.type === 'text' && (
         <div className="glassmorphism radius">
           <div>
-            <ActionBar id={cell.id} />
+            <ActionBar cell={cell} />
           </div>
           <DynamicTextEditor cell={cell} />
         </div>
@@ -34,7 +34,7 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
       {cell.type === 'chatbot' && (
         <div className="glassmorphism radius">
           <div className={styles.action_bar_wrapper}>
-            <ActionBar id={cell.id} />
+            <ActionBar cell={cell} />
           </div>
           <DynamicChatBot />
         </div>
@@ -42,7 +42,7 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
       {cell.type === 'draw' && (
         <div className="glassmorphism radius">
           <div className={styles.action_bar_wrapper}>
-            <ActionBar id={cell.id} />
+            <ActionBar cell={cell} />
           </div>
           <DynamicExcalidraw />
         </div>

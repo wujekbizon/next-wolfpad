@@ -3,21 +3,24 @@ import { FiArrowUp, FiArrowDown, FiSave } from 'react-icons/fi';
 import { MdClose } from 'react-icons/md';
 import ActionButton from '../ActionButton/ActionButton';
 import { useActions } from '../../hooks/useActions';
+import { Cell } from '../../state/cell';
 
 interface ActionBarProps {
-  id: string;
+  cell: Cell;
 }
 
-const ActionBar: React.FC<ActionBarProps> = ({ id }) => {
+const ActionBar: React.FC<ActionBarProps> = ({ cell }) => {
   const { moveCell, deleteCell, saveCells } = useActions();
   return (
     <div className={styles.action_bar}>
-      <ActionButton icon={<FiSave />} onClick={() => saveCells()} />
+      {cell.type === 'code' && (
+        <ActionButton icon={<FiSave />} onClick={() => saveCells()} />
+      )}
       <ActionButton
         icon={<FiArrowUp />}
         onClick={() =>
           moveCell({
-            id,
+            id: cell.id,
             direction: 'up',
           })
         }
@@ -26,12 +29,12 @@ const ActionBar: React.FC<ActionBarProps> = ({ id }) => {
         icon={<FiArrowDown />}
         onClick={() =>
           moveCell({
-            id,
+            id: cell.id,
             direction: 'down',
           })
         }
       />
-      <ActionButton icon={<MdClose />} onClick={() => deleteCell(id)} />
+      <ActionButton icon={<MdClose />} onClick={() => deleteCell(cell.id)} />
     </div>
   );
 };
