@@ -18,7 +18,7 @@ const Register = () => {
     name: '',
     email: '',
     password: '',
-    checked: false,
+    checked: true
   });
   const { registerNewUser } = useActions();
 
