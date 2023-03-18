@@ -6,7 +6,7 @@ import {
   MdGridOn,
   MdViewModule,
   MdContentCopy,
-  MdSync,
+  MdSync
 } from 'react-icons/md';
 import Image from 'next/image';
 import {
@@ -21,22 +21,18 @@ import {
   MainMenu,
   Footer,
   Sidebar,
-  Button,
+  Button
 } from '@excalidraw/excalidraw';
 import {
   AppState,
   ExcalidrawImperativeAPI,
   Gesture,
-  PointerDownState as ExcalidrawPointerDownState,
+  PointerDownState as ExcalidrawPointerDownState
 } from '@excalidraw/excalidraw/types/types';
 import { NonDeletedExcalidrawElement } from '@excalidraw/excalidraw/types/element/types';
 import CustomFooter from './footer/CustomFooter';
 import MobileFooter from './footer/MobileFooter';
-import {
-  withBatchedUpdates,
-  withBatchedUpdatesThrottled,
-  distance2d,
-} from './utils';
+import { withBatchedUpdates, withBatchedUpdatesThrottled, distance2d } from './utils';
 import { Comment, PointerDownState } from './types';
 
 import { initialData } from './initialData';
@@ -59,13 +55,10 @@ const Excalidraw = () => {
   const [gridModeEnabled, setGridModeEnabled] = useState(false);
   const [theme, setTheme] = useState('dark');
   const [isCollaborating, setIsCollaborating] = useState(false);
-  const [commentIcons, setCommentIcons] = useState<{ [id: string]: Comment }>(
-    {}
-  );
+  const [commentIcons, setCommentIcons] = useState<{ [id: string]: Comment }>({});
   const [comment, setComment] = useState<Comment | null>(null);
 
-  const [excalidrawAPI, setExcalidrawAPI] =
-    useState<ExcalidrawImperativeAPI | null>(null);
+  const [excalidrawAPI, setExcalidrawAPI] = useState<ExcalidrawImperativeAPI | null>(null);
 
   useHandleLibrary({ excalidrawAPI });
 
@@ -121,14 +114,14 @@ const Excalidraw = () => {
                   status: 'published',
                   id: index.toString(),
                   created: index + 1,
-                  elements: libraryItem,
+                  elements: libraryItem
                 };
 
                 libraryItems.push(item);
               });
 
               excalidrawAPI?.updateLibrary({
-                libraryItems,
+                libraryItems
               });
             }}
             className="btn_custom-element"
@@ -171,15 +164,15 @@ const Excalidraw = () => {
             updated: 1,
             roundness: {
               type: 3,
-              value: 32,
-            },
-          },
+              value: 32
+            }
+          }
         ],
         null
       ),
       appState: {
-        viewBackgroundColor: '#edf2ff',
-      },
+        viewBackgroundColor: '#edf2ff'
+      }
     };
     excalidrawAPI?.updateScene(sceneData);
   };
@@ -198,8 +191,7 @@ const Excalidraw = () => {
       const { nativeEvent } = event.detail;
       const isNewTab = nativeEvent.ctrlKey || nativeEvent.metaKey;
       const isNewWindow = nativeEvent.shiftKey;
-      const isInternalLink =
-        link.startsWith('/') || link.includes(window.location.origin);
+      const isInternalLink = link.startsWith('/') || link.includes(window.location.origin);
       if (isInternalLink && !isNewTab && !isNewWindow) {
         // signal that we're handling the redirect ourselves
         event.preventDefault();
@@ -218,7 +210,7 @@ const Excalidraw = () => {
       elements: excalidrawAPI.getSceneElements(),
       appState: excalidrawAPI.getAppState(),
       files: excalidrawAPI.getFiles(),
-      type,
+      type
     });
     console.log(`Copied to clipboard as ${type} successfully`);
   };
@@ -243,9 +235,7 @@ const Excalidraw = () => {
     if (!excalidrawAPI) {
       return false;
     }
-    const commentIconsElements = appRef.current.querySelectorAll(
-      '.comment-icon'
-    ) as HTMLElement[];
+    const commentIconsElements = appRef.current.querySelectorAll('.comment-icon') as HTMLElement[];
     commentIconsElements.forEach((ele) => {
       const id = ele.id;
       const appstate = excalidrawAPI.getAppState();
@@ -253,18 +243,12 @@ const Excalidraw = () => {
         { sceneX: commentIcons[id].x, sceneY: commentIcons[id].y },
         appstate
       );
-      ele.style.left = `${
-        x - COMMENT_ICON_DIMENSION / 2 - appstate!.offsetLeft
-      }px`;
-      ele.style.top = `${
-        y - COMMENT_ICON_DIMENSION / 2 - appstate!.offsetTop
-      }px`;
+      ele.style.left = `${x - COMMENT_ICON_DIMENSION / 2 - appstate!.offsetLeft}px`;
+      ele.style.top = `${y - COMMENT_ICON_DIMENSION / 2 - appstate!.offsetTop}px`;
     });
   };
 
-  const onPointerMoveFromPointerDownHandler = (
-    pointerDownState: PointerDownState
-  ) => {
+  const onPointerMoveFromPointerDownHandler = (pointerDownState: PointerDownState) => {
     return withBatchedUpdatesThrottled((event) => {
       if (!excalidrawAPI) {
         return false;
@@ -272,7 +256,7 @@ const Excalidraw = () => {
       const { x, y } = viewportCoordsToSceneCoords(
         {
           clientX: event.clientX - pointerDownState.hitElementOffsets.x,
-          clientY: event.clientY - pointerDownState.hitElementOffsets.y,
+          clientY: event.clientY - pointerDownState.hitElementOffsets.y
         },
         excalidrawAPI.getAppState()
       );
@@ -281,15 +265,13 @@ const Excalidraw = () => {
         [pointerDownState.hitElement.id!]: {
           ...commentIcons[pointerDownState.hitElement.id!],
           x,
-          y,
-        },
+          y
+        }
       });
     });
   };
 
-  const onPointerUpFromPointerDownHandler = (
-    pointerDownState: PointerDownState
-  ) => {
+  const onPointerUpFromPointerDownHandler = (pointerDownState: PointerDownState) => {
     return withBatchedUpdates((event) => {
       window.removeEventListener('pointermove', pointerDownState.onMove);
       window.removeEventListener('pointerup', pointerDownState.onUp);
@@ -306,7 +288,7 @@ const Excalidraw = () => {
             x: pointerDownState.hitElement.x + 60,
             y: pointerDownState.hitElement.y,
             value: pointerDownState.hitElement.value,
-            id: pointerDownState.hitElement.id,
+            id: pointerDownState.hitElement.id
           });
         } else {
           setComment(null);
@@ -335,8 +317,8 @@ const Excalidraw = () => {
         x: comment.id ? comment.x - 60 : comment.x,
         y: comment.y,
         id,
-        value: comment.value,
-      },
+        value: comment.value
+      }
     });
     setComment(null);
   };
@@ -363,7 +345,7 @@ const Excalidraw = () => {
             width: `${COMMENT_ICON_DIMENSION}px`,
             height: `${COMMENT_ICON_DIMENSION}px`,
             cursor: 'pointer',
-            touchAction: 'none',
+            touchAction: 'none'
           }}
           className="comment-icon"
           onPointerDown={(event) => {
@@ -376,12 +358,10 @@ const Excalidraw = () => {
               x: event.clientX,
               y: event.clientY,
               hitElement: commentIcon,
-              hitElementOffsets: { x: event.clientX - x, y: event.clientY - y },
+              hitElementOffsets: { x: event.clientX - x, y: event.clientY - y }
             };
-            const onPointerMove =
-              onPointerMoveFromPointerDownHandler(pointerDownState);
-            const onPointerUp =
-              onPointerUpFromPointerDownHandler(pointerDownState);
+            const onPointerMove = onPointerMoveFromPointerDownHandler(pointerDownState);
+            const onPointerUp = onPointerUpFromPointerDownHandler(pointerDownState);
             window.addEventListener('pointermove', onPointerMove);
             window.addEventListener('pointerup', onPointerUp);
 
@@ -390,17 +370,12 @@ const Excalidraw = () => {
 
             excalidrawAPI?.setActiveTool({
               type: 'custom',
-              customType: 'comment',
+              customType: 'comment'
             });
           }}
         >
           <div className={styles.comment_avatar}>
-            <Image
-              src="/images/download.png"
-              alt="doremon"
-              height={200}
-              width={200}
-            />
+            <Image src="/images/download.png" alt="doremon" height={200} width={200} />
           </div>
         </div>
       );
@@ -419,19 +394,13 @@ const Excalidraw = () => {
     let top = y - COMMENT_ICON_DIMENSION / 2 - appState.offsetTop;
     let left = x - COMMENT_ICON_DIMENSION / 2 - appState.offsetLeft;
 
-    if (
-      top + COMMENT_INPUT_HEIGHT <
-      appState.offsetTop + COMMENT_INPUT_HEIGHT
-    ) {
+    if (top + COMMENT_INPUT_HEIGHT < appState.offsetTop + COMMENT_INPUT_HEIGHT) {
       top = COMMENT_ICON_DIMENSION / 2;
     }
     if (top + COMMENT_INPUT_HEIGHT > appState.height) {
       top = appState.height - COMMENT_INPUT_HEIGHT - COMMENT_ICON_DIMENSION / 2;
     }
-    if (
-      left + COMMENT_INPUT_WIDTH <
-      appState.offsetLeft + COMMENT_INPUT_WIDTH
-    ) {
+    if (left + COMMENT_INPUT_WIDTH < appState.offsetLeft + COMMENT_INPUT_WIDTH) {
       left = COMMENT_ICON_DIMENSION / 2;
     }
     if (left + COMMENT_INPUT_WIDTH > appState.width) {
@@ -448,7 +417,7 @@ const Excalidraw = () => {
           position: 'absolute',
           zIndex: 1,
           height: `${COMMENT_INPUT_HEIGHT}px`,
-          width: `${COMMENT_INPUT_WIDTH}px`,
+          width: `${COMMENT_INPUT_WIDTH}px`
         }}
         ref={(ref) => {
           setTimeout(() => ref?.focus());

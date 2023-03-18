@@ -1,7 +1,7 @@
-import styles from './Founder.module.css';
-import { motion } from 'framer-motion';
-import { fadeIn, staggerContainer, zoomIn } from '../utils/motion';
-import Image from 'next/image';
+import styles from './Founder.module.css'
+import { motion } from 'framer-motion'
+import { fadeIn, staggerContainer, zoomIn } from '../utils/motion'
+import Image from 'next/image'
 
 const Founder = () => {
   return (
@@ -26,9 +26,9 @@ const Founder = () => {
           <p className={styles.content}>
             “What is Wolfpad ?
             <br />
-            It started as a simple coding project. Then I decided to continue
-            with development, and add new features.Now with the latest addition
-            of AI, it has become a very powerful and useful tool.”
+            Wolfpad began as a coding project, but I kept developing it and
+            adding new features. Now, with the addition of AI, it has become a
+            powerful and useful tool. The project is constantly being improved.
           </p>
         </motion.div>
 
@@ -56,7 +56,7 @@ const Founder = () => {
         </motion.div>
       </motion.div>
     </section>
-  );
-};
+  )
+}
 
-export default Founder;
+export default Founder
