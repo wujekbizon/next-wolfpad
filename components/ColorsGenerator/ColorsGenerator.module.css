@@ -1,0 +1,17 @@
+.colors {
+  height: calc(100vh - 80px);
+  width: 100%;
+  padding: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+}
+
+.form input {
+  width: 250px;
+  height: 45px;
+}

@@ -2,10 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { Configuration, OpenAIApi } from 'openai'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'GET') {
-    res.status(200).json({ message: 'This is Chatbot ' })
-  }
-
+  let response
   if (req.method === 'POST') {
     const configuration = new Configuration({
       apiKey: process.env.OPENAI_API_KEY
@@ -14,10 +11,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const openai = new OpenAIApi(configuration)
 
     try {
-      const { prompt } = req.body
+      // const { prompt } = req.body
+      const prompt = `You are a color palette generating assistant that responds to text prompts for color palettes.  
+      You should generate color palettes that fit the theme, mood or instructions in the prompt.
+      The palettes should be between 2 and 8 colors.
 
-      const response = await openai.createCompletion({
-        //Can do any language task with better quality, longer output, and consistent instruction-following than the curie, babbage, or ada models. Also supports inserting completions within text.
+      Desired Format: JSON array of hexadecimal color codes
+      Text: a beautiful sunset 
+      `
+
+      response = await openai.createCompletion({
         model: 'text-davinci-003',
         prompt: prompt,
         temperature: 0,
@@ -39,6 +42,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         console.log(error)
       }
     }
+  }
+
+  if (req.method === 'GET') {
+    res.status(200).json({ response: response?.data.choices[0].text })
   }
 }
 
