@@ -5,13 +5,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .form {
   display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 390px / 2);
 }
 
 .form input {
   width: 250px;
   height: 45px;
+  outline: none;
+}
+
+.form input::placeholder {
+  color: grey;
+}
+
+.form button {
+  cursor: pointer;
+  padding: 0 15px;
 }
