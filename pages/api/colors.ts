@@ -22,7 +22,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
       response = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
-        messages: [{ role: 'assistant', content: newPrompt }],
+        messages: [{ role: 'user', content: newPrompt }],
         temperature: 0,
         max_tokens: 4000,
         top_p: 1,
