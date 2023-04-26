@@ -26,13 +26,19 @@ const ColorsPage = () => {
       })
     })
 
-    if (response.ok) {
-      const data = await response.json()
-      const parsedData = JSON.parse(data.bot.trim())
-      setColors(parsedData)
-    } else {
-      const err = await response.text()
-      console.log(err)
+    try {
+      if (response.ok) {
+        const data = await response.json()
+        const parsedData = JSON.parse(data.bot.trim())
+        setColors(parsedData)
+      } else {
+        const err = await response.text()
+        console.log(err)
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        console.log(error.message)
+      }
     }
   }
   return (

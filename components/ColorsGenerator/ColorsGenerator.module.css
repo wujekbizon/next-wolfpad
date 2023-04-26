@@ -1,10 +1,11 @@
 .colors {
   height: calc(100vh - 96px);
   width: 100%;
-  padding: 64px;
+  padding: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   position: relative;
 }
 
@@ -43,4 +44,11 @@
 
 .form button:hover {
   background-color: #642c72;
+}
+
+@media (min-width: 768px) {
+  .colors {
+    flex-direction: row;
+    padding: 64px;
+  }
 }
