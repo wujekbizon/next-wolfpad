@@ -1,5 +1,5 @@
 .colors {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 96px);
   width: 100%;
   padding: 64px;
   display: flex;
@@ -12,13 +12,19 @@
   display: flex;
   position: absolute;
   top: 50%;
-  left: calc(50% - 390px / 2);
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .form input {
-  width: 250px;
+  width: 340px;
   height: 45px;
   outline: none;
+  border: 2px solid white;
+  background-color: #ebc9f3;
+  padding: 0 10px;
+  font-size: 16px;
+  color: black;
 }
 
 .form input::placeholder {
@@ -28,4 +34,13 @@
 .form button {
   cursor: pointer;
   padding: 0 15px;
+  border: 2px solid white;
+  background-color: #8d39a3;
+  color: white;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+}
+
+.form button:hover {
+  background-color: #642c72;
 }

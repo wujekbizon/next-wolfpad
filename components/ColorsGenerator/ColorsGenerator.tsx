@@ -15,7 +15,7 @@ const ColorsGenerator = ({ onHandleSubmit, formRef, colors }: ColorsGeneratorPro
       ))}
       <form className={styles.form} onSubmit={onHandleSubmit} ref={formRef}>
         <input name="prompt" type="text" placeholder="sunset beach" />
-        <button>Generate Colors</button>
+        <button>Generate</button>
       </form>
     </section>
   )
