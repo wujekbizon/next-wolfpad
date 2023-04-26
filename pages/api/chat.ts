@@ -16,21 +16,21 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       const { prompt } = req.body
 
-      const response = await openai.createCompletion({
+      const response = await openai.createChatCompletion({
         //Can do any language task with better quality, longer output, and consistent instruction-following than the curie, babbage, or ada models. Also supports inserting completions within text.
-        model: 'text-davinci-003',
-        prompt: prompt,
-        temperature: 0,
-        max_tokens: 4000,
-        top_p: 1,
-        frequency_penalty: 0.5,
-        presence_penalty: 0
+        model: 'gpt-3.5-turbo',
+        messages: [{ role: 'user', content: prompt }]
+        // temperature: 0,
+        // max_tokens: 4000,
+        // top_p: 1,
+        // frequency_penalty: 0.5,
+        // presence_penalty: 0
       })
 
       console.log(response.data)
 
       res.status(200).json({
-        bot: response.data.choices[0].text
+        bot: response.data.choices[0]?.message?.content
       })
     } catch (error) {
       if (error instanceof Error) {

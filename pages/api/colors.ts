@@ -20,9 +20,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       Text: ${prompt}
       `
 
-      response = await openai.createCompletion({
-        model: 'text-davinci-003',
-        prompt: newPrompt,
+      response = await openai.createChatCompletion({
+        model: 'gpt-3.5-turbo',
+        messages: [{ role: 'assistant', content: newPrompt }],
         temperature: 0,
         max_tokens: 4000,
         top_p: 1,
@@ -31,7 +31,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       })
 
       res.status(200).json({
-        bot: response.data.choices[0].text
+        bot: response.data.choices[0]?.message?.content
       })
     } catch (error) {
       if (error instanceof Error) {
