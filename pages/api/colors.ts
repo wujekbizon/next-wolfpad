@@ -12,19 +12,49 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     try {
       const { prompt } = req.body
-      const newPrompt = `You are a color palette generating assistant that responds to text prompts for color palettes.  
-      You should generate color palettes that fit the theme, mood or instructions in the prompt.
-      The palettes should be between 2 and 8 colors.
-
-      Desired Format: JSON array of hexadecimal color codes
-      Text: ${prompt}
-      `
 
       response = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
-        messages: [{ role: 'user', content: newPrompt }],
+        messages: [
+          {
+            role: 'system',
+            content:
+              'You are a color palette generating assistant that responds to text prompts for color palettes. You should generate color palettes that fit the theme, mood or instructions in the prompt. The palettes should be between 2 and 8 colors.'
+          },
+          {
+            role: 'user',
+            content:
+              'Convert the following verbal description of a color palette into a list of colors: 4 Google brand colors'
+          },
+          {
+            role: 'assistant',
+            content: '["#4285F4","#DB4437","#F4B400","#0F9D58"]'
+          },
+          {
+            role: 'user',
+            content:
+              'Convert the following verbal description of a color palette into a list of colors: nice happy colors'
+          },
+          {
+            role: 'assistant',
+            content: '["#F9D5E5","#FCD5CE","#FFF2CC","#BFE6BA","#BFD7EA"]'
+          },
+          {
+            role: 'user',
+            content:
+              'Convert the following verbal description of a color palette into a list of colors: gotham city dark knight 8 colors'
+          },
+          {
+            role: 'assistant',
+            content: '["#1C1C1C","#2B2B2B","#3A3A3A","#4A4A4A","#5A5A5A","#6B6B6B","#7B7B7B","#8C8C8C"]'
+          },
+          {
+            role: 'user',
+            content: `Convert the following verbal description of a color palette into a list of colors: ${prompt}`
+          }
+        ],
         temperature: 0,
-        max_tokens: 4000,
+        max_tokens: 200,
         top_p: 1,
         frequency_penalty: 0.5,
         presence_penalty: 0
