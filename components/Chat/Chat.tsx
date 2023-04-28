@@ -1,14 +1,9 @@
-import styles from './Chat.module.css';
-import { motion } from 'framer-motion';
-import {
-  staggerContainer,
-  fadeIn,
-  zoomIn,
-  textTitleVariant,
-} from '../../utils/motion';
-import ChatBot from '../ChatBot/ChatBot';
-import Image from 'next/image';
-import Divider from '../Layout/Divider';
+import styles from './Chat.module.css'
+import { motion } from 'framer-motion'
+import { staggerContainer, fadeIn, zoomIn, textTitleVariant } from '../../utils/motion'
+import OpenAIChat from '../OpenAiChat/OpenAIChat'
+import Image from 'next/image'
+import Divider from '../Layout/Divider'
 
 const Chat = () => {
   return (
@@ -27,9 +22,8 @@ const Chat = () => {
 
           <motion.p variants={fadeIn('up', 'tween', 0.6, 1)}>
             {' '}
-            OpenAI Chatbot is an artificial intelligence system that can
-            simulate human conversation by using natural language processing and
-            machine learning algorithms.
+            OpenAI Chatbot is an artificial intelligence system that can simulate human conversation by using natural
+            language processing and machine learning algorithms.
           </motion.p>
         </motion.div>
       </section>
@@ -42,35 +36,18 @@ const Chat = () => {
           viewport={{ once: false, amount: 0.25 }}
           className={styles.content_container}
         >
-          <motion.div
-            variants={fadeIn('right', 'tween', 0.6, 1)}
-            className={styles.content_title}
-          >
+          <motion.div variants={fadeIn('right', 'tween', 0.6, 1)} className={styles.content_title}>
             <p className={styles.tutor_text}>
-              With the newest addition of GPT-3 Artificial Intelligence to our
-              project. You can choose and fully customize, a friendly chabot.
-              This is a paid feature and can be only accessible thru our premium
-              plan.
+              With the newest addition of GPT-3 Artificial Intelligence to our project. You can choose and fully
+              customize, a friendly chabot. This is a paid feature and can be only accessible thru our premium plan.
             </p>
           </motion.div>
-          <motion.div
-            variants={fadeIn('left', 'tween', 0.2, 1)}
-            className={styles.image_container}
-          >
-            <motion.div
-              variants={zoomIn(0.4, 1)}
-              className={`glassmorphism ${styles.content}`}
-            >
+          <motion.div variants={fadeIn('left', 'tween', 0.2, 1)} className={styles.image_container}>
+            <motion.div variants={zoomIn(0.4, 1)} className={`glassmorphism ${styles.content}`}>
               <h1>Get an AI Tutor today</h1>
             </motion.div>
 
-            <Image
-              src="/images/chatbot.png"
-              alt="chatbot"
-              height={450}
-              width={400}
-              className={styles.content_image}
-            />
+            <Image src="/images/chatbot.png" alt="chatbot" height={450} width={400} className={styles.content_image} />
           </motion.div>
         </motion.div>
         <motion.div
@@ -80,19 +57,10 @@ const Chat = () => {
           viewport={{ once: false, amount: 0.25 }}
         >
           <div className={styles.bot_container}>
-            <motion.div
-              variants={fadeIn('right', 'tween', 0.6, 1)}
-              className={styles.bot}
-            >
-              <ChatBot />
-            </motion.div>
-            <motion.div
-              variants={fadeIn('left', 'tween', 0.4, 1)}
-              className={styles.text}
-            >
+            <motion.div variants={fadeIn('right', 'tween', 0.6, 1)} className={styles.bot}></motion.div>
+            <motion.div variants={fadeIn('left', 'tween', 0.4, 1)} className={styles.text}>
               <p>
-                Let&apos;s try it out, the newest chatbot, that&apos;s using
-                latest AI technology, developed by OpenAI.
+                Let&apos;s try it out, the newest chatbot, that&apos;s using latest AI technology, developed by OpenAI.
               </p>
               <p>
                 We got in plans to add more AI chatbots:
@@ -101,11 +69,12 @@ const Chat = () => {
               </p>
             </motion.div>
           </div>
+          <OpenAIChat />
         </motion.div>
       </section>
       <Divider />
     </>
-  );
-};
+  )
+}
 
-export default Chat;
+export default Chat
