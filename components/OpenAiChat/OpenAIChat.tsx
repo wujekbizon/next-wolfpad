@@ -1,5 +1,7 @@
 import styles from './OpeanAIChat.module.css'
-import { Fragment, useState, useCallback, useRef } from 'react'
+import { Fragment, useState, useCallback, useRef, useEffect } from 'react'
+import Image from 'next/image'
+import { personalities } from '../../data/features'
 
 interface Conversation {
   role: string
@@ -8,7 +10,10 @@ interface Conversation {
 
 const OpenAIChat = () => {
   const [value, setValue] = useState('')
-  const [conversation, setConversation] = useState<Conversation[]>([])
+  const [chatPersonality, setChatPersonality] = useState('funny and helpful')
+  const initialPrompt = `You are a conversational chatbot. Your personality is: ${chatPersonality}`
+
+  const [conversation, setConversation] = useState<Conversation[]>([{ role: 'system', content: initialPrompt }])
   const inputRef = useRef<HTMLInputElement>(null)
 
   const onChangeHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,40 +42,74 @@ const OpenAIChat = () => {
     setValue('')
     setConversation([])
   }
+
+  const onPersonalityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setChatPersonality(e.target.value)
+  }
+
+  useEffect(() => {
+    const newConversation = conversation.find((item) => {
+      if (item.role === 'system') {
+        item.content = `You are a conversational chatbot. Your personality is ${chatPersonality}`
+      }
+      return item
+    })
+    if (newConversation) {
+      setConversation([newConversation])
+    }
+  }, [chatPersonality])
+
   return (
-    <section className={styles.chat}>
-      <div>
-        <input
-          placeholder="Send a message"
-          value={value}
-          onChange={onChangeHandler}
-          onKeyDown={onKeyDownHandler}
-          ref={inputRef}
-        />
-        <button onClick={onClickRefreshHandler}>Start New Conversation</button>
-        <div className="textarea">
+    <section className={`glassmorphism ${styles.chat}`}>
+      <div className={styles.left}>
+        <div className={styles.textarea}>
           {conversation.map((item, index) => (
             <Fragment key={index}>
-              <br />
-              {item.role === 'assistant' ? (
-                <div className="chat chat-end">
-                  <div className="chat-bubble chat-bubble-secondary">
-                    <strong className="badge badge-primary">Bot</strong>
-                    <br />
+              {item.role === 'assistant' && (
+                <div className={`${styles.bot_background} ${styles.chat_container}`}>
+                  <div className={styles.chat_assistant}>
+                    <Image src="/images/chatbot.png" alt="chatbot" width={35} height={35} className={styles.image} />
                     {item.content}
                   </div>
                 </div>
-              ) : (
-                <div className="chat chat-start">
-                  <div className="chat-bubble chat-bubble-primary">
-                    <strong className="badge badge-secondary">User</strong>
-                    <br />
+              )}
+              {item.role === 'user' && (
+                <div className={styles.chat_container}>
+                  <div className={styles.chat_user}>
+                    <Image src="/images/user.svg" alt="chatbot" width={35} height={35} className={styles.image} />
                     {item.content}
                   </div>
                 </div>
               )}
             </Fragment>
           ))}
+        </div>
+        <div className={styles.input_container}>
+          <input
+            placeholder="Send a message"
+            value={value}
+            onChange={onChangeHandler}
+            onKeyDown={onKeyDownHandler}
+            ref={inputRef}
+            className={styles.user_input}
+          />
+        </div>
+      </div>
+      <div className={styles.right}>
+        <h1>Chat Tweaks</h1>
+        <div className={styles.settings}>
+          <button className="glassmorphism" onClick={onClickRefreshHandler}>
+            Start New Conversation
+          </button>
+          <div>
+            <select onChange={onPersonalityChange}>
+              {personalities.map((personality) => (
+                <option key={personality} value={personality}>
+                  {personality}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
     </section>
