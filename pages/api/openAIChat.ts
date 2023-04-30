@@ -13,7 +13,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       const completion = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
-        max_tokens: 200,
+        max_tokens: 2000,
         messages: messages
       })
 

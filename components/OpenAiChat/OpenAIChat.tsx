@@ -96,13 +96,13 @@ const OpenAIChat = () => {
         </div>
       </div>
       <div className={styles.right}>
-        <h1>Chat Tweaks</h1>
         <div className={styles.settings}>
           <button className="glassmorphism" onClick={onClickRefreshHandler}>
             Start New Conversation
           </button>
-          <div>
-            <select onChange={onPersonalityChange}>
+          <div className={styles.personalities}>
+            <label htmlFor="select">Change AI Personality</label>
+            <select id="select" className="glassmorphism" onChange={onPersonalityChange}>
               {personalities.map((personality) => (
                 <option key={personality} value={personality}>
                   {personality}
