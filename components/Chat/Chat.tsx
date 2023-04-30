@@ -38,8 +38,9 @@ const Chat = () => {
         >
           <motion.div variants={fadeIn('right', 'tween', 0.6, 1)} className={styles.content_title}>
             <p className={styles.tutor_text}>
-              With the newest addition of GPT-3 Artificial Intelligence to our project. You can choose and fully
-              customize, a friendly chabot. This is a paid feature and can be only accessible thru our premium plan.
+              With the newest addition of <span className={styles.tutor_span}> GPT-4 Artificial Intelligence</span> to
+              our project. You can choose and fully customize, a friendly chabot. This is a paid feature and can be only
+              accessible thru our premium plan.
             </p>
           </motion.div>
           <motion.div variants={fadeIn('left', 'tween', 0.2, 1)} className={styles.image_container}>
@@ -57,16 +58,8 @@ const Chat = () => {
           viewport={{ once: false, amount: 0.25 }}
         >
           <div className={styles.bot_container}>
-            <motion.div variants={fadeIn('right', 'tween', 0.6, 1)} className={styles.bot}></motion.div>
-            <motion.div variants={fadeIn('left', 'tween', 0.4, 1)} className={styles.text}>
-              <p>
-                Let&apos;s try it out, the newest chatbot, that&apos;s using latest AI technology, developed by OpenAI.
-              </p>
-              <p>
-                We got in plans to add more AI chatbots:
-                <br />
-                Prometheus AI, Bard AI or GPT-4
-              </p>
+            <motion.div variants={fadeIn('left', 'tween', 0.4, 1)} className={` ${styles.text}`}>
+              <p>Let&apos;s try it out, the newest chatbot, that&apos;s using latest AI technology.</p>
             </motion.div>
           </div>
           <OpenAIChat />
