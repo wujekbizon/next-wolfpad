@@ -5,6 +5,7 @@ import OpenAIChat from '../OpenAiChat/OpenAIChat'
 import Image from 'next/image'
 import Divider from '../Layout/Divider'
 import Link from 'next/link'
+import Pyodide from '../../python/Pyodide'
 
 const Chat = () => {
   return (
@@ -51,7 +52,7 @@ const Chat = () => {
               </Link>
             </motion.div>
 
-            <Image src="/images/chatbot.png" alt="chatbot" height={450} width={400} className={styles.content_image} />
+            <Image src="/images/chatbot.png" alt="chatbot" height={400} width={400} className={styles.content_image} />
           </motion.div>
         </motion.div>
         <motion.div
@@ -67,6 +68,7 @@ const Chat = () => {
           </div>
         </motion.div>
       </section>
+      {/* <Pyodide pythonCode={} /> */}
       <OpenAIChat />
     </>
   )

@@ -2,7 +2,6 @@ import styles from './OpeanAIChat.module.css'
 import { Fragment, useState, useCallback, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import ChatSideMenu from './ChatSideMenu'
-
 import TypedAssistantResponse from '../Animation/TypedAssistantResponse'
 
 interface Conversation {
