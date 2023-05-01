@@ -1,7 +1,9 @@
 import styles from './OpeanAIChat.module.css'
 import { Fragment, useState, useCallback, useRef, useEffect } from 'react'
 import Image from 'next/image'
-import { personalities } from '../../data/features'
+import ChatSideMenu from './ChatSideMenu'
+
+import TypedAssistantResponse from '../Animation/TypedAssistantResponse'
 
 interface Conversation {
   role: string
@@ -10,9 +12,9 @@ interface Conversation {
 
 const OpenAIChat = () => {
   const [value, setValue] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const [chatPersonality, setChatPersonality] = useState('funny and helpful')
   const initialPrompt = `You are a conversational chatbot. Your personality is: ${chatPersonality}`
-
   const [conversation, setConversation] = useState<Conversation[]>([{ role: 'system', content: initialPrompt }])
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -22,18 +24,33 @@ const OpenAIChat = () => {
 
   const onKeyDownHandler = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      const chatHistory = [...conversation, { role: 'user', content: value }]
-      const response = await fetch('/api/openAIChat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ messages: chatHistory })
-      })
+      setIsLoading(true)
+      const chatHistory = [
+        ...conversation,
+        { role: 'system', content: initialPrompt },
+        { role: 'user', content: value }
+      ]
+      try {
+        const response = await fetch('/api/openAIChat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ messages: chatHistory })
+        })
 
-      const data = await response.json()
-      setValue('')
-      setConversation([...chatHistory, { role: 'assistant', content: data.result.choices[0].message.content }])
+        if (response.ok) {
+          const data = await response.json()
+
+          setValue('')
+          setConversation([...chatHistory, { role: 'assistant', content: data.result.choices[0].message.content }])
+          setIsLoading(false)
+        }
+      } catch (err) {
+        if (err instanceof Error) {
+          setConversation([...conversation, { role: 'assistant', content: `Something went wrong - ${err.message}` }])
+        }
+      }
     }
   }
 
@@ -60,29 +77,32 @@ const OpenAIChat = () => {
   }, [chatPersonality])
 
   return (
-    <section className={`glassmorphism ${styles.chat}`}>
+    <section className={` ${styles.chat}`}>
       <div className={styles.left}>
         <div className={styles.textarea}>
-          {conversation.map((item, index) => (
-            <Fragment key={index}>
-              {item.role === 'assistant' && (
-                <div className={`${styles.bot_background} ${styles.chat_container}`}>
-                  <div className={styles.chat_assistant}>
-                    <Image src="/images/chatbot.png" alt="chatbot" width={35} height={35} className={styles.image} />
-                    {item.content}
+          {conversation.map((item, index) => {
+            return (
+              <Fragment key={index}>
+                {item.role === 'assistant' && (
+                  <div className={`${styles.bot_background} ${styles.chat_container}`}>
+                    <div className={styles.chat_assistant}>
+                      <Image src="/images/chatbot.png" alt="chatbot" width={35} height={35} className={styles.image} />
+                      {/* <TypedAssistantResponse text={item.content} /> */}
+                      {isLoading && index >= conversation.length - 1 ? <p>Loading...</p> : item.content}
+                    </div>
                   </div>
-                </div>
-              )}
-              {item.role === 'user' && (
-                <div className={styles.chat_container}>
-                  <div className={styles.chat_user}>
-                    <Image src="/images/user.svg" alt="chatbot" width={35} height={35} className={styles.image} />
-                    {item.content}
+                )}
+                {item.role === 'user' && (
+                  <div className={styles.chat_container}>
+                    <div className={styles.chat_user}>
+                      <Image src="/images/user.svg" alt="chatbot" width={35} height={35} className={styles.image} />
+                      {item.content}
+                    </div>
                   </div>
-                </div>
-              )}
-            </Fragment>
-          ))}
+                )}
+              </Fragment>
+            )
+          })}
         </div>
         <div className={styles.input_container}>
           <input
@@ -95,23 +115,7 @@ const OpenAIChat = () => {
           />
         </div>
       </div>
-      <div className={styles.right}>
-        <div className={styles.settings}>
-          <button className="glassmorphism" onClick={onClickRefreshHandler}>
-            Start New Conversation
-          </button>
-          <div className={styles.personalities}>
-            <label htmlFor="select">Change AI Personality</label>
-            <select id="select" className="glassmorphism" onChange={onPersonalityChange}>
-              {personalities.map((personality) => (
-                <option key={personality} value={personality}>
-                  {personality}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-      </div>
+      <ChatSideMenu onClickRefreshHandler={onClickRefreshHandler} onPersonalityChange={onPersonalityChange} />
     </section>
   )
 }

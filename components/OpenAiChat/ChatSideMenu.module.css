@@ -1,0 +1,86 @@
+.open {
+  transform: translateX(0%) !important;
+}
+
+.side_menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0b0c11;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transform: translateX(100%);
+  transition: all 0.2s ease-out;
+}
+
+.settings {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.settings button {
+  background: transparent;
+  font-size: 17px;
+  padding: 5px 15px;
+  width: 100%;
+  height: 40px;
+  color: #b9bbbe;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.personalities {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.personalities select {
+  background: transparent;
+  height: 40px;
+  padding: 5px 20px;
+  width: 100%;
+  font-size: 15px;
+  color: #b9bbbe;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.personalities option {
+  background-color: #0b0c11;
+}
+
+.personalities label {
+  font-size: 15px;
+  padding: 0 0 5px 0;
+}
+
+.icon {
+  display: flex;
+  font-size: 45px;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+
+@media (min-width: 768px) {
+  .side_menu {
+    width: 350px;
+  }
+}

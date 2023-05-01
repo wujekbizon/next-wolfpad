@@ -44,7 +44,7 @@
 
 .content_container {
   max-width: 1280px;
-  gap: 50px;
+  gap: 100px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -56,16 +56,18 @@
 
 .content {
   padding: 15px;
-  height: 80px;
-  width: 300px;
+  height: 60px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
   position: absolute;
   z-index: 2;
-  top: -10%;
-  left: 6%;
+  top: 0;
 }
 
 .content h1 {
@@ -84,7 +86,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   width: 100%;
 }
 
@@ -105,13 +107,12 @@
 .content_image {
   border-radius: 20px;
   width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
 .bot_container {
-  max-width: 1280px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
@@ -128,7 +129,9 @@
   margin: 40px 0;
   border-bottom-left-radius: 15px;
   border-top-right-radius: 15px;
+  text-align: center;
 }
+
 .text p {
   font-size: 24px;
   font-weight: 500;
@@ -141,6 +144,10 @@
   font-weight: 500;
   color: white;
   line-height: 50px;
+}
+
+.tutor_text {
+  text-align: center;
 }
 
 .tutor_span {
@@ -172,7 +179,7 @@
 
   .content_image {
     width: 600px;
-    height: 550px;
+    height: 500px;
   }
 }
 
@@ -180,7 +187,12 @@
   .content {
     width: 360px;
     height: 100px;
-    left: 10%;
+    left: 50%;
+    top: 65%;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 0;
   }
 
   .content h1 {
@@ -202,8 +214,10 @@
   }
 
   .tutor_text {
+    margin-top: 30px;
     font-size: 36px;
     line-height: 60px;
+    text-align: center;
   }
 }
 

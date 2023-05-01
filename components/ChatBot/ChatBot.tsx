@@ -1,6 +1,6 @@
 import styles from './ChatBot.module.css'
 import InputForm from '../Chat/InputForm'
-import { useRef, useCallback, useState, useEffect, useMemo } from 'react'
+import { useRef, useCallback, useState } from 'react'
 import fetchOpenAiApi from '../../helpers/chatApiCalls'
 import { generateUniqueId, chatStripe, loader } from '../../helpers/helpers'
 import Resizable from '../Resizable/Resizable'

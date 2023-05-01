@@ -4,6 +4,7 @@ import { staggerContainer, fadeIn, zoomIn, textTitleVariant } from '../../utils/
 import OpenAIChat from '../OpenAiChat/OpenAIChat'
 import Image from 'next/image'
 import Divider from '../Layout/Divider'
+import Link from 'next/link'
 
 const Chat = () => {
   return (
@@ -45,7 +46,9 @@ const Chat = () => {
           </motion.div>
           <motion.div variants={fadeIn('left', 'tween', 0.2, 1)} className={styles.image_container}>
             <motion.div variants={zoomIn(0.4, 1)} className={`glassmorphism ${styles.content}`}>
-              <h1>Get an AI Tutor today</h1>
+              <Link href="/chat/tutor">
+                <h1>Get an AI Tutor today</h1>
+              </Link>
             </motion.div>
 
             <Image src="/images/chatbot.png" alt="chatbot" height={450} width={400} className={styles.content_image} />
@@ -62,10 +65,9 @@ const Chat = () => {
               <p>Let&apos;s try it out, the newest chatbot, that&apos;s using latest AI technology.</p>
             </motion.div>
           </div>
-          <OpenAIChat />
         </motion.div>
       </section>
-      <Divider />
+      <OpenAIChat />
     </>
   )
 }

@@ -1,21 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit';
-import {
-  bundlesReducer,
-  bundleStart,
-  bundleComplete,
-} from './slices/bundlesSlice';
-import {
-  cellsReducer,
-  insertCellAfter,
-  deleteCell,
-  updateCell,
-  moveCell,
-} from './slices/cellsSlice';
-import {
-  modalsReducer,
-  openSideMenu,
-  closeSideMenu,
-} from './slices/modalsSlice';
+import { configureStore } from '@reduxjs/toolkit'
+import { bundlesReducer, bundleStart, bundleComplete } from './slices/bundlesSlice'
+import { cellsReducer, insertCellAfter, deleteCell, updateCell, moveCell } from './slices/cellsSlice'
+import { modalsReducer, openSideMenu, closeSideMenu } from './slices/modalsSlice'
 import {
   usersReducer,
   loginFailure,
@@ -24,15 +10,11 @@ import {
   registerFailure,
   registerStart,
   registerSuccess,
-  logoutUser,
-} from './slices/usersSlice';
-import {
-  createBundle,
-  fetchCells,
-  saveCells,
-  registerNewUser,
-  loginUser,
-} from './apiCalls';
+  logoutUser
+} from './slices/usersSlice'
+import { createBundle, fetchCells, saveCells, registerNewUser, loginUser } from './apiCalls'
+
+import { chatReducer, openChatMenu, closeChatMenu } from './slices/chatSlice'
 
 export const store = configureStore({
   reducer: {
@@ -40,11 +22,12 @@ export const store = configureStore({
     cells: cellsReducer,
     modals: modalsReducer,
     users: usersReducer,
-  },
-});
+    chat: chatReducer
+  }
+})
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
 
 export const actionCreators = {
   bundleStart,
@@ -67,18 +50,6 @@ export const actionCreators = {
   logoutUser,
   registerNewUser,
   loginUser,
-};
-
-// store.dispatch(
-//   insertCellAfter({
-//     id: null,
-//     type: 'code',
-//   })
-// );
-
-// store.dispatch(
-//   insertCellAfter({
-//     id: null,
-//     type: 'text',
-//   })
-// );
+  openChatMenu,
+  closeChatMenu
+}
