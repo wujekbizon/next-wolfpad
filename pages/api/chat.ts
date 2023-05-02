@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { Configuration, OpenAIApi } from 'openai'
+import { Configuration, OpenAIApi, ChatCompletionRequestMessage } from 'openai'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET') {
@@ -14,11 +14,24 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const openai = new OpenAIApi(configuration)
     const { prompt } = req.body
 
+    let messages: ChatCompletionRequestMessage[] = [
+      {
+        role: 'system',
+        content: `You will recive a file's contents as text. Generate a code review for the file. Indicate what changes should be made to improve its style, performance, readability, and maintainability.
+          If there are any reputable libraries that could be introduced to improve the code, suggest them. Be kind and construcive. For each suggested change, include line numbers to which you are referring.
+        `
+      },
+      {
+        role: 'user',
+        content: `Code review the following file: ${prompt}`
+      }
+    ]
+
     try {
       const response = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
 
-        messages: [{ role: 'user', content: prompt }],
+        messages: messages,
         temperature: 0,
         max_tokens: 200,
         top_p: 1,

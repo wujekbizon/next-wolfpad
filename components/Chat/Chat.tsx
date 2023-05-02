@@ -5,7 +5,6 @@ import OpenAIChat from '../OpenAiChat/OpenAIChat'
 import Image from 'next/image'
 import Divider from '../Layout/Divider'
 import Link from 'next/link'
-import Pyodide from '../../python/Pyodide'
 
 const Chat = () => {
   return (
@@ -68,7 +67,6 @@ const Chat = () => {
           </div>
         </motion.div>
       </section>
-      {/* <Pyodide pythonCode={len('Hello world')} /> */}
       <OpenAIChat />
     </>
   )

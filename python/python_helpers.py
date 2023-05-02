@@ -102,3 +102,8 @@ example_messages = [
 
 
 print(num_tokens_from_messages(example_messages, "gpt-3.5-turbo"))
+
+
+def code_review(file_path):
+    with open(file_path, "r") as file:
+        content = file.read()
