@@ -68,7 +68,7 @@ const Chat = () => {
           </div>
         </motion.div>
       </section>
-      {/* <Pyodide pythonCode={} /> */}
+      {/* <Pyodide pythonCode={len('Hello world')} /> */}
       <OpenAIChat />
     </>
   )
