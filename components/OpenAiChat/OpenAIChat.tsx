@@ -73,7 +73,7 @@ const OpenAIChat = () => {
     if (newConversation) {
       setConversation([newConversation])
     }
-  }, [chatPersonality, conversation])
+  }, [chatPersonality])
 
   return (
     <section className={` ${styles.chat}`}>
