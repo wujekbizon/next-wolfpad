@@ -24,8 +24,8 @@ export const navLinks = [
   },
   {
     id: 4,
-    label: 'Color Generator',
-    url: '/colors'
+    label: 'Huefiy',
+    url: '/huefiy'
   }
 ]
 
