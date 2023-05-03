@@ -1,11 +1,10 @@
 import styles from './FilesReader.module.css'
 import { RiFileTextFill } from 'react-icons/ri'
+import { useState } from 'react'
+import { fetchCodeReview } from '../../helpers/chatApiCalls'
+import { toast } from 'react-toastify'
 
-type FilesReaderProps = {
-  setFileContent: (value: React.SetStateAction<string>) => void
-}
-
-const FilesReader = ({ setFileContent }: FilesReaderProps) => {
+const FilesReader = () => {
   const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files) {
       return
@@ -22,10 +21,11 @@ const FilesReader = ({ setFileContent }: FilesReaderProps) => {
         }
         const content = e.target?.result.toString()
 
-        setFileContent(content)
+        const data = await fetchCodeReview(content)
       }
+      toast.success('Getting your code review, please wait.')
     } else {
-      console.log('Invalid file type, please select a JavaScript file.')
+      toast.error('Invalid file type, please select a JavaScript file.')
     }
   }
 

@@ -12,7 +12,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     })
 
     const openai = new OpenAIApi(configuration)
-    const { prompt } = req.body
+    const { prompt, codeReview } = req.body
 
     let messages: ChatCompletionRequestMessage[] = [
       {
@@ -23,14 +23,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       },
       {
         role: 'user',
-        content: `Code review the following file: ${prompt}`
+        content: `Code review the following file: ${prompt || codeReview}`
       }
     ]
 
     try {
       const response = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
-
         messages: messages,
         temperature: 0,
         max_tokens: 200,
@@ -38,6 +37,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         frequency_penalty: 0.5,
         presence_penalty: 0
       })
+
+      console.log(response.data.choices[0]?.message?.content)
 
       res.status(200).json({
         bot: response.data.choices[0]?.message?.content
