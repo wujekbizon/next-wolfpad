@@ -38,8 +38,12 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 5px;
+}
+
+.chat_container:active {
+  opacity: 0.7;
 }
 
 .chat_assistant {
@@ -48,6 +52,11 @@
   min-height: 75px;
   width: 90%;
   justify-content: flex-start;
+}
+
+.icon {
+  cursor: pointer;
+  color: #686a79;
 }
 
 .typed_response p {

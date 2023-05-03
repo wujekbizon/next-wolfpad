@@ -24,11 +24,14 @@
   flex-direction: column;
   align-items: center;
   padding: 25px;
-  gap: 25px;
-  margin-top: 40px;
+  gap: 50px;
+  margin-top: 50px;
 }
 
-.settings button {
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   background: transparent;
   font-size: 17px;
   padding: 5px 15px;
@@ -37,13 +40,13 @@
   color: #b9bbbe;
   cursor: pointer;
   border-radius: 5px;
+  border: 1px solid #75737c;
 }
 
 .personalities {
   display: flex;
   width: 100%;
   flex-direction: column;
-  align-items: center;
 }
 
 .personalities select {
@@ -54,9 +57,11 @@
   font-size: 15px;
   color: #b9bbbe;
   outline: none;
+  border: 1px solid #75737c;
   border-radius: 5px;
   cursor: pointer;
   text-transform: capitalize;
+  text-align: center;
 }
 
 .personalities option {
@@ -65,13 +70,13 @@
 
 .personalities label {
   font-size: 15px;
-  padding: 0 0 5px 0;
+  padding: 0 0 15px 0;
 }
 
 .icon {
   display: flex;
-  font-size: 45px;
-  color: white;
+  font-size: 40px;
+  color: #b9bbbe;
   cursor: pointer;
   z-index: 10;
   position: absolute;

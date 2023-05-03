@@ -2,7 +2,9 @@ import styles from './OpeanAIChat.module.css'
 import { Fragment, useState, useCallback, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import ChatSideMenu from './ChatSideMenu'
+import { MdContentCopy } from 'react-icons/md'
 import TypedAssistantResponse from '../Animation/TypedAssistantResponse'
+import { useActions } from '../../hooks/useActions'
 
 interface Conversation {
   role: string
@@ -16,6 +18,7 @@ const OpenAIChat = () => {
   const initialPrompt = `You are a conversational chatbot. Your personality is: ${chatPersonality}`
   const [conversation, setConversation] = useState<Conversation[]>([{ role: 'system', content: initialPrompt }])
   const inputRef = useRef<HTMLInputElement>(null)
+  const { closeChatMenu } = useActions()
 
   const onChangeHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
@@ -57,10 +60,17 @@ const OpenAIChat = () => {
     inputRef.current?.focus()
     setValue('')
     setConversation([])
+    closeChatMenu()
+  }
+
+  const onClickHandler = (content: string) => {
+    navigator.clipboard.writeText(content)
   }
 
   const onPersonalityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    inputRef.current?.focus()
     setChatPersonality(e.target.value)
+    closeChatMenu()
   }
 
   useEffect(() => {
@@ -89,6 +99,7 @@ const OpenAIChat = () => {
                       {/* <TypedAssistantResponse text={item.content} /> */}
                       {isLoading && index >= conversation.length - 1 ? <p>Loading...</p> : item.content}
                     </div>
+                    <MdContentCopy className={styles.icon} onClick={() => onClickHandler(item.content)} />
                   </div>
                 )}
                 {item.role === 'user' && (
@@ -97,6 +108,7 @@ const OpenAIChat = () => {
                       <Image src="/images/user.svg" alt="chatbot" width={35} height={35} className={styles.image} />
                       {item.content}
                     </div>
+                    <MdContentCopy className={styles.icon} onClick={() => onClickHandler(item.content)} />
                   </div>
                 )}
               </Fragment>

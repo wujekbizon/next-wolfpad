@@ -26,8 +26,7 @@
 }
 @font-face {
   font-family: eudoxus sans;
-  src: url(https://stijndv.com/fonts/EudoxusSans-ExtraBold.woff2)
-      format('woff2'),
+  src: url(https://stijndv.com/fonts/EudoxusSans-ExtraBold.woff2) format('woff2'),
     url(https://stijndv.com/fonts/EudoxusSans-ExtraBold.woff) format('woff');
   font-weight: 800;
   font-style: normal;
@@ -35,8 +34,7 @@
 }
 @font-face {
   font-family: eudoxus sans;
-  src: url(https://stijndv.com/fonts/EudoxusSans-ExtraLight.woff2)
-      format('woff2'),
+  src: url(https://stijndv.com/fonts/EudoxusSans-ExtraLight.woff2) format('woff2'),
     url(https://stijndv.com/fonts/EudoxusSans-ExtraLight.woff) format('woff');
   font-weight: 200;
   font-style: normal;

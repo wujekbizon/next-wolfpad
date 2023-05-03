@@ -3,6 +3,7 @@ import { MdMenu, MdClose } from 'react-icons/md'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { personalities } from '../../data/features'
+import { IoMdChatboxes } from 'react-icons/io'
 
 type ChatSideMenuProps = {
   onClickRefreshHandler: () => void
@@ -22,12 +23,12 @@ const ChatSideMenu = ({ onClickRefreshHandler, onPersonalityChange }: ChatSideMe
       )}
       <div className={`glassmorphism ${isChatMenuOpen ? `${styles.open} ${styles.side_menu}` : styles.side_menu}`}>
         <div className={styles.settings}>
-          <button className="glassmorphism" onClick={onClickRefreshHandler}>
-            Start New Conversation
+          <button className={styles.btn} onClick={onClickRefreshHandler}>
+            <IoMdChatboxes /> Start New Conversation
           </button>
           <div className={styles.personalities}>
             <label htmlFor="select">Change AI Personality:</label>
-            <select id="select" className="glassmorphism" onChange={onPersonalityChange}>
+            <select id="select" onChange={onPersonalityChange}>
               {personalities.map((personality) => (
                 <option key={personality} value={personality}>
                   {personality}

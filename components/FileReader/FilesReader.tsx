@@ -1,8 +1,11 @@
-import { useState } from 'react'
+import styles from './FilesReader.module.css'
+import { RiFileTextFill } from 'react-icons/ri'
 
-const FilesReader = () => {
-  const [fileContent, setFileContent] = useState('')
+type FilesReaderProps = {
+  setFileContent: (value: React.SetStateAction<string>) => void
+}
 
+const FilesReader = ({ setFileContent }: FilesReaderProps) => {
   const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files) {
       return
@@ -28,8 +31,10 @@ const FilesReader = () => {
 
   return (
     <>
-      <input type="file" onChange={handleFileChange} />
-      {/* <pre>{fileContent}</pre> */}
+      <label htmlFor="file" className={styles.label}>
+        <RiFileTextFill className={styles.icon} />
+      </label>
+      <input type="file" onChange={handleFileChange} id="file" className={styles.input_chat} />
     </>
   )
 }

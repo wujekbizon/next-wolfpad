@@ -1,0 +1,8 @@
+.input_chat {
+  display: none;
+}
+
+.label {
+  height: 20px;
+  cursor: pointer;
+}
