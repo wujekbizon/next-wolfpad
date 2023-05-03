@@ -10,7 +10,7 @@ const InputForm = ({ onHandleSubmit, formRef }: InputFormProps) => {
   return (
     <>
       <form className={`${styles.form}`} onSubmit={onHandleSubmit} ref={formRef}>
-        <textarea name="prompt" placeholder="Please provide a Javascript code for review?"></textarea>
+        <textarea name="prompt" placeholder="Please provide a Javascript or Typescript code for review?"></textarea>
         <button className={styles.send}>
           <Image src="/images/send.svg" alt="send" width={25} height={25} />
         </button>

@@ -1,6 +1,5 @@
 import styles from './FilesReader.module.css'
 import { RiFileTextFill } from 'react-icons/ri'
-import { useState } from 'react'
 import { fetchCodeReview } from '../../helpers/chatApiCalls'
 import { toast } from 'react-toastify'
 
@@ -11,8 +10,11 @@ const FilesReader = () => {
     }
 
     const file = event.target.files[0]
-    if (file && file.type.match('javascript.*')) {
+
+    //  check if file name extension is one of : 'ts', 'js', 'jsx', 'tsx'
+    if (file && ['js', 'jsx', 'ts', 'tsx'].includes(file.name.split('.')[1])) {
       const reader = new FileReader()
+
       reader.readAsText(file, 'UTF-8')
 
       reader.onload = async (e) => {
@@ -25,7 +27,7 @@ const FilesReader = () => {
       }
       toast.success('Getting your code review, please wait.')
     } else {
-      toast.error('Invalid file type, please select a JavaScript file.')
+      toast.error('Invalid file type, please select a JavaScript/Typescript file.')
     }
   }
 
