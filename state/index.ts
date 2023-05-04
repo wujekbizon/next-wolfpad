@@ -12,8 +12,8 @@ import {
   registerSuccess,
   logoutUser
 } from './slices/usersSlice'
-import { createBundle, fetchCells, saveCells, registerNewUser, loginUser } from './apiCalls'
-
+import { createBundle, fetchCells, saveCells, registerNewUser, loginUser, fetchColorsPalette } from './apiCalls'
+import { colorsReducer, fetchColorsStart, fetchColorsComplete, fetchColorsError } from './slices/colorsSlice'
 import { chatReducer, openChatMenu, closeChatMenu } from './slices/chatSlice'
 
 export const store = configureStore({
@@ -22,7 +22,8 @@ export const store = configureStore({
     cells: cellsReducer,
     modals: modalsReducer,
     users: usersReducer,
-    chat: chatReducer
+    chat: chatReducer,
+    colors: colorsReducer
   }
 })
 
@@ -51,5 +52,9 @@ export const actionCreators = {
   registerNewUser,
   loginUser,
   openChatMenu,
-  closeChatMenu
+  closeChatMenu,
+  fetchColorsStart,
+  fetchColorsComplete,
+  fetchColorsError,
+  fetchColorsPalette
 }

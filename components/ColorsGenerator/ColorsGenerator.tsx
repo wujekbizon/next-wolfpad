@@ -1,11 +1,15 @@
 import styles from './ColorsGenerator.module.css'
 import ColorBox from '../ColorBox/ColorBox'
-import { useRef, useState } from 'react'
-import { fetchColorsPalette } from '../../helpers/chatApiCalls'
+import { useRef, useEffect } from 'react'
+import Image from 'next/image'
+import { useActions } from '../../hooks/useActions'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { toast } from 'react-toastify'
 
 const ColorsGenerator = () => {
+  const { fetchColorsPalette } = useActions()
+  const { colors, error } = useTypedSelector((state) => state.colors)
   const formRef = useRef<HTMLFormElement | null>(null)
-  const [colors, setColors] = useState([])
 
   const onHandleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
@@ -16,11 +20,30 @@ const ColorsGenerator = () => {
 
     const data = new FormData(formRef.current)
 
-    const response = await fetchColorsPalette(data, setColors)
+    fetchColorsPalette(data)
   }
+
+  useEffect(() => {
+    if (error) {
+      toast.error('Please provide a valid prompt')
+    }
+  }, [error])
 
   return (
     <section className={styles.colors}>
+      {colors.length === 0 && (
+        <>
+          <div className={styles.title}>
+            <h1>
+              Get a Hue-tiful palette every time with <span>Hueify</span>!
+            </h1>
+          </div>
+          <div className={styles.image_contianer}>
+            <Image src="/images/hueify.png" alt="hueify" width={800} height={600} className={styles.image} priority />
+          </div>
+        </>
+      )}
+
       {colors.map((color) => (
         <ColorBox key={color} color={color} />
       ))}

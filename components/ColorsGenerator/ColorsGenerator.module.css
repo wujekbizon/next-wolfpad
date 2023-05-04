@@ -22,9 +22,10 @@
 
 .form input {
   width: 100%;
-  height: 45px;
+  height: 50px;
   outline: none;
-  border: 2px solid white;
+  /* border: 1px solid #534857; */
+  border: none;
   background-color: #ebc9f3;
   padding: 0 10px;
   font-size: 16px;
@@ -32,15 +33,16 @@
 }
 
 .form input::placeholder {
-  color: grey;
+  color: rgb(153, 145, 145);
 }
 
 .form button {
-  height: 45px;
+  height: 50px;
   cursor: pointer;
   padding: 0 15px;
-  border: 2px solid white;
-  background-color: #8d39a3;
+  /* border: 1px solid #534857; */
+  border: none;
+  background-color: #a86bb8;
   color: white;
   font-size: 16px;
   transition: all 0.2s ease-in-out;
@@ -50,18 +52,80 @@
   background-color: #642c72;
 }
 
+.title {
+  position: absolute;
+  top: 10%;
+  width: 80%;
+  z-index: 10;
+  background-color: #534857;
+}
+
+.title h1 {
+  color: beige;
+  font-size: 30px;
+  text-align: center;
+  padding: 20px;
+}
+
+.title span {
+  color: #a86bb8;
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.image_contianer {
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.error {
+  position: absolute;
+  color: #642c72;
+  top: 50%;
+  left: 50%;
+}
+
+@media (min-width: 1024px) {
+  .image_contianer {
+    position: absolute;
+    width: 90%;
+    height: calc(90% - 90px);
+    bottom: 10%;
+  }
+
+  .title {
+    width: 80%;
+  }
+
+  .title h1 {
+    font-size: 40px;
+  }
+
+  .title span {
+    font-weight: 700;
+    font-size: 45px;
+  }
+}
+
 @media (min-width: 768px) {
+  .title {
+    top: 5%;
+  }
+
   .colors {
     flex-direction: row;
     padding: 64px;
   }
 
   .form {
-    width: 100%;
+    width: 600px;
     top: 50%;
-  }
-
-  .form {
-    width: 500px;
   }
 }
