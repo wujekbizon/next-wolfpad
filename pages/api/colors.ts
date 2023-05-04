@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { Configuration, OpenAIApi } from 'openai'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  let response
   if (req.method === 'POST') {
     const configuration = new Configuration({
       apiKey: process.env.OPENAI_API_KEY
@@ -13,7 +12,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       const { prompt } = req.body
 
-      response = await openai.createChatCompletion({
+      const response = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages: [
           {
