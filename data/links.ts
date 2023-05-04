@@ -26,6 +26,11 @@ export const navLinks = [
     id: 4,
     label: 'Huefiy',
     url: '/huefiy'
+  },
+  {
+    id: 5,
+    label: 'BeatAI',
+    url: '/beatai'
   }
 ]
 

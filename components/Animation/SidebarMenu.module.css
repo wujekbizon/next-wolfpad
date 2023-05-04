@@ -25,6 +25,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  gap: 20px;
 }
 
 .logo_container {
@@ -38,13 +39,12 @@
 }
 
 .link {
-  height: 80px;
+  height: 60px;
   width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #040c18;
-  margin-top: 40px;
   border: 1px solid rgba(174, 103, 250, 0.37);
 }
 
@@ -60,5 +60,13 @@
 @media (min-width: 480px) {
   .label h2 {
     font-size: 40px;
+  }
+
+  .menu_list {
+    gap: 40px;
+  }
+
+  .link {
+    height: 80px;
   }
 }
