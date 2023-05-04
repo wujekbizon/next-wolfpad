@@ -46,7 +46,7 @@ const ChatBot = () => {
     //  fetch api
     const response = await fetchOpenAiApi(data, interval, messageDiv)
 
-    if (response.ok) {
+    if (response?.ok) {
       setIsInitializing(true)
     }
   }, [])

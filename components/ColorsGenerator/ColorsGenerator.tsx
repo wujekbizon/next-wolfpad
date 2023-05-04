@@ -1,13 +1,24 @@
 import styles from './ColorsGenerator.module.css'
 import ColorBox from '../ColorBox/ColorBox'
+import { useRef, useState } from 'react'
+import { fetchColorsPalette } from '../../helpers/chatApiCalls'
 
-type ColorsGeneratorProps = {
-  onHandleSubmit: React.FormEventHandler<HTMLFormElement>
-  formRef: React.MutableRefObject<HTMLFormElement | null>
-  colors: string[]
-}
+const ColorsGenerator = () => {
+  const formRef = useRef<HTMLFormElement | null>(null)
+  const [colors, setColors] = useState([])
 
-const ColorsGenerator = ({ onHandleSubmit, formRef, colors }: ColorsGeneratorProps) => {
+  const onHandleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault()
+
+    if (!formRef.current) {
+      return
+    }
+
+    const data = new FormData(formRef.current)
+
+    const response = await fetchColorsPalette(data, setColors)
+  }
+
   return (
     <section className={styles.colors}>
       {colors.map((color) => (
