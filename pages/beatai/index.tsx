@@ -1,8 +1,9 @@
 import { GetServerSideProps } from 'next'
 import { getSession } from 'next-auth/react'
+import BeatAI from '../../components/BeatAI/BeatAI'
 
 const BeatAiPage = () => {
-  return <div>BeatAiPage</div>
+  return <BeatAI />
 }
 export default BeatAiPage
 export const getServerSideProps: GetServerSideProps = async (context) => {
