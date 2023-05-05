@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { Configuration, OpenAIApi, ChatCompletionRequestMessage } from 'openai'
+import { exampleJSON, biglistExampleJSON } from '../../data/songsExampleJSON'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
@@ -8,23 +9,41 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     })
 
     const openai = new OpenAIApi(configuration)
-    const { prompt } = req.body
+    const { prompt, count } = req.body
 
     let messages: ChatCompletionRequestMessage[] = [
       {
         role: 'system',
-        content: ''
+        content: `You are a helpful platlist generating assistant. You should generate a list of songs and their artists according to a text prompt.
+           You should return a JSON array , where each element follows this format: {"song": "song_title", "artist": "artist_name"}
+          `
+      },
+      {
+        role: 'user',
+        content: `Generate a playlist of songs based on this prompt: Generate a playlist of 10 songs based on this prompt: super super sad songs`
+      },
+      {
+        role: 'assistant',
+        content: exampleJSON
+      },
+      {
+        role: 'user',
+        content: `Generate a playlist of songs based on this prompt: Generate a playlist of 25 songs based on this prompt: energy songs`
+      },
+      {
+        role: 'assistant',
+        content: biglistExampleJSON
+      },
+      {
+        role: 'user',
+        content: `Generate a playlist of ${count} songs based on this prompt: ${prompt}`
       }
     ]
     try {
       const response = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages: messages,
-        temperature: 0,
-        max_tokens: 200,
-        top_p: 1,
-        frequency_penalty: 0.5,
-        presence_penalty: 0
+        max_tokens: 500
       })
 
       res.status(200).json({
