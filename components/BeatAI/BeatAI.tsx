@@ -29,7 +29,7 @@ const BeatAI = () => {
       const data = await response.json()
       console.log(data.bot)
       const parsedData = JSON.parse(data.bot.trim())
-      console.log(parsedData)
+      setPlaylist(parsedData)
     }
   }
 
@@ -39,14 +39,11 @@ const BeatAI = () => {
       <div>
         <form ref={formRef} onSubmit={onHandleSubmit}>
           <input type="text" name="prompt" />
-          <select name="count">
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="100">100</option>
-          </select>
+          <input type="number" name="count" min={3} max={25} defaultValue={3} />
           <button>Generate playlist</button>
         </form>
       </div>
+      <div>{playlist}</div>
     </section>
   )
 }

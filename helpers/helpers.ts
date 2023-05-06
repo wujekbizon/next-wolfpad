@@ -1,3 +1,5 @@
+import { btoa } from 'buffer'
+
 export const loader = (element: HTMLElement, loadInterval: NodeJS.Timer) => {
   element.textContent = ''
 
@@ -47,4 +49,27 @@ export const chatStripe = (isAi: boolean, value: FormDataEntryValue | null, uniq
       </div>
     </div>
     `
+}
+
+export const generateRandomString = (length: number) => {
+  let text = ''
+  let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+
+  for (let i = 0; i < length; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length))
+  }
+  return text
+}
+
+function urlBase64FromBytes(bytes: Uint8Array) {
+  let base64 = btoa(String.fromCharCode(...bytes))
+  return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+}
+
+export const generateCodeChallenge = async (codeVerifier: string) => {
+  const encoder = new TextEncoder()
+  const data = encoder.encode(codeVerifier)
+  const digest = await crypto.subtle.digest('SHA-256', data)
+  const base64String = urlBase64FromBytes(new Uint8Array(digest))
+  return base64String
 }
