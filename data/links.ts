@@ -29,8 +29,8 @@ export const navLinks = [
   },
   {
     id: 5,
-    label: 'BeatAI',
-    url: '/beatai'
+    label: 'Drawify',
+    url: '/drawify'
   }
 ]
 

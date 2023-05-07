@@ -73,3 +73,8 @@ export const generateCodeChallenge = async (codeVerifier: string) => {
   const base64String = urlBase64FromBytes(new Uint8Array(digest))
   return base64String
 }
+
+// function used to load images that are blob in Drawify app
+export const customImgLoader = ({ src }: { src: string }) => {
+  return `${src}`
+}

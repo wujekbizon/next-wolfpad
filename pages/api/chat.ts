@@ -38,8 +38,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         presence_penalty: 0
       })
 
-      console.log(response.data.choices[0]?.message?.content)
-
       res.status(200).json({
         bot: response.data.choices[0]?.message?.content
       })

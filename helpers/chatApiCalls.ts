@@ -60,3 +60,27 @@ export const fetchCodeReview = async (content: string) => {
     }
   }
 }
+
+export const getImageAndSave = async (data: FormData) => {
+  try {
+    const response = await fetch('/api/drawify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        prompt: data.get('prompt')
+      })
+    })
+    if (response.ok) {
+      const data = await response.json()
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      toast.error('Please provide prompt')
+      console.log(error.message)
+    } else {
+      console.log(error)
+    }
+  }
+}
