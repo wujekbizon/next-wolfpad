@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { Configuration, OpenAIApi } from 'openai'
-import fs from 'fs/promises'
-import path from 'path'
+import { saveImageToFile } from '../../helpers/fileSystem'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
@@ -13,11 +12,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const { prompt } = req.body
 
     try {
-      const imageDirectoryName = 'images'
-      await fs.mkdir(imageDirectoryName, { recursive: true })
-      const imageDirectory = path.join(process.cwd(), imageDirectoryName)
-      const imageName = 'image.png'
-      const filePath = path.join(imageDirectory, imageName)
       const response = await openai.createImage({
         prompt: prompt,
         size: '512x512',
@@ -26,10 +20,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       })
 
       const rawImageData = response.data?.data[0]?.b64_json as string
-      const decodedImageData = Buffer.from(rawImageData, 'base64')
-      await fs.writeFile(filePath, decodedImageData, 'base64')
 
-      res.status(200).json({ message: 'Image saved successfully' })
+      saveImageToFile(rawImageData)
+
+      res.status(200).json({ message: 'Image saved successfully', data: rawImageData })
     } catch (error) {
       if (error instanceof Error) {
         res.status(500).json({ message: error })

@@ -1,5 +1,6 @@
 import { typeText } from './helpers'
 import { toast } from 'react-toastify'
+import { saveImageToFile } from './fileSystem'
 
 export const fetchOpenAiApi = async (data: FormData, interval: NodeJS.Timer, element: HTMLElement) => {
   try {
@@ -73,7 +74,9 @@ export const getImageAndSave = async (data: FormData) => {
       })
     })
     if (response.ok) {
-      const data = await response.json()
+      const { data, message } = await response.json()
+      console.log(data)
+      toast.success(message)
     }
   } catch (error) {
     if (error instanceof Error) {
