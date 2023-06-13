@@ -32,7 +32,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         model: 'gpt-3.5-turbo',
         messages: messages,
         temperature: 0,
-        max_tokens: 200,
+        max_tokens: 2000,
         top_p: 1,
         frequency_penalty: 0.5,
         presence_penalty: 0

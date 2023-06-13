@@ -4,7 +4,7 @@ import { saveImageToFile } from './fileSystem'
 
 export const fetchOpenAiApi = async (data: FormData, interval: NodeJS.Timer, element: HTMLElement) => {
   try {
-    const response = await fetch('api/chat', {
+    const response = await fetch('/api/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -49,9 +49,11 @@ export const fetchCodeReview = async (content: string) => {
       })
     })
 
-    // if (response.ok) {
-    //   console.log(response)
-    // }
+    if (response.ok) {
+      const data = await response.json()
+      const parsedData = data.bot.trim()
+      console.log(parsedData)
+    }
     return response
   } catch (err) {
     if (err instanceof Error) {

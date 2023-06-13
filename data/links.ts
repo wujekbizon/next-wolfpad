@@ -27,11 +27,11 @@ export const navLinks = [
     label: 'Huefiy',
     url: '/huefiy'
   },
-  {
-    id: 5,
-    label: 'Drawify',
-    url: '/drawify'
-  }
+  // {
+  //   id: 5,
+  //   label: 'Drawify',
+  //   url: '/drawify'
+  // }
 ]
 
 export const cellButtons: CellButtons[] = [

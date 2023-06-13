@@ -23,7 +23,7 @@ const FilesReader = () => {
         }
         const content = e.target?.result.toString()
 
-        const data = await fetchCodeReview(content)
+         await fetchCodeReview(content)
       }
       toast.success('Getting your code review, please wait.')
     } else {

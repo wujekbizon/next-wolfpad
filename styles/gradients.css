@@ -3,7 +3,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-width: 1px;
 }
 
 .submenu-gradient {

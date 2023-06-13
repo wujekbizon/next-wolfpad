@@ -13,7 +13,9 @@ interface ActionBarProps {
 const ActionBar: React.FC<ActionBarProps> = ({ cell }) => {
   const { moveCell, deleteCell, saveCells } = useActions()
 
-  const onClickHandler = () => {}
+  const onClickHandler = () => {
+    console.log('clicked')
+  }
 
   return (
     <div className={styles.action_bar}>
