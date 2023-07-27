@@ -17,28 +17,28 @@ const OpenAIChat = () => {
   const [chatPersonality, setChatPersonality] = useState('funny and helpful')
   const initialPrompt = `You are a conversational chatbot. Your personality is: ${chatPersonality}`
   const [conversation, setConversation] = useState<Conversation[]>([{ role: 'system', content: initialPrompt }])
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLTextAreaElement>(null)
   const { closeChatMenu } = useActions()
 
-  const onChangeHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeHandler = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(e.target.value)
   }, [])
 
-  const onKeyDownHandler = async (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const onKeyDownHandler = async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter') {
       setIsLoading(true)
       const chatHistory = [
         ...conversation,
         { role: 'system', content: initialPrompt },
-        { role: 'user', content: value }
+        { role: 'user', content: value },
       ]
       try {
         const response = await fetch('/api/openAIChat', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ messages: chatHistory })
+          body: JSON.stringify({ messages: chatHistory }),
         })
 
         if (response.ok) {
@@ -116,13 +116,14 @@ const OpenAIChat = () => {
           })}
         </div>
         <div className={styles.input_container}>
-          <input
+          <textarea
             placeholder="Send a message"
             value={value}
             onChange={onChangeHandler}
             onKeyDown={onKeyDownHandler}
             ref={inputRef}
             className={styles.user_input}
+            autoCorrect="on"
           />
         </div>
       </div>
