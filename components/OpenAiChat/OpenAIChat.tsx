@@ -5,6 +5,7 @@ import ChatSideMenu from './ChatSideMenu'
 import { MdContentCopy } from 'react-icons/md'
 import TypedAssistantResponse from '../Animation/TypedAssistantResponse'
 import { useActions } from '../../hooks/useActions'
+import { chatAssistants } from '../../data/chatAssistants'
 
 interface Conversation {
   role: string
