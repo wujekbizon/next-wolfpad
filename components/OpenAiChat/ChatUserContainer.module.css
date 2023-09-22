@@ -1,0 +1,38 @@
+.chat_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 5px;
+  background: #1e1f26;
+}
+
+.chat_container:active {
+  opacity: 0.9;
+}
+
+.chat_user {
+  display: flex;
+  align-items: center;
+  min-height: 75px;
+  width: 70%;
+  justify-content: flex-start;
+}
+
+.code_container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
+  width: 100%;
+}
+
+.image {
+  border: 1px solid #0b0c11;
+  border-radius: 5px;
+  background-color: #3d3f4d;
+}
+
+.icon {
+  cursor: pointer;
+  color: #686a79;
+}

@@ -10,11 +10,11 @@ import {
   registerFailure,
   registerStart,
   registerSuccess,
-  logoutUser
+  logoutUser,
 } from './slices/usersSlice'
 import { createBundle, fetchCells, saveCells, registerNewUser, loginUser, fetchColorsPalette } from './apiCalls'
 import { colorsReducer, fetchColorsStart, fetchColorsComplete, fetchColorsError } from './slices/colorsSlice'
-import { chatReducer, openChatMenu, closeChatMenu } from './slices/chatSlice'
+import { chatReducer, openChatMenu, closeChatMenu, updateUserInputValue } from './slices/chatSlice'
 
 export const store = configureStore({
   reducer: {
@@ -23,8 +23,8 @@ export const store = configureStore({
     modals: modalsReducer,
     users: usersReducer,
     chat: chatReducer,
-    colors: colorsReducer
-  }
+    colors: colorsReducer,
+  },
 })
 
 export type RootState = ReturnType<typeof store.getState>
@@ -56,5 +56,6 @@ export const actionCreators = {
   fetchColorsStart,
   fetchColorsComplete,
   fetchColorsError,
-  fetchColorsPalette
+  fetchColorsPalette,
+  updateUserInputValue,
 }
