@@ -1,21 +1,12 @@
 import styles from './ChatAssistantContainer.module.css'
-import { Comment } from 'react-loader-spinner'
 import Image from 'next/image'
-import { MdContentCopy } from 'react-icons/md'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { Comment } from 'react-loader-spinner'
+import { MdContentCopy } from 'react-icons/md'
 import { ChatUserContainerProps } from './ChatUserContainer'
 
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript'
-import ts from 'react-syntax-highlighter/dist/cjs/languages/prism/typescript'
-import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx'
-import tsx from 'react-syntax-highlighter/dist/cjs/languages/prism/tsx'
-
-SyntaxHighlighter.registerLanguage('js', js)
-SyntaxHighlighter.registerLanguage('ts', ts)
-SyntaxHighlighter.registerLanguage('tsx', tsx)
-SyntaxHighlighter.registerLanguage('jsx', jsx)
+//components
+import CodeSyntax from './CodeSyntax'
 
 interface ChatAssistantContainerProps extends ChatUserContainerProps {
   index: number
@@ -37,7 +28,6 @@ const ChatAssistantContainer: React.FC<ChatAssistantContainerProps> = ({ item, i
             width={35}
             ariaLabel="comment-loading"
             wrapperStyle={{}}
-            wrapperClass={styles.comment}
             color="#fff"
             backgroundColor="#0b0c11"
           />
@@ -46,23 +36,13 @@ const ChatAssistantContainer: React.FC<ChatAssistantContainerProps> = ({ item, i
         )}
 
         <div className={styles.code_container}>
+          <CodeSyntax language="md">{contentPart}</CodeSyntax>
           {codeBlocks &&
             codeBlocks.map((code, index) => (
-              <SyntaxHighlighter
-                wrapLongLines={true}
-                style={coldarkDark}
-                language={'tsx'}
-                key={index}
-                customStyle={{ minHeight: '65px' }}
-              >
+              <CodeSyntax key={index} language="tsx">
                 {code}
-              </SyntaxHighlighter>
+              </CodeSyntax>
             ))}
-
-          <SyntaxHighlighter wrapLongLines={true} style={coldarkDark} customStyle={{ minHeight: '65px' }}>
-            {contentPart}
-          </SyntaxHighlighter>
-          {/* {item.content} */}
         </div>
       </div>
       <MdContentCopy className={styles.icon} onClick={() => onClick(item.content)} />

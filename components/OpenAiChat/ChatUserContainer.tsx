@@ -3,18 +3,8 @@ import Image from 'next/image'
 import { MdContentCopy } from 'react-icons/md'
 import { Conversation } from '../../state/slices/chatSlice'
 
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
-
-import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript'
-import ts from 'react-syntax-highlighter/dist/cjs/languages/prism/typescript'
-import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx'
-import tsx from 'react-syntax-highlighter/dist/cjs/languages/prism/tsx'
-
-SyntaxHighlighter.registerLanguage('js', js)
-SyntaxHighlighter.registerLanguage('ts', ts)
-SyntaxHighlighter.registerLanguage('tsx', tsx)
-SyntaxHighlighter.registerLanguage('jsx', jsx)
+//components
+import CodeSyntax from './CodeSyntax'
 
 export interface ChatUserContainerProps {
   item: Conversation
@@ -29,23 +19,14 @@ const ChatUserContainer: React.FC<ChatUserContainerProps> = ({ item, onClick }) 
     <div className={styles.chat_container}>
       <div className={styles.chat_user}>
         <Image src="/images/user.svg" alt="chatbot" width={45} height={45} className={styles.image} />
-
         <div className={styles.code_container}>
+          <CodeSyntax language="md">{contentPart}</CodeSyntax>
           {codeBlocks &&
             codeBlocks.map((code, index) => (
-              <SyntaxHighlighter
-                style={coldarkDark}
-                wrapLongLines={true}
-                language={'tsx'}
-                key={index}
-                customStyle={{ minHeight: '65px' }}
-              >
+              <CodeSyntax key={index} language="tsx">
                 {code}
-              </SyntaxHighlighter>
+              </CodeSyntax>
             ))}
-          <SyntaxHighlighter wrapLongLines={true} style={coldarkDark} customStyle={{ minHeight: '65px' }}>
-            {contentPart}
-          </SyntaxHighlighter>
         </div>
       </div>
       <MdContentCopy className={styles.icon} onClick={() => onClick(item.content)} />
