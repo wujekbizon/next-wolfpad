@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { PayloadAction } from '@reduxjs/toolkit'
-import { INITIAL_CHAT_SYSTEM } from '../../data/constants'
+import { INITIAL_CHAT_SYSTEM, TOKENS_THRESHOLD } from '../../data/constants'
 import { updateChatHistory } from '../thunks/updateChatHistory'
 
 export interface Conversation {
@@ -8,12 +8,20 @@ export interface Conversation {
   content: string
 }
 
+export interface TokensUsageInterface {
+  promptTokens: number
+  completionTokens: number
+  totalTokens: number
+}
+
 interface ChatState {
   conversations: Conversation[]
+  usage: TokensUsageInterface
   isLoading: boolean
   error: null | string
   isChatMenuOpen: boolean
   userInputValue: string
+  hasExceedTokensThreshold: boolean
 }
 
 const initialState: ChatState = {
@@ -23,10 +31,16 @@ const initialState: ChatState = {
       content: INITIAL_CHAT_SYSTEM,
     },
   ],
+  usage: {
+    promptTokens: 0,
+    completionTokens: 0,
+    totalTokens: 0,
+  },
   isLoading: false,
   error: null,
   userInputValue: '',
   isChatMenuOpen: false,
+  hasExceedTokensThreshold: false,
 }
 
 const chatSlice = createSlice({
@@ -49,10 +63,27 @@ const chatSlice = createSlice({
     })
 
     builder.addCase(updateChatHistory.fulfilled, (state: ChatState, { payload }) => {
+      // update chatHistory
       state.isLoading = false
       state.userInputValue = ''
-      state.conversations = payload
+      state.conversations = payload.chatHistory
+
+      // update usage tokens
+      const { prompt_tokens, completion_tokens, total_tokens } = payload.result.usage
+      const newPromptTokens = state.usage.promptTokens + prompt_tokens
+      const newCompletionTokens = state.usage.completionTokens + completion_tokens
+      const newTotalTokens = state.usage.totalTokens + total_tokens
+      state.usage = {
+        ...state.usage,
+        promptTokens: newPromptTokens,
+        completionTokens: newCompletionTokens,
+        totalTokens: newTotalTokens,
+      }
+      if (state.usage.totalTokens >= TOKENS_THRESHOLD) {
+        state.hasExceedTokensThreshold = true
+      }
     })
+
     builder.addCase(updateChatHistory.rejected, (state: ChatState, { payload }) => {
       state.isLoading = false
       if (!payload) {

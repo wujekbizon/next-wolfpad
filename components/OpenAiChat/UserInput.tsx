@@ -7,7 +7,7 @@ import styles from './UserInput.module.css'
 
 const UserInput = () => {
   const dispatch = useAppDispatch()
-  const { userInputValue, conversations, isLoading } = useTypedSelector((state) => state.chat)
+  const { userInputValue, conversations, isLoading, hasExceedTokensThreshold } = useTypedSelector((state) => state.chat)
   const { updateUserInputValue } = useActions()
 
   const onKeyDownHandler = useCallback(
@@ -37,7 +37,11 @@ const UserInput = () => {
         <div className={`${styles.loading_skeleton} ${styles.glassmorphism}`} />
       ) : (
         <textarea
-          placeholder="Send a message"
+          placeholder={
+            hasExceedTokensThreshold
+              ? 'You exceeded daily limit of requests. Please contact admin, for further instructions.'
+              : 'Send a message'
+          }
           value={userInputValue}
           onChange={handleInputChange}
           onKeyDown={onKeyDownHandler}
@@ -45,6 +49,7 @@ const UserInput = () => {
           className={`${styles.user_input} ${styles.glassmorphism}`}
           autoCorrect="on"
           id="prompt"
+          disabled={hasExceedTokensThreshold}
         />
       )}
     </div>

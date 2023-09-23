@@ -4,6 +4,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector'
 import ChatUserContainer from './ChatUserContainer'
 import ChatAssistantContainer from './ChatAssistantContainer'
 import UserInput from './UserInput'
+import TokensCounter from './TokensCounter'
 
 const OpenAIChat = () => {
   const { conversations } = useTypedSelector((state) => state.chat)
@@ -27,6 +28,7 @@ const OpenAIChat = () => {
         </div>
         <UserInput />
       </div>
+      <TokensCounter />
     </section>
   )
 }

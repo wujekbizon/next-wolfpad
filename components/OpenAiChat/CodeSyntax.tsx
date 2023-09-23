@@ -29,6 +29,7 @@ const CodeSyntax: React.FC<CodeSyntaxProps> = ({ children, language }) => {
         overflow: 'hidden',
         paddingLeft: '30px',
         paddingRight: '30px',
+        borderRadius: '5px',
       }}
     >
       {children}
