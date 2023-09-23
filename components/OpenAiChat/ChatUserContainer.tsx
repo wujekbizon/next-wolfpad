@@ -12,7 +12,7 @@ export interface ChatUserContainerProps {
 }
 
 const ChatUserContainer: React.FC<ChatUserContainerProps> = ({ item, onClick }) => {
-  const regex = /```(.*?)```/gs
+  const regex = /\/```(.*?)```\/gs/
   const [contentPart, ...codeBlocks] = item.content.split(regex)
 
   return (

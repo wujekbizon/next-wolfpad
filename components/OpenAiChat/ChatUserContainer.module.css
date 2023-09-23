@@ -2,9 +2,10 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   padding: 5px;
   background: #1e1f26;
+  position: relative;
 }
 
 .chat_container:active {
@@ -34,5 +35,8 @@
 
 .icon {
   cursor: pointer;
-  color: #686a79;
+  color: #8a8c9c;
+  position: absolute;
+  top: 20px;
+  right: 40px;
 }

@@ -24,17 +24,25 @@ const UserInput = () => {
     updateUserInputValue(event.target.value)
   }
 
+  const handleTextAreaInput = (event: React.FormEvent<HTMLTextAreaElement>) => {
+    // Adjust the textarea input height
+    const target = event.target as HTMLTextAreaElement
+    target.style.height = 'auto'
+    target.style.height = `${target.scrollHeight}px`
+  }
+
   return (
     <div className={styles.input_container}>
       {isLoading ? (
-        <div className={styles.loading_skeleton} />
+        <div className={`${styles.loading_skeleton} ${styles.glassmorphism}`} />
       ) : (
         <textarea
           placeholder="Send a message"
           value={userInputValue}
           onChange={handleInputChange}
           onKeyDown={onKeyDownHandler}
-          className={styles.user_input}
+          onInput={handleTextAreaInput}
+          className={`${styles.user_input} ${styles.glassmorphism}`}
           autoCorrect="on"
           id="prompt"
         />

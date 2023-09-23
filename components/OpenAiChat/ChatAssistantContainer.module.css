@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  position: relative;
   padding: 5px;
 }
 
@@ -33,7 +34,10 @@
 
 .icon {
   cursor: pointer;
-  color: #686a79;
+  color: #8a8c9c;
+  position: absolute;
+  top: 20px;
+  right: 40px;
 }
 
 .comment {

@@ -19,7 +19,18 @@ interface CodeSyntaxProps {
 
 const CodeSyntax: React.FC<CodeSyntaxProps> = ({ children, language }) => {
   return (
-    <SyntaxHighlighter style={coldarkDark} wrapLongLines={true} language={language} customStyle={{ minHeight: '65px' }}>
+    <SyntaxHighlighter
+      style={coldarkDark}
+      wrapLongLines={true}
+      language={language}
+      customStyle={{
+        minHeight: '65px',
+        width: '100%',
+        overflow: 'hidden',
+        paddingLeft: '30px',
+        paddingRight: '30px',
+      }}
+    >
       {children}
     </SyntaxHighlighter>
   )

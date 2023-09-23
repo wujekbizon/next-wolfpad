@@ -15,7 +15,7 @@ interface ChatAssistantContainerProps extends ChatUserContainerProps {
 const ChatAssistantContainer: React.FC<ChatAssistantContainerProps> = ({ item, index, onClick }) => {
   const { isLoading, conversations } = useTypedSelector((state) => state.chat)
 
-  const regex = /```(.*?)```/gs
+  const regex = /\/```(.*?)```\/gs/
   const [contentPart, ...codeBlocks] = item.content.split(regex)
 
   return (
@@ -24,8 +24,8 @@ const ChatAssistantContainer: React.FC<ChatAssistantContainerProps> = ({ item, i
         {isLoading && index >= conversations.length - 1 ? (
           <Comment
             visible={true}
-            height={35}
-            width={35}
+            height={45}
+            width={45}
             ariaLabel="comment-loading"
             wrapperStyle={{}}
             color="#fff"
