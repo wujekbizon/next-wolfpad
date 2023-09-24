@@ -1,5 +1,5 @@
 import styles from './OpeanAIChat.module.css'
-import { Fragment } from 'react'
+import { Fragment, useRef, useEffect, useLayoutEffect } from 'react'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import ChatUserContainer from './ChatUserContainer'
 import ChatAssistantContainer from './ChatAssistantContainer'
@@ -8,6 +8,12 @@ import TokensCounter from './TokensCounter'
 
 const OpenAIChat = () => {
   const { conversations } = useTypedSelector((state) => state.chat)
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
+  // scroll into view
+  useEffect(() => {
+    containerRef.current?.lastElementChild?.scrollIntoView()
+  }, [conversations])
 
   const onClickHandler = (content: string): void => {
     navigator.clipboard.writeText(content)
@@ -16,7 +22,7 @@ const OpenAIChat = () => {
   return (
     <section className={` ${styles.chat}`}>
       <div className={styles.chat_container}>
-        <div className={styles.textarea}>
+        <div className={styles.chat_conversation} ref={containerRef}>
           {conversations.map((item, index) => (
             <Fragment key={index}>
               {item.role === 'assistant' && (
