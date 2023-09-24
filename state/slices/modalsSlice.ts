@@ -1,26 +1,34 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
 
-interface SideModalState {
-  isMenuOpen: boolean;
+interface ModalsState {
+  isMenuOpen: boolean
+  isChatMenuOpen: boolean
 }
 
-const initialState: SideModalState = {
+const initialState: ModalsState = {
   isMenuOpen: false,
-};
+  isChatMenuOpen: false,
+}
 
 const modalsSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    openSideMenu(state: SideModalState) {
-      state.isMenuOpen = true;
+    openSideMenu(state: ModalsState) {
+      state.isMenuOpen = true
     },
-    closeSideMenu(state: SideModalState) {
-      state.isMenuOpen = false;
+    closeSideMenu(state: ModalsState) {
+      state.isMenuOpen = false
+    },
+    openChatMenu(state: ModalsState) {
+      state.isChatMenuOpen = true
+    },
+    closeChatMenu(state: ModalsState) {
+      state.isChatMenuOpen = false
     },
   },
-});
+})
 
-export const { openSideMenu, closeSideMenu } = modalsSlice.actions;
+export const { openSideMenu, closeSideMenu, openChatMenu, closeChatMenu } = modalsSlice.actions
 
-export const modalsReducer = modalsSlice.reducer;
+export const modalsReducer = modalsSlice.reducer

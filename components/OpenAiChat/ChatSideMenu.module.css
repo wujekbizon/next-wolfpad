@@ -1,91 +1,22 @@
-.open {
-  transform: translateX(0%) !important;
-}
-
-.side_menu {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #0b0c11;
-  position: absolute;
-  top: 0;
-  right: 0;
+.chat_side {
   height: 100%;
-  width: 100%;
-  transform: translateX(100%);
-  transition: all 0.2s ease-out;
-}
-
-.settings {
-  width: 100%;
-  height: 100%;
+  width: 20%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  padding: 25px;
-  gap: 50px;
-  margin-top: 50px;
+  background-color: #1e1f26;
+  padding: 15px;
 }
 
-.btn {
+.chat_side_close {
+  display: none;
+}
+
+.chat_side_open {
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background: transparent;
-  font-size: 17px;
-  padding: 5px 15px;
-  width: 100%;
-  height: 40px;
-  color: #b9bbbe;
-  cursor: pointer;
-  border-radius: 5px;
-  border: 1px solid #75737c;
 }
 
-.personalities {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-}
-
-.personalities select {
-  background: transparent;
-  height: 40px;
-  padding: 5px 20px;
-  width: 100%;
-  font-size: 15px;
-  color: #b9bbbe;
-  outline: none;
-  border: 1px solid #75737c;
-  border-radius: 5px;
-  cursor: pointer;
-  text-transform: capitalize;
-  text-align: center;
-}
-
-.personalities option {
-  background-color: #0b0c11;
-}
-
-.personalities label {
-  font-size: 15px;
-  padding: 0 0 15px 0;
-}
-
-.icon {
-  display: flex;
-  font-size: 40px;
-  color: #b9bbbe;
-  cursor: pointer;
-  z-index: 10;
-  position: absolute;
-  right: 5px;
-  top: 0;
-}
-
-@media (min-width: 768px) {
-  .side_menu {
-    width: 350px;
-  }
+.chat_side h2 {
+  color: azure;
 }

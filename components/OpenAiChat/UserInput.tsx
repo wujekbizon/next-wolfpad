@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 import { useActions } from '../../hooks/useActions'
 import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
@@ -11,16 +11,19 @@ const UserInput = () => {
   const { userInputValue, conversations, isLoading, hasExceedTokensThreshold } = useTypedSelector((state) => state.chat)
   const { updateUserInputValue } = useActions()
 
+  const chatHistory = useMemo(
+    () => [...conversations, { role: 'user', content: userInputValue }],
+    [conversations, userInputValue]
+  )
+
   const onKeyDownHandler = useCallback(
     async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-      if (e.key !== 'Enter') {
-        return
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault() // Prevent the default Enter key behavior
+        dispatch(updateChatHistory(chatHistory))
       }
-      e.preventDefault()
-      const chatHistory = [...conversations, { role: 'user', content: userInputValue }]
-      dispatch(updateChatHistory(chatHistory))
     },
-    [dispatch, conversations, userInputValue]
+    [dispatch, chatHistory]
   )
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {

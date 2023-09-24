@@ -19,7 +19,7 @@ interface ChatState {
   usage: TokensUsageInterface
   isLoading: boolean
   error: null | string
-  isChatMenuOpen: boolean
+
   userInputValue: string
   hasExceedTokensThreshold: boolean
 }
@@ -39,7 +39,6 @@ const initialState: ChatState = {
   isLoading: false,
   error: null,
   userInputValue: '',
-  isChatMenuOpen: false,
   hasExceedTokensThreshold: false,
 }
 
@@ -47,12 +46,6 @@ const chatSlice = createSlice({
   name: 'chat',
   initialState,
   reducers: {
-    openChatMenu(state: ChatState) {
-      state.isChatMenuOpen = true
-    },
-    closeChatMenu(state: ChatState) {
-      state.isChatMenuOpen = false
-    },
     updateUserInputValue(state: ChatState, { payload }: PayloadAction<string>) {
       state.userInputValue = payload
     },
@@ -94,6 +87,6 @@ const chatSlice = createSlice({
   },
 })
 
-export const { openChatMenu, closeChatMenu, updateUserInputValue } = chatSlice.actions
+export const { updateUserInputValue } = chatSlice.actions
 
 export const chatReducer = chatSlice.reducer

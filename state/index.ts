@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { bundlesReducer, bundleStart, bundleComplete } from './slices/bundlesSlice'
 import { cellsReducer, insertCellAfter, deleteCell, updateCell, moveCell } from './slices/cellsSlice'
-import { modalsReducer, openSideMenu, closeSideMenu } from './slices/modalsSlice'
+import { modalsReducer, openSideMenu, closeSideMenu, openChatMenu, closeChatMenu } from './slices/modalsSlice'
 import {
   usersReducer,
   loginFailure,
@@ -14,7 +14,7 @@ import {
 } from './slices/usersSlice'
 import { createBundle, fetchCells, saveCells, registerNewUser, loginUser, fetchColorsPalette } from './apiCalls'
 import { colorsReducer, fetchColorsStart, fetchColorsComplete, fetchColorsError } from './slices/colorsSlice'
-import { chatReducer, openChatMenu, closeChatMenu, updateUserInputValue } from './slices/chatSlice'
+import { chatReducer, updateUserInputValue } from './slices/chatSlice'
 
 export const store = configureStore({
   reducer: {

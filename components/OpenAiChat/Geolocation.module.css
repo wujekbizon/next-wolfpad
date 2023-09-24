@@ -1,0 +1,15 @@
+.location_card {
+  width: 90%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(17, 27, 39);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 5px;
+}
+
+.location_card h4 {
+  font-size: 16px;
+  color: #b9bbbe;
+}
