@@ -18,12 +18,12 @@ const Chat = () => {
           className={styles.chat_title_container}
         >
           <motion.h1 variants={textTitleVariant(0.8)} className="gradient_text">
-            OpenAi Chatbot
+            WolfpadAI Chatbot
           </motion.h1>
 
           <motion.p variants={fadeIn('up', 'tween', 0.6, 1)}>
             {' '}
-            OpenAI Chatbot is an artificial intelligence system that can simulate human conversation by using natural
+            WolfpadAI Chatbot is an artificial intelligence system that can simulate human conversation by using natural
             language processing and machine learning algorithms.
           </motion.p>
         </motion.div>
@@ -41,7 +41,7 @@ const Chat = () => {
             <p className={styles.tutor_text}>
               With the newest addition of <span className={styles.tutor_span}> GPT-4 Artificial Intelligence</span> to
               our project. You can choose and fully customize, a friendly chabot. This is a paid feature and can be only
-              accessible thru our premium plan.
+              accessible through our premium plan.
             </p>
           </motion.div>
           <motion.div variants={fadeIn('left', 'tween', 0.2, 1)} className={styles.image_container}>

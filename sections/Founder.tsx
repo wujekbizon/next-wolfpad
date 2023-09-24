@@ -19,39 +19,30 @@ const Founder = () => {
         >
           <div className="feedback-gradient" />
           <div>
-            <h4 className={styles.name}>Gregory</h4>
+            <h4 className={styles.name}>Greg Wolfinger</h4>
             <p className={styles.company}>Founder of Wolfpad</p>
           </div>
 
           <p className={styles.content}>
-            “What is Wolfpad ?
-            <br />
-            Wolfpad began as a coding project, but I kept developing it and
-            adding new features. Now, with the addition of AI, it has become a
-            powerful and useful tool. The project is constantly being improved.
+            When I initially embarked on the coding project that would later become Wolfpad, little did I know how it
+            would evolve. Over time, I dedicated myself to its development and gradually introduced new features. Today,
+            with the integration of advanced AI technology, Wolfpad has transformed into an incredibly potent and
+            indispensable tool. As the founder, I strive to consistently improve and refine the project, ensuring its
+            continuous growth and enhanced user experience.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={fadeIn('left', 'tween', 0.2, 1)}
-          className={styles.founder_image_container}
-        >
+        <motion.div variants={fadeIn('left', 'tween', 0.2, 1)} className={styles.founder_image_container}>
           <Image
             width={600}
             height={250}
             src="/images/founder.jpg"
-            alt="planet-09"
+            alt="Greg Wolfinger"
             className={styles.founder_image}
           />
 
           <motion.div variants={zoomIn(0.4, 1)} className={`${styles.stamp}`}>
-            <Image
-              width={100}
-              height={100}
-              src="/images/wolfpad.png"
-              alt="stamp"
-              className={styles.image}
-            />
+            <Image width={100} height={100} src="/images/wolfpad.png" alt="stamp" className={styles.image} />
           </motion.div>
         </motion.div>
       </motion.div>
