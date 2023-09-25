@@ -7,7 +7,11 @@ import Image from 'next/image'
 
 const ChatNavbar = () => {
   const { isChatMenuOpen } = useTypedSelector((state) => state.modals)
+  const { usage } = useTypedSelector((state) => state.chat)
   const { openChatMenu, closeChatMenu } = useActions()
+
+  const totalAmountToPay = (usage.totalTokens / 1000) * 0.002
+
   return (
     <nav className={styles.chat_navbar}>
       <div>
@@ -20,6 +24,10 @@ const ChatNavbar = () => {
       <TokensCounter />
 
       <div className={styles.logo_container}>
+        <div className={styles.total_amount}>
+          <p>Amount to pay</p>
+          <span>${totalAmountToPay.toFixed(6)}</span>
+        </div>
         <Image src="/images/wolfpadai.png" alt="logo" width={70} height={70} className={styles.logo} />
       </div>
     </nav>
