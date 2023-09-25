@@ -75,7 +75,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: rgba(29, 28, 37, 1) 0%;
+  background: rgb(17, 27, 39);
 }
 
 body::-webkit-scrollbar-thumb {

@@ -3,6 +3,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector'
 import TokensCounter from './TokensCounter'
 import { MdMenu, MdClose } from 'react-icons/md'
 import { useActions } from '../../hooks/useActions'
+import Image from 'next/image'
 
 const ChatNavbar = () => {
   const { isChatMenuOpen } = useTypedSelector((state) => state.modals)
@@ -11,13 +12,16 @@ const ChatNavbar = () => {
     <nav className={styles.chat_navbar}>
       <div>
         {isChatMenuOpen ? (
-          <MdClose className={styles.nav_menu} onClick={() => closeChatMenu()} />
+          <MdClose className={styles.nav_icon} onClick={() => closeChatMenu()} />
         ) : (
-          <MdMenu className={styles.nav_menu} onClick={() => openChatMenu()} />
+          <MdMenu className={styles.nav_icon} onClick={() => openChatMenu()} />
         )}
       </div>
       <TokensCounter />
-      <div></div>
+
+      <div className={styles.logo_container}>
+        <Image src="/images/wolfpadai.png" alt="logo" width={70} height={70} className={styles.logo} />
+      </div>
     </nav>
   )
 }

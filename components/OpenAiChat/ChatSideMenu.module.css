@@ -1,20 +1,30 @@
 .chat_side {
   height: 100%;
-  width: 20%;
+  background-color: #1e1f26;
+  transform: translateX(-10vw);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu_items {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: #1e1f26;
   padding: 15px;
 }
 
 .chat_side_close {
-  display: none;
+  width: 0;
+  opacity: 0;
 }
 
 .chat_side_open {
-  display: flex;
+  width: 20%;
+  opacity: 1;
+  transform: translateX(0vw);
 }
 
 .chat_side h2 {
