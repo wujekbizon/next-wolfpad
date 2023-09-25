@@ -15,14 +15,16 @@ SyntaxHighlighter.registerLanguage('md', md)
 interface CodeSyntaxProps {
   children: string
   language: string
+  style?: React.CSSProperties | undefined
 }
 
-const CodeSyntax: React.FC<CodeSyntaxProps> = ({ children, language }) => {
+const CodeSyntax: React.FC<CodeSyntaxProps> = ({ children, language, style }) => {
   return (
     <SyntaxHighlighter
       style={coldarkDark}
       wrapLongLines={true}
       language={language}
+      useInlineStyles={true}
       customStyle={{
         minHeight: '65px',
         width: '100%',
@@ -30,8 +32,8 @@ const CodeSyntax: React.FC<CodeSyntaxProps> = ({ children, language }) => {
         paddingLeft: '30px',
         paddingRight: '30px',
         borderRadius: '5px',
-
         border: `1px solid rgba(255, 255, 255, 0.18)`,
+        ...style,
       }}
     >
       {children}

@@ -18,6 +18,7 @@ interface ChatState {
   conversations: Conversation[]
   usage: TokensUsageInterface
   isLoading: boolean
+  isInitialized: boolean
   error: null | string
 
   userInputValue: string
@@ -37,6 +38,7 @@ const initialState: ChatState = {
     totalTokens: 0,
   },
   isLoading: false,
+  isInitialized: true,
   error: null,
   userInputValue: '',
   hasExceedTokensThreshold: false,
@@ -53,11 +55,13 @@ const chatSlice = createSlice({
   extraReducers(builder) {
     builder.addCase(updateChatHistory.pending, (state: ChatState) => {
       state.isLoading = true
+      state.isInitialized = false
     })
 
     builder.addCase(updateChatHistory.fulfilled, (state: ChatState, { payload }) => {
       // update chatHistory
       state.isLoading = false
+      state.isInitialized = false
       state.userInputValue = ''
       state.conversations = payload.chatHistory
 
@@ -79,6 +83,7 @@ const chatSlice = createSlice({
 
     builder.addCase(updateChatHistory.rejected, (state: ChatState, { payload }) => {
       state.isLoading = false
+      state.isInitialized = false
       if (!payload) {
         return
       }

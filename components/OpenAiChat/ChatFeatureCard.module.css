@@ -1,0 +1,67 @@
+.chat_card {
+  height: 450px;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgb(17, 27, 39);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.chat_card:hover {
+  box-shadow: 0 0 6px 0px rgba(61, 245, 5, 0.5);
+}
+
+.chat_feature h2 {
+  color: #ffff;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.chat_feature p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.chat_prompt {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  background-color: rgba(128, 255, 0, 0.3);
+  border-radius: 5px;
+}
+
+.chat_prompt h5 {
+  font-size: 13px;
+  color: #ffff;
+}
+
+.chat_prompt span {
+  font-size: 13px;
+  color: rgba(128, 255, 0, 1);
+}
+
+.chat_prompt button {
+  font-size: 14px;
+  color: #ffff;
+  padding: 2px 20px;
+  margin-top: 10px;
+  background-color: rgb(17, 27, 39);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chat_prompt button:hover {
+  background-color: rgb(11, 13, 36);
+}
