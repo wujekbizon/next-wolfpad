@@ -1,6 +1,6 @@
 .chat_card {
-  height: 450px;
-  width: 420px;
+  min-height: 460px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,6 +13,15 @@
 }
 .chat_card:hover {
   box-shadow: 0 0 6px 0px rgba(61, 245, 5, 0.5);
+}
+
+.icon_container {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(13, 21, 31);
 }
 
 .chat_feature h2 {
@@ -42,13 +51,14 @@
 }
 
 .chat_prompt h5 {
-  font-size: 13px;
-  color: #ffff;
+  font-size: 14px;
+  color: rgb(17, 27, 39);
+  font-weight: 700;
 }
 
 .chat_prompt span {
-  font-size: 13px;
-  color: rgba(128, 255, 0, 1);
+  font-size: 12px;
+  font-weight: 300;
 }
 
 .chat_prompt button {

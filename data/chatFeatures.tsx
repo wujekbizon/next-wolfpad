@@ -14,7 +14,7 @@ export const chatFeatures = [
     title: 'Advanced Language Translator',
     content:
       'WolfpadAI is an advanced language translator that excels in accurately and fluently translating text between multiple languages.',
-    icon: <WebConsulting />,
+    icon: <WebConsulting width={45} height={45} />,
     prompt: {
       promptTitle: 'Write in English - to translate French to Chinese:',
       examplePrompt: 'Today is a very sunny day.',
@@ -27,7 +27,7 @@ export const chatFeatures = [
   {
     title: 'Code Review',
     content: 'Wolfpad AI can generate code review based on the code you provide it.',
-    icon: <Backend />,
+    icon: <Backend width={45} height={45} />,
     prompt: {
       promptTitle: 'Generate code review based on code snippet:',
       examplePrompt: `import dynamic from 'next/dynamic';
@@ -57,11 +57,11 @@ export const chatFeatures = [
     title: 'Business Plan Builder.',
     content:
       'WolfpadAI can quickly and effectively create a simple business plan for your new project; all you need to do is describe the vision of what you want to build.',
-    icon: <Manager />,
+    icon: <Manager width={45} height={45} />,
     prompt: {
       promptTitle: 'Creating business plans in few steps:',
       examplePrompt:
-        'I want to build weding planning mobile application, create an website for my business. Hire people to handle the heavy lifting.',
+        'I want to build a wedding planning mobile application, create a website for my business, and hire people to handle the heavy lifting.',
       btnText: 'Builder AI',
       promptValue:
         "You are a business plan counselor. You will be prompted by the user with his basic idea for a business. Your task is to build a well-structured business plan based on the user's needs. Wrap your plan in a list of 10 main points of how the user can start his business.",

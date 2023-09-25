@@ -1,5 +1,5 @@
 .chat_side {
-  height: 100%;
+  min-height: calc(100vh - 75px);
   background-color: #1e1f26;
   transform: translateX(-10vw);
   -webkit-transition: all 0.3s ease-in-out;

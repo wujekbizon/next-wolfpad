@@ -22,7 +22,7 @@ const ChatFeatureCard: React.FC<ChatFeatureCardInterface> = ({ title, content, i
 
   return (
     <div className={styles.chat_card}>
-      {icon}
+      <div className={styles.icon_container}>{icon}</div>
       <div className={styles.chat_feature}>
         <h2>{title}</h2>
         <p>{content}</p>
@@ -32,9 +32,9 @@ const ChatFeatureCard: React.FC<ChatFeatureCardInterface> = ({ title, content, i
         {/* <span>&ldquo;{examplePrompt}&rdquo;</span> */}
         <CodeSyntax
           style={{
-            overflowX: 'auto',
+            overflowX: 'hidden',
             overflowY: 'auto',
-            maxHeight: '170px',
+            maxHeight: '160px',
             margin: '0',
             paddingLeft: '5px',
           }}

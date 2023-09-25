@@ -1,15 +1,15 @@
 .chat_hero {
   height: 100%;
   width: 100%;
-  padding: 0px 120px 80px 120px;
 }
 
 .chat_grid {
   height: 100%;
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 40px;
   /* grid-auto-rows: 300px; */
   justify-items: center;
-  align-items: flex-end;
+  align-items: center;
 }

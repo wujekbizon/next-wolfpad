@@ -1,6 +1,6 @@
 .chat {
   width: 100%;
-  height: calc(100vh - 75px);
+  min-height: calc(100vh - 75px);
   position: relative;
   display: flex;
   overflow-x: hidden;
