@@ -15,7 +15,7 @@ interface ChatAssistantContainerProps extends ChatUserContainerProps {
 const ChatAssistantContainer: React.FC<ChatAssistantContainerProps> = ({ item, index, onClick }) => {
   const { isLoading, conversations } = useTypedSelector((state) => state.chat)
 
-  const regex = /\/```(.*?)```\/gs/
+  const regex = /```(.*?)```/gs
   const [contentPart, ...codeBlocks] = item.content.split(regex)
 
   return (
@@ -36,13 +36,16 @@ const ChatAssistantContainer: React.FC<ChatAssistantContainerProps> = ({ item, i
         )}
 
         <div className={styles.code_container}>
-          <CodeSyntax language="md">{contentPart}</CodeSyntax>
           {codeBlocks &&
-            codeBlocks.map((code, index) => (
-              <CodeSyntax key={index} language="tsx">
-                {code}
-              </CodeSyntax>
-            ))}
+            codeBlocks.map((code, index) => {
+              console.log(code)
+              return (
+                <CodeSyntax key={index} language="tsx">
+                  {code}
+                </CodeSyntax>
+              )
+            })}
+          <CodeSyntax language="jsx">{contentPart}</CodeSyntax>
         </div>
       </div>
       <MdContentCopy className={styles.icon} onClick={() => onClick(item.content)} />
