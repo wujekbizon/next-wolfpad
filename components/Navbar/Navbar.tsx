@@ -34,7 +34,14 @@ const Navbar = () => {
           {!isMenuOpen && (
             <>
               <Link href="/">
-                <Image src="/images/wolfpad.png" alt="wolfpad" width={80} height={80} className={styles.logo} />
+                <Image
+                  src="/images/wolfpad.png"
+                  alt="wolfpad"
+                  width={80}
+                  height={80}
+                  className={styles.logo}
+                  priority={true}
+                />
               </Link>
               <Logo />
             </>

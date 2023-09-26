@@ -1,4 +1,5 @@
 .register {
+  height: calc(100vh - 5rem);
   padding: 64px 24px;
   display: flex;
   flex-direction: column-reverse;
@@ -9,6 +10,7 @@
 
 @media (min-width: 1024px) {
   .register {
+    height: calc(100vh - 6rem);
     padding: 64px;
     flex-direction: row;
     gap: 0px;

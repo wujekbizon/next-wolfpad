@@ -1,68 +1,67 @@
-import styles from './SignInForm.module.css';
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import { signIn } from 'next-auth/react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { toast } from 'react-toastify';
-import { FcGoogle } from 'react-icons/fc';
-import { useSession } from 'next-auth/react';
+import styles from './SignInForm.module.css'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { signIn } from 'next-auth/react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { toast } from 'react-toastify'
+import { FcGoogle } from 'react-icons/fc'
+import { useSession } from 'next-auth/react'
 
 const SignInForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const router = useRouter();
-  const { status } = useSession();
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const router = useRouter()
+  const { status } = useSession()
 
-  const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = async (
-    event
-  ) => {
-    event.preventDefault();
+  const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = async (event) => {
+    event.preventDefault()
 
     if (!email || !password) {
-      toast.error('Please provide email and password');
-      return;
+      toast.error('Please provide email and password', {
+        autoClose: 2000,
+      })
+      return
     }
 
     const result = await signIn('credentials', {
       redirect: false,
       email,
       password,
-    });
+    })
 
     if (result?.error && status === 'unauthenticated') {
-      toast.error('No user found! Please use valid credentials');
-      setPassword('');
-      return;
+      toast.error('No user found! Please use valid credentials', {
+        autoClose: 2000,
+      })
+      setPassword('')
+      return
     }
 
     if (result?.ok) {
-      router.push('/');
-      toast.success('Welcome back!');
+      router.push('/')
+      toast.success('Welcome back!', {
+        autoClose: 2000,
+      })
     }
-  };
+  }
 
   const onGoogleSignHandler = async () => {
     await signIn('google', {
       redirect: false,
       callbackUrl: '/',
-    });
-    toast.success('Welcome back!');
-  };
+    })
+    toast.success('Welcome back!', {
+      autoClose: 2000,
+    })
+  }
 
   return (
     <section className={styles.signin_form}>
       <div className={`glassmorphism  ${styles.wrapper}`}>
         <form onSubmit={onSubmitHandler} className={styles.form}>
           <div className={styles.logo_container}>
-            <Image
-              className={styles.logo_image}
-              src="/images/wolfpad.png"
-              alt="wolf"
-              width={65}
-              height={65}
-              priority
-            />
+            <Image className={styles.logo_image} src="/images/wolfpad.png" alt="wolf" width={65} height={65} priority />
             <h3>Sign In</h3>
           </div>
           <div className={styles.form_row}>
@@ -104,6 +103,6 @@ const SignInForm = () => {
         </button>
       </div>
     </section>
-  );
-};
-export default SignInForm;
+  )
+}
+export default SignInForm

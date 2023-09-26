@@ -62,7 +62,14 @@ const ChatBot = () => {
           <section className={`${styles.chat_inner}`} ref={chatContainerRef}></section>
           <div className={styles.form_container}>
             <InputForm formRef={formRef} onHandleSubmit={handleSubmitCallback} />
-            <Image src="/images/bot.svg" alt="bot" width={100} height={70} className={styles.form_image} />
+            <Image
+              src="/images/bot.svg"
+              alt="bot"
+              width={100}
+              height={70}
+              className={styles.form_image}
+              priority={true}
+            />
           </div>
         </div>
       </Resizable>
