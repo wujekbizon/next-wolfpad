@@ -4,7 +4,6 @@ import { MdClose } from 'react-icons/md'
 import ActionButton from '../ActionButton/ActionButton'
 import { useActions } from '../../hooks/useActions'
 import { Cell } from '../../state/cell'
-import FilesReader from '../FileReader/FilesReader'
 
 interface ActionBarProps {
   cell: Cell
@@ -13,24 +12,16 @@ interface ActionBarProps {
 const ActionBar: React.FC<ActionBarProps> = ({ cell }) => {
   const { moveCell, deleteCell, saveCells } = useActions()
 
-  const onClickHandler = () => {
-    console.log('clicked')
-  }
-
   return (
     <div className={styles.action_bar}>
       {cell.type === 'code' && <ActionButton icon={<FiSave />} onClick={() => saveCells()} />}
-      {cell.type === 'chatbot' && (
-        <>
-          <ActionButton icon={<FilesReader />} onClick={onClickHandler} />
-        </>
-      )}
+
       <ActionButton
         icon={<FiArrowUp />}
         onClick={() =>
           moveCell({
             id: cell.id,
-            direction: 'up'
+            direction: 'up',
           })
         }
       />
@@ -39,7 +30,7 @@ const ActionBar: React.FC<ActionBarProps> = ({ cell }) => {
         onClick={() =>
           moveCell({
             id: cell.id,
-            direction: 'down'
+            direction: 'down',
           })
         }
       />
