@@ -26,14 +26,6 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
           <DynamicTextEditor cell={cell} />
         </div>
       )}
-      {/* {cell.type === 'chatbot' && (
-        <div className="glassmorphism radius">
-          <div className={styles.action_bar_wrapper}>
-            <ActionBar cell={cell} />
-          </div>
-          <DynamicChatBot />
-        </div>
-      )} */}
       {cell.type === 'draw' && (
         <div className="glassmorphism radius">
           <div className={styles.action_bar_wrapper}>

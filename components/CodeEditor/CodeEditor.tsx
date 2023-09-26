@@ -1,19 +1,19 @@
-import styles from './CodeEditor.module.css';
-import { useState } from 'react';
-import MonacoEditor from '@monaco-editor/react';
-import prettier from 'prettier';
-import parser from 'prettier/parser-babel';
-import ActionButton from '../ActionButton/ActionButton';
-import { BsSun, BsMoon } from 'react-icons/bs';
-import { SiPrettier } from 'react-icons/si';
+import styles from './CodeEditor.module.css'
+import { useState } from 'react'
+import MonacoEditor from '@monaco-editor/react'
+import prettier from 'prettier'
+import parser from 'prettier/parser-babel'
+import ActionButton from '../ActionButton/ActionButton'
+import { BsSun, BsMoon } from 'react-icons/bs'
+import { SiPrettier } from 'react-icons/si'
 
 interface CodeEditorProps {
-  initialValue: string;
-  onChange(value: string | undefined): void;
+  initialValue: string
+  onChange(value: string | undefined): void
 }
 
 const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
-  const [editorTheme, setEditorTheme] = useState('vs-dark');
+  const [editorTheme, setEditorTheme] = useState('vs-dark')
 
   const onformatClick = () => {
     const formattedCode = prettier
@@ -24,18 +24,14 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
         semi: true,
         singleQuote: true,
       })
-      .replace(/\n$/, '');
+      .replace(/\n$/, '')
 
-    onChange(formattedCode);
-  };
+    onChange(formattedCode)
+  }
 
   return (
     <div className={styles.editor_wrapper}>
-      <ActionButton
-        onClick={onformatClick}
-        icon={<SiPrettier />}
-        className={styles.btn_format}
-      />
+      <ActionButton onClick={onformatClick} icon={<SiPrettier />} className={styles.btn_format} />
       <MonacoEditor
         height="100%"
         language="javascript"
@@ -57,19 +53,11 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
         onChange={onChange}
       />
       {editorTheme === 'vs-dark' ? (
-        <ActionButton
-          className={styles.btn_mode}
-          icon={<BsSun />}
-          onClick={() => setEditorTheme('light')}
-        />
+        <ActionButton className={styles.btn_mode} icon={<BsSun />} onClick={() => setEditorTheme('light')} />
       ) : (
-        <ActionButton
-          icon={<BsMoon />}
-          className={styles.btn_mode}
-          onClick={() => setEditorTheme('vs-dark')}
-        />
+        <ActionButton icon={<BsMoon />} className={styles.btn_mode} onClick={() => setEditorTheme('vs-dark')} />
       )}
     </div>
-  );
-};
-export default CodeEditor;
+  )
+}
+export default CodeEditor

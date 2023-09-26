@@ -6,8 +6,8 @@
 }
 
 .action_btn:hover {
-  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
-  border-radius: 10px;
+  background: linear-gradient(189.97deg, #b9bbbe 1.84%, rgb(17, 27, 39) 102.67%);
+  border-radius: 5px;
 }
 
 .icon {
@@ -15,5 +15,5 @@
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  color: rgb(26, 23, 23);
+  color: #b9bbbe;
 }

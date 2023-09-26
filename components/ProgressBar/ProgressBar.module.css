@@ -13,7 +13,7 @@
 .progress {
   width: 100%;
   height: 20px;
-  accent-color: coral;
+  accent-color: rgba(128, 255, 0, 0.3);
 }
 
 @keyframes fadeIn {

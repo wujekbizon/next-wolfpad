@@ -16,7 +16,7 @@
   bottom: 50%;
   right: 2.5%;
   left: 2.5%;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   z-index: -1;
 }
 
@@ -36,19 +36,20 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 6px;
 }
 
 .add_btn {
-  background: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
   width: 60px;
-  border-radius: 5px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   cursor: pointer;
-  border: none;
-  color: rgba(4, 12, 24, 1);
+  color: #b9bbbe;
   transition: all 0.3s ease-in-out;
+  background: rgb(17, 27, 39);
+  box-shadow: 0 0 4px 0px rgba(61, 245, 5, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 @media (min-width: 770px) {
@@ -57,16 +58,16 @@
   }
 
   .add_buttons button {
-    margin: 0 20px;
+    margin: 0 10px;
   }
 
   .add_btn {
     width: 115px;
     font-size: 24px;
-    border-radius: 10px;
+    border-radius: 5px;
   }
 
   .add_btn:hover {
-    color: white;
+    color: rgba(61, 245, 5, 0.9);
   }
 }

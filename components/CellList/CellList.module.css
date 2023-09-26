@@ -1,14 +1,10 @@
 .cell_list {
-  width: 100%;
-  /* margin: 10vh 15px 30vh; */
+  width: calc(100% - 10px);
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .react-draggable-transparent-selection .cell-list {
-  /* margin-bottom: 100vh; */
+  margin-bottom: 100vh;
 }
-/* 
-@media (min-width: 640px) {
-  .cell_list {
-    margin: 10vh 64px 30vh;
-  }
-} */
