@@ -90,6 +90,10 @@
   color: #ae67fa;
 }
 
+.custom_navbar {
+  background-color: rgb(17, 27, 39);
+}
+
 @media (min-width: 768px) {
   .header_container {
     height: 6rem;

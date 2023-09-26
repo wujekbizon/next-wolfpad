@@ -5,6 +5,7 @@ import ChatAssistantContainer from './ChatAssistantContainer'
 import ChatUserContainer from './ChatUserContainer'
 import UserInput from './UserInput'
 import ChatHero from './ChatHero'
+import CellList from '../CellList/CellList'
 
 const ChatContainer = () => {
   const { conversations, isLoading, isInitialized } = useTypedSelector((state) => state.chat)
@@ -22,6 +23,7 @@ const ChatContainer = () => {
   return (
     <div className={styles.chat_container}>
       {isInitialized && !isLoading && <ChatHero />}
+
       {!isInitialized && (
         <div className={styles.chat_conversation} ref={containerRef}>
           {conversations.map((item, index) => (
@@ -32,6 +34,7 @@ const ChatContainer = () => {
               {item.role === 'user' && <ChatUserContainer item={item} onClick={onClickHandler} />}
             </Fragment>
           ))}
+          <CellList />
         </div>
       )}
 

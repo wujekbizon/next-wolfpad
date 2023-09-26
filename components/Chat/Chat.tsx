@@ -1,7 +1,6 @@
 import styles from './Chat.module.css'
 import { motion } from 'framer-motion'
 import { staggerContainer, fadeIn, zoomIn, textTitleVariant } from '../../utils/motion'
-import OpenAIChat from '../OpenAiChat/OpenAIChat'
 import Image from 'next/image'
 import Divider from '../Layout/Divider'
 import Link from 'next/link'
@@ -54,6 +53,7 @@ const Chat = () => {
             <Image src="/images/chatbot.png" alt="chatbot" height={400} width={400} className={styles.content_image} />
           </motion.div>
         </motion.div>
+        ,
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -67,7 +67,6 @@ const Chat = () => {
           </div>
         </motion.div>
       </section>
-      <OpenAIChat />
     </>
   )
 }

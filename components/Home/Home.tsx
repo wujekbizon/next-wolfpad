@@ -1,18 +1,12 @@
-import styles from './Home.module.css';
-import {
-  Hero,
-  About,
-  GetStarted,
-  WhatsNew,
-  Explore,
-  Footer,
-  Founder,
-} from '../../sections';
+import styles from './Home.module.css'
+import { Hero, About, GetStarted, WhatsNew, Explore, Footer, Founder } from '../../sections'
+import Chat from '../Chat/Chat'
 
 const Home = () => {
   return (
     <main className={styles.home_wrapper}>
       <Hero />
+      <Chat />
       <About />
       <div className="gradient_relative">
         <div className="gradient-03" />
@@ -26,6 +20,6 @@ const Home = () => {
       <Founder />
       <Footer />
     </main>
-  );
-};
-export default Home;
+  )
+}
+export default Home

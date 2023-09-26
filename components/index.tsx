@@ -1,5 +1,5 @@
-import dynamic from 'next/dynamic';
-import ProgressBar from './ProgressBar/ProgressBar';
+import dynamic from 'next/dynamic'
+import ProgressBar from './ProgressBar/ProgressBar'
 
 const DynamicExcalidraw = dynamic(() => import('./Excalidraw/Excalidraw'), {
   loading: () => (
@@ -8,7 +8,7 @@ const DynamicExcalidraw = dynamic(() => import('./Excalidraw/Excalidraw'), {
     </div>
   ),
   ssr: false,
-});
+})
 
 const DynamicTextEditor = dynamic(() => import('./TextEditor/TextEditor'), {
   loading: () => (
@@ -17,7 +17,7 @@ const DynamicTextEditor = dynamic(() => import('./TextEditor/TextEditor'), {
     </div>
   ),
   ssr: false,
-});
+})
 
 const DynamicCodeCell = dynamic(() => import('./CodeCell/CodeCell'), {
   loading: () => (
@@ -26,20 +26,11 @@ const DynamicCodeCell = dynamic(() => import('./CodeCell/CodeCell'), {
     </div>
   ),
   ssr: false,
-});
+})
 
-const DynamicChatBot = dynamic(() => import('./ChatBot/ChatBot'), {
-  loading: () => (
-    <div className="dynamic-loader">
-      <ProgressBar />
-    </div>
-  ),
+const DynamicOpenAIChat = dynamic(() => import('./OpenAiChat/OpenAIChat'), {
+  loading: () => <p>Loading...</p>,
   ssr: false,
-});
+})
 
-export {
-  DynamicExcalidraw,
-  DynamicTextEditor,
-  DynamicCodeCell,
-  DynamicChatBot,
-};
+export { DynamicExcalidraw, DynamicTextEditor, DynamicCodeCell, DynamicOpenAIChat }

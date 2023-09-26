@@ -1,15 +1,10 @@
-import styles from './CellListItem.module.css';
-import {
-  DynamicExcalidraw,
-  DynamicTextEditor,
-  DynamicCodeCell,
-  DynamicChatBot,
-} from '..';
-import { Cell } from '../../state/cell';
-import ActionBar from '../ActionBar/ActionBar';
+import styles from './CellListItem.module.css'
+import { DynamicExcalidraw, DynamicTextEditor, DynamicCodeCell } from '..'
+import { Cell } from '../../state/cell'
+import ActionBar from '../ActionBar/ActionBar'
 
 interface CellListItemProps {
-  cell: Cell;
+  cell: Cell
 }
 
 const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
@@ -31,14 +26,14 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
           <DynamicTextEditor cell={cell} />
         </div>
       )}
-      {cell.type === 'chatbot' && (
+      {/* {cell.type === 'chatbot' && (
         <div className="glassmorphism radius">
           <div className={styles.action_bar_wrapper}>
             <ActionBar cell={cell} />
           </div>
           <DynamicChatBot />
         </div>
-      )}
+      )} */}
       {cell.type === 'draw' && (
         <div className="glassmorphism radius">
           <div className={styles.action_bar_wrapper}>
@@ -48,6 +43,6 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
         </div>
       )}
     </div>
-  );
-};
-export default CellListItem;
+  )
+}
+export default CellListItem

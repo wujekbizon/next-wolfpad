@@ -39,15 +39,6 @@ const ChatAssistantContainer: React.FC<ChatAssistantContainerProps> = ({ item, i
         <div className={styles.code_container}>
           {contentPart && <CodeSyntax language="md">{contentPart}</CodeSyntax>}
           {codeSnippet && <CodeSyntax language="tsx">{codeSnippet}</CodeSyntax>}
-          {/* {codeBlocks &&
-            codeBlocks.map((code, index) => {
-              console.log(code)
-              return (
-                <CodeSyntax key={index} language="tsx">
-                  {code}
-                </CodeSyntax>
-              )
-            })} */}
         </div>
       </div>
       <MdContentCopy className={styles.icon} onClick={() => onClick(item.content)} />

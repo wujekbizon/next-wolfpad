@@ -27,8 +27,13 @@ const Navbar = () => {
   }
 
   return (
-    <motion.header variants={navVariants} initial="hidden" whileInView="show" className={styles.header_container}>
-      <div className={`${styles.navbar_gradient} gradient-01 `} />
+    <motion.header
+      variants={navVariants}
+      initial="hidden"
+      whileInView="show"
+      className={`${styles.header_container} ${router.pathname === '/wolfpad' && styles.custom_navbar}`}
+    >
+      <div className={`${styles.navbar_gradient} ${router.pathname !== '/wolfpad' && 'gradient-01'}  `} />
       <nav className={styles.nav_center}>
         <div className={styles.image_container}>
           {!isMenuOpen && (
