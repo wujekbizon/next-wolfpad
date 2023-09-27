@@ -1,0 +1,38 @@
+.tutor_plans {
+  min-height: calc(100vh - 95.99px);
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+}
+.prices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-bottom: 20px;
+}
+
+.price_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  text-align: center;
+}
+
+.price_title h1 {
+  font-size: 45px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.price_title p {
+  font-size: 22px;
+  color: #b9bbbe;
+}
