@@ -1,6 +1,6 @@
 import styles from './Chat.module.css'
 import { motion } from 'framer-motion'
-import { staggerContainer, fadeIn, zoomIn, textTitleVariant } from '../../utils/motion'
+import { staggerContainer, fadeIn, zoomIn } from '../../utils/motion'
 import Image from 'next/image'
 import Divider from '../Layout/Divider'
 import Link from 'next/link'
@@ -16,7 +16,7 @@ const Chat = () => {
           viewport={{ once: false, amount: 0.25 }}
           className={styles.chat_title_container}
         >
-          <motion.h1 variants={fadeIn('up', 'tween', 0.2, 1)} className={`${styles.wolfpadai_title}  gradient_text`}>
+          <motion.h1 variants={zoomIn(0.2, 1)} className={`${styles.wolfpadai_title}  gradient_text`}>
             WolfpadAI Chatbot
           </motion.h1>
 
@@ -28,7 +28,7 @@ const Chat = () => {
           </motion.p>
         </motion.div>
       </section>
-      <Divider />
+      <Divider>Signup For Free And Get Your Premium Account Today</Divider>
       <section className={styles.chat_section}>
         <motion.div
           variants={staggerContainer}

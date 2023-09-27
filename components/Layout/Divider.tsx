@@ -1,15 +1,26 @@
-import styles from './Divider.module.css';
+import Image from 'next/image'
+import styles from './Divider.module.css'
+import { motion } from 'framer-motion'
 
 type DividerProps = {
-  title?: string;
-  className?: string;
-};
+  children?: React.ReactNode
+  className?: string
+}
 
-const Divider = ({ title, className }: DividerProps) => {
+const Divider = ({ children, className }: DividerProps) => {
   return (
     <div className={`${className} ${styles.divider}`}>
-      <h1>{title}</h1>
+      <motion.h1
+        animate={{ opacity: [0.2, 1, 1, 1], x: ['-20vw', '0vw', '20vw', '0vw', '-20vw'] }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          repeatType: 'loop',
+        }}
+      >
+        {children}
+      </motion.h1>
     </div>
-  );
-};
-export default Divider;
+  )
+}
+export default Divider
