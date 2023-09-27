@@ -1,7 +1,7 @@
-import styles from './Hero.module.css';
-
-import { motion } from 'framer-motion';
-import { staggerContainer, textTitleVariant, slideIn } from '../utils/motion';
+import styles from './Hero.module.css'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { staggerContainer, textTitleVariant, slideIn } from '../utils/motion'
 
 const Hero = () => {
   return (
@@ -16,20 +16,22 @@ const Hero = () => {
         <div className={styles.hero_title}>
           <motion.h1 variants={textTitleVariant(1.1)}>Wolfpad</motion.h1>
 
-          <motion.h2 variants={textTitleVariant(1.2)}>
-            Interactive Coding Enviorment
-          </motion.h2>
+          <motion.h2 variants={textTitleVariant(1.2)}>Interactive Coding Enviorment</motion.h2>
         </div>
-        <motion.div
-          variants={slideIn('left', 'tween', 0.3, 1)}
-          className={styles.image_motion}
-        >
+        <motion.div variants={slideIn('left', 'tween', 0.3, 1)} className={styles.image_motion}>
           <div className={`${styles.image_container} submenu-gradient`} />
-          <img src="/images/chatpc.png" alt="code" className={styles.image} />
+          <Image
+            src="/images/pc2png.png"
+            width={1050}
+            height={950}
+            alt="code"
+            className={styles.image}
+            priority={true}
+          />
         </motion.div>
       </motion.div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
