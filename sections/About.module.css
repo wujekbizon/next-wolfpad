@@ -10,13 +10,15 @@
 }
 
 .about_container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
+  gap: 30px;
+  text-align: center;
 }
 
 .about_content {
@@ -26,6 +28,7 @@
   color: white;
   line-height: 120%;
   margin: 0;
+  padding: 20px;
 }
 
 .about_content span {
@@ -33,6 +36,10 @@
 }
 
 @media (min-width: 640px) {
+  .about_container {
+    text-align: left;
+  }
+
   .about {
     padding: 64px;
   }

@@ -15,7 +15,7 @@
 .footer_title {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -24,6 +24,7 @@
   font-size: 44px;
   color: white;
   font-weight: 700;
+  text-align: center;
 }
 
 .btn {
@@ -115,5 +116,9 @@
 @media (min-width: 768px) {
   .title {
     font-size: 64px;
+  }
+
+  .footer_title {
+    justify-content: space-between;
   }
 }

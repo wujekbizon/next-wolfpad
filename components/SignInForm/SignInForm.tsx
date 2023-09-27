@@ -39,7 +39,7 @@ const SignInForm = () => {
     }
 
     if (result?.ok) {
-      router.push('/')
+      router.push('/wolfpad')
       toast.success('Welcome back!', {
         autoClose: 2000,
       })
@@ -49,7 +49,7 @@ const SignInForm = () => {
   const onGoogleSignHandler = async () => {
     await signIn('google', {
       redirect: false,
-      callbackUrl: '/',
+      callbackUrl: '/wolfpad',
     })
     toast.success('Welcome back!', {
       autoClose: 2000,

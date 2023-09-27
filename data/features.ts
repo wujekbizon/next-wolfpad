@@ -13,7 +13,7 @@ export const newFeatures = [
   {
     imgUrl: '/images/bot.svg',
     title: 'Chat GPT4',
-    subtitle: 'Coming soon, OpenAi chatbot. Lets fully experience the power of AI.',
+    subtitle: 'Coming soon, OpenAi chatbot. ',
   },
 ]
 
@@ -22,11 +22,11 @@ export const exploreFeatures = [
     id: 'feature-1',
     url: '/wolfpad',
     imgUrl: '/images/cell.png',
-    title: 'Interactive Coding Enviroment',
+    title: 'Wolfpad Coding Buddy',
   },
   {
     id: 'feature-2',
-    url: '/chat',
+    url: '/wolfpad',
     imgUrl: '/images/chatbot2.png',
     title: 'Artificial Intelligence',
   },
@@ -38,6 +38,12 @@ export const exploreFeatures = [
   },
   {
     id: 'feature-4',
+    url: '/huefiy',
+    imgUrl: '/images/huefiy.png',
+    title: 'Huefiy: Palette Generator',
+  },
+  {
+    id: 'feature-5',
     url: '#founder',
     imgUrl: '/images/me.png',
     title: 'Meet the founder of Wolfpad',

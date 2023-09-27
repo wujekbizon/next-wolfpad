@@ -35,7 +35,7 @@ const ColorsGenerator = () => {
         <>
           <div className={styles.title}>
             <h1>
-              Get a Hue-tiful palette every time with <span>Hueify</span>!
+              Get a Hue-tiful palette every time with <span>Huefiy</span>!
             </h1>
           </div>
           <div className={styles.image_contianer}>

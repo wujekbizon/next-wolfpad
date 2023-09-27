@@ -1,14 +1,14 @@
-import styles from './Explore.module.css';
-import { useState } from 'react';
-import FeatureCard from '../components/FeatureCard/FeatureCard';
-import { motion } from 'framer-motion';
-import { staggerContainer } from '../utils/motion';
-import { exploreFeatures } from '../data/features';
-import Title from '../components/Animation/Title';
-import { TitleText } from '../components/Animation/CustomText';
+import styles from './Explore.module.css'
+import { useState } from 'react'
+import FeatureCard from '../components/FeatureCard/FeatureCard'
+import { motion } from 'framer-motion'
+import { staggerContainer } from '../utils/motion'
+import { exploreFeatures } from '../data/features'
+import Title from '../components/Animation/Title'
+import { TitleText } from '../components/Animation/CustomText'
 
 const Explore = () => {
-  const [active, setActive] = useState('feature-2');
+  const [active, setActive] = useState('feature-3')
 
   return (
     <section className={styles.explore}>
@@ -31,17 +31,11 @@ const Explore = () => {
         />
         <div className={styles.cards_container}>
           {exploreFeatures.map((feature, index) => (
-            <FeatureCard
-              key={feature.id}
-              {...feature}
-              index={index}
-              active={active}
-              handleClick={setActive}
-            />
+            <FeatureCard key={feature.id} {...feature} index={index} active={active} handleClick={setActive} />
           ))}
         </div>
       </motion.div>
     </section>
-  );
-};
-export default Explore;
+  )
+}
+export default Explore

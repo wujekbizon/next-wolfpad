@@ -1,9 +1,13 @@
 import styles from './Hero.module.css'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { staggerContainer, textTitleVariant, slideIn } from '../utils/motion'
+import { staggerContainer, textTitleVariant, slideIn, fadeIn } from '../utils/motion'
+import Link from 'next/link'
+import { useSession } from 'next-auth/react'
 
 const Hero = () => {
+  const session = useSession()
+
   return (
     <section className={styles.hero_wrapper}>
       <motion.div
@@ -28,6 +32,13 @@ const Hero = () => {
             className={styles.image}
             priority={true}
           />
+        </motion.div>
+        <motion.div variants={fadeIn('up', 'tween', 0.8, 1)} className={styles.btn_wrapper}>
+          {session.status === 'unauthenticated' && (
+            <Link href="/signup" className={styles.register_btn}>
+              Register New Account
+            </Link>
+          )}
         </motion.div>
       </motion.div>
     </section>

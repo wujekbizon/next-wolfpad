@@ -13,6 +13,27 @@
   justify-content: center;
 }
 
+.btn_wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register_btn {
+  background-color: rgba(128, 255, 0, 0.4);
+  color: #fff;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 10px 25px;
+  margin-top: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.register_btn:hover {
+  background-color: rgba(128, 255, 0, 0.6);
+}
+
 .hero_title {
   position: relative;
   display: flex;
@@ -91,7 +112,7 @@
   }
 
   .image {
-    height: 580px;
+    height: 450px;
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
   }
@@ -100,7 +121,7 @@
 @media (min-width: 980px) {
   .hero_title h1 {
     font-weight: 700;
-    font-size: 144px;
+    font-size: 134px;
     letter-spacing: 1.25rem;
   }
 
