@@ -12,7 +12,4 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 40px;
-  /* grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-gap: 40px; */
-  /* grid-auto-rows: 300px; */
 }
