@@ -17,6 +17,7 @@
   justify-content: center;
   gap: 80px;
   background-color: rgba(0, 0, 0, 0.5);
+  padding: 25px;
 }
 
 .chat_title h1 {
@@ -76,6 +77,7 @@
 .content h1 {
   font-size: 26px;
   font-weight: 500;
+  color: white;
 }
 
 .content p {
@@ -151,6 +153,7 @@
 
 .tutor_text {
   text-align: center;
+  padding: 5px;
 }
 
 .tutor_span {
@@ -167,7 +170,6 @@
   }
 
   .chat_title {
-    /* padding: 64px; */
     background-size: 100% 60%;
     background-repeat: no-repeat;
   }

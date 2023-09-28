@@ -29,7 +29,6 @@ const ChatFeatureCard: React.FC<ChatFeatureCardInterface> = ({ title, content, i
       </div>
       <div className={styles.chat_prompt}>
         <h5>{promptTitle}</h5>
-        {/* <span>&ldquo;{examplePrompt}&rdquo;</span> */}
         <CodeSyntax
           style={{
             overflowX: 'hidden',

@@ -9,6 +9,7 @@ interface TokenCounter {
 
 const Token: React.FC<TokenCounter> = ({ token, title }) => {
   const { isLoading } = useTypedSelector((state) => state.chat)
+
   return (
     <div className={styles.token}>
       <h4>{title}:</h4>

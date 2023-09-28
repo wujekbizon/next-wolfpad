@@ -34,19 +34,35 @@
   margin-right: 15px;
 }
 .total_amount p {
-  font-size: 16px;
+  font-size: 12px;
   color: #b9bbbe;
+  font-weight: 500;
 }
 
 .total_amount span {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 300;
   color: #7fff00;
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 15%;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    display: block;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 15%;
+  }
+
+  .total_amount span {
+    font-size: 16px;
+  }
+
+  .total_amount p {
+    font-size: 16px;
+  }
 }

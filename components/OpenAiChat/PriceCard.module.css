@@ -66,7 +66,7 @@
   -webkit-backdrop-filter: blur(4px);
 }
 
-@media (min-width: 778px) {
+@media (min-width: 768px) {
   .card {
     width: 400px;
   }

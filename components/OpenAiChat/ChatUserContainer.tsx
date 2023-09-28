@@ -15,7 +15,6 @@ const ChatUserContainer: React.FC<ChatUserContainerProps> = ({ item, onClick }) 
   const regex = /```(.*?)```/gs
   const [contentPart, ...codeBlocks] = item.content.split(regex)
   const codeSnippet = codeBlocks.join(',')
-  console.log(codeSnippet)
 
   return (
     <div className={styles.chat_container}>
@@ -24,12 +23,6 @@ const ChatUserContainer: React.FC<ChatUserContainerProps> = ({ item, onClick }) 
         <div className={styles.code_container}>
           {contentPart && <CodeSyntax language="md">{contentPart}</CodeSyntax>}
           {codeSnippet && <CodeSyntax language="tsx">{codeSnippet}</CodeSyntax>}
-          {/* {codeBlocks &&
-            codeBlocks.map((code, index) => (
-              <CodeSyntax key={index} language="tsx">
-                {code}
-              </CodeSyntax>
-            ))} */}
         </div>
       </div>
       <MdContentCopy className={styles.icon} onClick={() => onClick(item.content)} />
