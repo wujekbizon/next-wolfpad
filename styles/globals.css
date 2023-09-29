@@ -49,6 +49,20 @@
   font-display: block;
 }
 
+@font-face {
+  font-family: 'Rushway';
+  src: url('/fonts/Rushway.otf') format('otf');
+}
+@font-face {
+  font-family: 'Undisclose';
+  src: url('/fonts/Undisclose.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Gluten';
+  src: url('../public/fonts/Gluten-ExtraBold.ttf') format('ttf');
+}
+
 * {
   margin: 0;
   padding: 0;

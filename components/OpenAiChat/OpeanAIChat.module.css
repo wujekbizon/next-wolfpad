@@ -1,7 +1,4 @@
 .chat {
-  width: 100%;
-  /* min-height: calc(100vh - 75px); */
   position: relative;
-  display: flex;
-  overflow-x: hidden;
+  width: 100%;
 }

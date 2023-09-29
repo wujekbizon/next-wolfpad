@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { navVariants } from '../../utils/motion'
 import Image from 'next/image'
 import { MdMenu, MdClose } from 'react-icons/md'
+import { TbSquareChevronsLeftFilled, TbSquareChevronsRightFilled } from 'react-icons/tb'
 import { GoSignIn, GoSignOut } from 'react-icons/go'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
@@ -16,8 +17,8 @@ import { toast } from 'react-toastify'
 
 const Navbar = () => {
   const router = useRouter()
-  const isMenuOpen = useTypedSelector((state) => state.modals.isMenuOpen)
-  const { openSideMenu, closeSideMenu } = useActions()
+  const { isMenuOpen, isChatMenuOpen } = useTypedSelector((state) => state.modals)
+  const { openChatMenu, closeChatMenu, openSideMenu, closeSideMenu } = useActions()
   const { data: session, status } = useSession()
 
   const onSignOut: React.MouseEventHandler<HTMLButtonElement> = () => {
@@ -34,11 +35,20 @@ const Navbar = () => {
       className={`${styles.header_container} ${router.pathname === '/wolfpad' && styles.custom_navbar}`}
     >
       <div className={`${styles.navbar_gradient} ${router.pathname !== '/wolfpad' && 'gradient-01'}  `} />
+
+      {router.pathname === '/wolfpad' &&
+        !isMenuOpen &&
+        (isChatMenuOpen ? (
+          <TbSquareChevronsLeftFilled className={styles.nav_icon} onClick={() => closeChatMenu()} />
+        ) : (
+          <TbSquareChevronsRightFilled className={styles.nav_icon} onClick={() => openChatMenu()} />
+        ))}
+
       <nav className={styles.nav_center}>
         <div className={styles.image_container}>
           {!isMenuOpen && (
             <>
-              <Link href="/">
+              <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
                 <Image
                   src="/images/wolfpad.png"
                   alt="wolfpad"

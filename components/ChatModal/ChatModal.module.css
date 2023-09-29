@@ -1,0 +1,36 @@
+.chat_modal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.icon {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 35px;
+  height: 35px;
+  color: #e95646;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: #c02d1c;
+}
+
+.modal_container {
+  padding: 64px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: rgb(17, 27, 39);
+  border-radius: 5px;
+}

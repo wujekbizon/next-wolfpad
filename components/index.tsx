@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 import ProgressBar from './ProgressBar/ProgressBar'
+import SplashScreen from './SplashScreen/SplashScreen'
 
 const DynamicExcalidraw = dynamic(() => import('./Excalidraw/Excalidraw'), {
   loading: () => (
@@ -29,7 +30,7 @@ const DynamicCodeCell = dynamic(() => import('./CodeCell/CodeCell'), {
 })
 
 const DynamicOpenAIChat = dynamic(() => import('./OpenAiChat/OpenAIChat'), {
-  loading: () => <p>Loading...</p>,
+  loading: () => <SplashScreen loadingTime={2000} />,
   ssr: false,
 })
 

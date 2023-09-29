@@ -1,0 +1,119 @@
+.splash_screen {
+  height: calc(100vh - 75px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.splash_screen h1 {
+  padding: 0 30px;
+  font-family: 'Gluten';
+  font-size: 45px;
+  line-height: 105px;
+  letter-spacing: 10px;
+  background: linear-gradient(189.97deg, #ae67fa 1.84%, #f49867 102.67%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.splash_screen h1:first-of-type {
+  animation: slideInLeft 0.7s ease-in-out both;
+}
+
+.splash_screen h1:nth-of-type(2) {
+  animation: slideInRight 0.7s ease-in-out both;
+}
+
+.progress_bar {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  background-color: #292d3e;
+  width: 250px;
+  height: 5px;
+  border-radius: 5px;
+}
+
+.progress_circle {
+  height: 5px;
+  border-radius: 5px;
+  background: linear-gradient(189.97deg, #ae67fa 1.84%, #f49867 102.67%);
+}
+
+.progress_circle span {
+  float: right;
+  margin-top: 2px;
+  margin-right: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.fade_out {
+  -webkit-animation: fadeOut 1.7s ease-in-out both;
+  animation: fadeOut 1.7s ease-in-out both;
+}
+
+.black_gradient {
+  background: #000000;
+  background: -webkit-linear-gradient(to right, #07072b, #000000);
+  background: linear-gradient(to right, #07072b, #000000);
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-80px);
+    transform: translateZ(-80px);
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-80px);
+    transform: translateZ(-80px);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 480px) {
+  .splash_screen h1 {
+    font-size: 85px;
+  }
+}

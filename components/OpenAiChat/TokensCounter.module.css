@@ -1,5 +1,46 @@
 .tokens {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.total_amount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0;
+}
+.total_amount p {
+  font-size: 12px;
+  color: #b9bbbe;
+  font-weight: 500;
+  text-align: center;
+}
+
+.total_amount span {
+  font-size: 12px;
+  font-weight: 300;
+  color: #7fff00;
+}
+
+@media (min-width: 768px) {
+  .chat_navbar {
+    padding: 0 25px;
+  }
+
+  .total_amount {
+    margin-right: 15px;
+  }
+
+  .total_amount span {
+    font-size: 16px;
+  }
+
+  .total_amount p {
+    font-size: 16px;
+  }
 }

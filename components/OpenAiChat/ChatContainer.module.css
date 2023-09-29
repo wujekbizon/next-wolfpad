@@ -1,6 +1,6 @@
 .chat_container {
   width: 100%;
-  /* min-height: calc(100vh - 75px); */
+  min-height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +10,7 @@
 
 .chat_conversation {
   width: 100%;
-  height: calc(100vh - 300px);
+  height: calc(100vh - 206px);
   overflow-y: auto;
   display: flex;
   flex-direction: column;

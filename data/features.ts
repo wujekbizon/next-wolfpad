@@ -68,12 +68,3 @@ export const socials = [
     url: '/images/icons/facebook.svg',
   },
 ]
-
-export const personalities = [
-  'funny and helpful',
-  'rude and sarcastic',
-  'pert and mocking',
-  'very kind and smarty',
-  'serial killer and schizophrenic',
-  'demigod ruler of the world',
-]
