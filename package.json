@@ -37,7 +37,7 @@
     "pyodide": "^0.23.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.7.1",
+    "react-icons": "^4.11.0",
     "react-loader-spinner": "^5.4.5",
     "react-redux": "^8.0.5",
     "react-resizable": "^3.0.4",
