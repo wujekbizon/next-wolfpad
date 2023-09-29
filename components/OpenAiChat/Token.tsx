@@ -12,7 +12,7 @@ const Token: React.FC<TokenCounter> = ({ token, title }) => {
 
   return (
     <div className={styles.token}>
-      <h4>{title}</h4>
+      <h4>{title}:</h4>
       {isLoading ? (
         <Blocks
           visible={true}

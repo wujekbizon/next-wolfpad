@@ -66,7 +66,7 @@ export const chatSideMenuIcons = [
     id: 8,
     icon: <FcSettings />,
     text: 'Settings',
-    isSupport: true,
+    isSupport: false,
   },
   {
     id: 9,

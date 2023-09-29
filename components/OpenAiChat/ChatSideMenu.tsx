@@ -51,7 +51,7 @@ const ChatSideMenu = () => {
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
     >
-      <motion.div variants={fadeIn('right', 'tween', 0.3, 0.3)} className={styles.chat_side}>
+      <motion.div variants={fadeIn('right', 'tween', 0.1, 0.5)} className={styles.chat_side}>
         <motion.div className={styles.menu_items}>
           {chatSideMenuIcons.map(({ icon, text, id, isSupport }, index) => (
             <div

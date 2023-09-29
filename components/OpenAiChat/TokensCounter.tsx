@@ -16,7 +16,7 @@ const TokensCounter = () => {
       {width > 450 ? <Token title="Completion Tokens" token={usage.completionTokens} /> : ''}
       <Token title="Total Tokens" token={usage.totalTokens} />
       <div className={styles.total_amount}>
-        <p>Amount to pay</p>
+        <p>Amount to pay:</p>
         {isLoading ? (
           <Blocks
             visible={true}
@@ -27,7 +27,7 @@ const TokensCounter = () => {
             wrapperClass="blocks-wrapper"
           />
         ) : (
-          <span>${totalAmountToPay.toFixed(6)}</span>
+          <span>${totalAmountToPay.toFixed(3)}</span>
         )}
       </div>
     </div>
