@@ -39,7 +39,14 @@ const ColorsGenerator = () => {
             </h1>
           </div>
           <div className={styles.image_contianer}>
-            <Image src="/images/hueify.png" alt="hueify" width={800} height={600} className={styles.image} priority />
+            <Image
+              src="/images/huefiy.png"
+              alt="hueify"
+              width={800}
+              height={600}
+              className={styles.image}
+              priority={true}
+            />
           </div>
         </>
       )}
